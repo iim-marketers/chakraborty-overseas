@@ -19,11 +19,31 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  ["01", "Specification", "You send size, grade, standard, finish and quantity. We come back with anything that needs pinning down before we go to a mill."],
-  ["02", "Sourcing", "We place the enquiry with manufacturing partners who already make that item at that grade, and quote with lead time and packing."],
-  ["03", "Inspection", "Goods are checked before dispatch against the order — dimensions, grade markings, plating and count. Third-party inspection can be arranged."],
-  ["04", "Export packing", "Packed for sea freight: moisture protection, marked cartons, palletised and strapped for the container."],
-  ["05", "Documents", "Invoice, packing list, certificate of origin, mill test certificates and shipping documents, prepared to match your bank's requirement."],
+  [
+    "01",
+    "Specification",
+    "You send size, grade, standard, finish and quantity. We come back with anything that needs pinning down before we go to a mill.",
+  ],
+  [
+    "02",
+    "Sourcing",
+    "We place the enquiry with manufacturing partners who already make that item at that grade, and quote with lead time and packing.",
+  ],
+  [
+    "03",
+    "Inspection",
+    "Goods are checked before dispatch against the order — dimensions, grade markings, plating and count. Third-party inspection can be arranged.",
+  ],
+  [
+    "04",
+    "Export packing",
+    "Packed for sea freight: moisture protection, marked cartons, palletised and strapped for the container.",
+  ],
+  [
+    "05",
+    "Documents",
+    "Invoice, packing list, certificate of origin, mill test certificates and shipping documents, prepared to match your bank's requirement.",
+  ],
 ];
 
 export default function AboutPage() {
@@ -33,8 +53,9 @@ export default function AboutPage() {
         eyebrow="Why we exist"
         title={
           <>
-            India makes fasteners well. <span className="gold-text">Buying them well</span> is the
-            harder part.
+            India makes fasteners well.{" "}
+            <span className="gold-text">Buying them well</span> is the harder
+            part.
           </>
         }
         lede="The difficulty for an overseas buyer has never been supply — it is knowing which supplier to trust, and getting the consignment out cleanly."
@@ -99,12 +120,19 @@ export default function AboutPage() {
           />
           <ol className="grid gap-px overflow-hidden rounded-[var(--radius-tile)] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
             {steps.map(([n, title, body]) => (
-              <li key={n} className="bg-graphite p-7 transition-colors hover:bg-carbon">
+              <li
+                key={n}
+                className="bg-graphite p-7 transition-colors hover:bg-carbon"
+              >
                 <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-gold">
                   Step {n}
                 </span>
-                <h3 className="mt-5 font-display text-[1.05rem] font-semibold text-white">{title}</h3>
-                <p className="mt-2.5 text-[0.85rem] leading-relaxed text-steel-light">{body}</p>
+                <h3 className="mt-5 font-display text-[1.05rem] font-semibold text-white">
+                  {title}
+                </h3>
+                <p className="mt-2.5 text-[0.85rem] leading-relaxed text-steel-light">
+                  {body}
+                </p>
               </li>
             ))}
           </ol>
@@ -117,19 +145,43 @@ export default function AboutPage() {
           <Reveal className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
               {[
-                { src: "/facility/inspection.webp", alt: "Goods checked on the shop floor before dispatch" },
-                { src: "/facility/lab.webp", alt: "Laboratory measurement of a sample" },
-                { src: "/facility/test-lab.webp", alt: "Mechanical test equipment" },
-                { src: "/facility/salt-spray.webp", alt: "Salt spray cabinet for coating tests" },
+                {
+                  src: "/facility/inspection.webp",
+                  alt: "Goods checked on the shop floor before dispatch",
+                },
+                {
+                  src: "/facility/lab.webp",
+                  alt: "Laboratory measurement of a sample",
+                },
+                {
+                  src: "/facility/test-lab.webp",
+                  alt: "Mechanical test equipment",
+                },
+                {
+                  src: "/facility/salt-spray.webp",
+                  alt: "Salt spray cabinet for coating tests",
+                },
               ].map((f) => (
-                <div key={f.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line">
-                  <Image src={f.src} alt={f.alt} fill sizes="(max-width: 1024px) 45vw, 24vw" className="object-cover" />
+                <div
+                  key={f.src}
+                  className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line"
+                >
+                  <Image
+                    src={f.src}
+                    alt={f.alt}
+                    fill
+                    sizes="(max-width: 1024px) 45vw, 24vw"
+                    className="object-cover"
+                  />
                 </div>
               ))}
             </div>
             <div className="relative overflow-hidden rounded-[var(--radius-tile)] border border-line bg-white p-6">
-              <span aria-hidden className="blueprint-light absolute inset-0 opacity-60" />
-              <InspectionChart className="relative w-full" />
+              <span
+                aria-hidden
+                className="blueprint-light absolute inset-0 opacity-60"
+              />
+              {/* <InspectionChart className="relative w-full" /> */}
             </div>
           </Reveal>
 
@@ -139,10 +191,11 @@ export default function AboutPage() {
               Checked against the order, not against a promise
             </h2>
             <p className="mt-5 text-ink/70 text-pretty">
-              Every consignment is verified before it leaves the manufacturer: dimensions against the
-              standard, grade markings on the head, plating thickness and appearance, and a physical
-              count against the packing list. Mill test certificates travel with the goods, traceable
-              to heat number.
+              Every consignment is verified before it leaves the manufacturer:
+              dimensions against the standard, grade markings on the head,
+              plating thickness and appearance, and a physical count against the
+              packing list. Mill test certificates travel with the goods,
+              traceable to heat number.
             </p>
             <ul className="mt-7 space-y-3">
               {[
@@ -152,8 +205,14 @@ export default function AboutPage() {
                 "Carton-by-carton count reconciled to the packing list",
                 "Third-party pre-shipment inspection arranged on request",
               ].map((l) => (
-                <li key={l} className="relative border-b border-line-soft pb-3 pl-7 text-[0.94rem]">
-                  <span className="absolute left-0 top-[0.75em] h-px w-3.5 bg-gold" aria-hidden />
+                <li
+                  key={l}
+                  className="relative border-b border-line-soft pb-3 pl-7 text-[0.94rem]"
+                >
+                  <span
+                    className="absolute left-0 top-[0.75em] h-px w-3.5 bg-gold"
+                    aria-hidden
+                  />
                   {l}
                 </li>
               ))}
