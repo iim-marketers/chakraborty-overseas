@@ -110,26 +110,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* ---------------- proof strip ---------------- */}
-      <section className="border-b border-line bg-ivory-2">
-        <div className="shell grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["Product lines", `${productCount}+`, "Across three ranges"],
-            ["Size range", "M3 – M72", "Stainless to M72, MS/HT to M48"],
-            ["Standards", "8", "ISO, DIN, BIS, ASTM, ANSI, BS, BSW, UNC"],
-            ["Loading ports", "3", "Kolkata, Haldia, Nhava Sheva"],
-          ].map(([label, value, note], i) => (
-            <Reveal key={label} delay={i * 70}>
-              <p className="spec-label">{label}</p>
-              <p className="mt-2 font-display text-[1.9rem] font-semibold tracking-tight">
-                {value}
-              </p>
-              <p className="mt-1 text-[0.82rem] text-ink/55">{note}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* ---------------- ranges ---------------- */}
       <section className="py-16 lg:py-20 ">
         <div className="shell">
