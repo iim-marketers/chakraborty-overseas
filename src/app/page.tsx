@@ -131,7 +131,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- ranges ---------------- */}
-      <section className="py-20 lg:py-28">
+      <section className="py-20 ">
         <div className="shell">
           <SectionHead
             eyebrow="Three ranges"
@@ -147,29 +147,12 @@ export default function HomePage() {
                 />
               </Reveal>
             ))}
-            {/* <Reveal delay={ranges.length * 80} className="h-full">
-              <div className="flex h-full flex-col justify-between rounded-[var(--radius-tile)] border border-dashed border-line bg-ivory-2 p-7">
-                <div>
-                  <p className="eyebrow">Not on the list?</p>
-                  <h3 className="mt-4 font-display text-[1.28rem] font-semibold tracking-tight">
-                    Made to your drawing
-                  </h3>
-                  <p className="mt-2.5 text-[0.9rem] leading-relaxed text-ink/65">
-                    Non-standard heads, lengths, threads and coatings. Send a drawing or a sample and
-                    we will find the mill that already makes something close to it.
-                  </p>
-                </div>
-                <Link href="/contact" className="btn btn-ink btn-sm mt-6 self-start">
-                  Send a drawing
-                </Link>
-              </div>
-            </Reveal> */}
           </div>
         </div>
       </section>
 
       {/* ---------------- what a merchant exporter does ---------------- */}
-      <section className="border-y border-line bg-white py-20 lg:py-28">
+      <section className="border-y border-line bg-white py-20 ">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <Reveal>
             <p className="eyebrow">Where we sit</p>
@@ -221,14 +204,23 @@ export default function HomePage() {
           <Reveal delay={120}>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { src: "/facility/mill-coils.webp", alt: "Wire rod coils staged at a partner mill" },
-                { src: "/facility/wire-drawing.webp", alt: "Wire drawing line" },
-                { src: "/facility/thread-rolling.webp", alt: "Thread rolling machine" },
+                {
+                  src: "/facility/mill-coils.webp",
+                  alt: "Wire rod coils staged at a partner mill",
+                },
+                {
+                  src: "/facility/wire-drawing.webp",
+                  alt: "Wire drawing line",
+                },
+                {
+                  src: "/facility/thread-rolling.webp",
+                  alt: "Thread rolling machine",
+                },
                 { src: "/facility/furnace.webp", alt: "Hardening furnace" },
               ].map((f, i) => (
                 <div
                   key={f.src}
-                  className={`relative aspect-[4/3] overflow-hidden rounded-2xl border border-line ${
+                  className={`relative aspect-4/3 overflow-hidden rounded-2xl border border-line ${
                     i % 2 === 1 ? "mt-6" : ""
                   }`}
                 >
@@ -261,7 +253,10 @@ export default function HomePage() {
                   key={f.label}
                   className="relative flex flex-col items-center gap-2 overflow-hidden rounded-2xl border border-line bg-white p-4"
                 >
-                  <span aria-hidden className="absolute inset-0 blueprint-light opacity-40" />
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 blueprint-light opacity-40"
+                  />
                   <Image
                     src={f.src}
                     alt=""
@@ -269,9 +264,7 @@ export default function HomePage() {
                     height={240}
                     className="relative h-20 w-auto object-contain"
                   />
-                  <span
-                    className="relative font-mono text-[0.56rem] uppercase tracking-[0.16em] text-steel"
-                  >
+                  <span className="relative font-mono text-[0.56rem] uppercase tracking-[0.16em] text-steel">
                     {f.label}
                   </span>
                 </div>
@@ -282,7 +275,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- process ---------------- */}
-      <section className="on-dark relative overflow-hidden bg-graphite py-20 text-ivory lg:py-28">
+      <section className="on-dark relative overflow-hidden bg-graphite py-20 text-ivory ">
         <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
         <div className="shell relative">
           <SectionHead
@@ -291,11 +284,11 @@ export default function HomePage() {
             lede="We are a merchant exporter, so our work sits between your purchase order and the factory gate. This is the sequence every order follows."
             dark
           />
-          <div className="mb-8 overflow-hidden rounded-[var(--radius-tile)] border border-white/10 bg-white/[0.04] p-6">
-            <SupplyFlow className="mx-auto w-full max-w-[640px] [&_text]:fill-[#93A3B2]" />
-          </div>
+          {/* <div className="mb-8 overflow-hidden rounded-tile border border-white/10 bg-white/4 p-6">
+            <SupplyFlow className="mx-auto w-full max-w-160 [&_text]:fill-steel-light" />
+          </div> */}
 
-          <ol className="grid gap-px overflow-hidden rounded-[var(--radius-tile)] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
+          <ol className="grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
             {steps.map((s, i) => (
               <li
                 key={s.n}
@@ -323,7 +316,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- packing ---------------- */}
-      <section className="py-20 lg:py-28">
+      <section className="py-20 ">
         <div className="shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <p className="eyebrow">Export packaging</p>
@@ -352,7 +345,7 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={120} className="space-y-4">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-tile)] border border-line">
+            <div className="relative aspect-16/10 overflow-hidden rounded-tile border border-line">
               <Image
                 src="/facility/warehouse.webp"
                 alt="Packed stock in warehouse racking before loading"
@@ -361,13 +354,13 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative overflow-hidden rounded-[var(--radius-tile)] border border-line bg-white p-5">
+            {/* <div className="relative overflow-hidden rounded-tile border border-line bg-white p-5">
               <span
                 aria-hidden
                 className="blueprint-light absolute inset-0 opacity-60"
               />
-              <PackingDrawing className="relative mx-auto w-full max-w-[380px]" />
-            </div>
+              <PackingDrawing className="relative mx-auto w-full max-w-95" />
+            </div> */}
           </Reveal>
         </div>
 
