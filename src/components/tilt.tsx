@@ -2,10 +2,6 @@
 
 import { useRef, type ReactNode } from "react";
 
-/**
- * Pointer-driven 3D tilt. The wrapper owns the perspective; children can use
- * `translateZ` through the `--depth` custom property to float above the plate.
- */
 export function Tilt({
   children,
   className = "",

@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact · Chakraborty Overseas",
-    description: "Send the specification and quantity — we reply within one working day.",
+    description:
+      "Send the specification and quantity — we reply within one working day.",
     url: "/contact",
   },
 };
@@ -37,9 +38,21 @@ const jsonLd = {
 };
 
 const info = [
-  { label: "Email", value: site.contact.email, href: `mailto:${site.contact.email}` },
-  { label: "Alternate email", value: site.contact.altEmail, href: `mailto:${site.contact.altEmail}` },
-  { label: "Phone / WhatsApp", value: site.contact.phone, href: `tel:${site.contact.phoneHref}` },
+  {
+    label: "Email",
+    value: site.contact.email,
+    href: `mailto:${site.contact.email}`,
+  },
+  {
+    label: "Alternate email",
+    value: site.contact.altEmail,
+    href: `mailto:${site.contact.altEmail}`,
+  },
+  {
+    label: "Phone / WhatsApp",
+    value: site.contact.phone,
+    href: `tel:${site.contact.phoneHref}`,
+  },
   { label: "Registered address", value: site.contact.address },
   { label: "Working hours", value: site.contact.hours },
   { label: "Nearest ports", value: site.contact.ports },
@@ -48,22 +61,28 @@ const info = [
 export default function ContactPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <PageHero
         eyebrow="Enquiries"
         title={
           <>
-            Send a specification. <span className="gold-text">Get a real quote.</span>
+            Send a specification.{" "}
+            <span className="gold-text">Get a real quote.</span>
           </>
         }
         lede="Size, grade, standard, finish and quantity is enough to start. If a detail is missing we will ask rather than assume — it is faster than re-quoting later."
       />
 
       <section className="py-16 lg:py-24">
-        <div className="shell grid gap-px overflow-hidden rounded-[var(--radius-tile)] border border-white/10 bg-white/10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="shell grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="on-dark bg-graphite p-8 text-ivory lg:p-10">
-            <h2 className="font-display text-[1.15rem] font-semibold text-white">{site.name}</h2>
+            <h2 className="font-display text-[1.15rem] font-semibold text-white">
+              {site.name}
+            </h2>
             <p className="mt-2 text-[0.88rem] text-steel-light">{site.role}</p>
 
             <dl className="mt-8 divide-y divide-white/10 border-y border-white/10">
@@ -74,7 +93,10 @@ export default function ContactPage() {
                   </dt>
                   <dd className="mt-1.5 text-[0.92rem] text-steel-light">
                     {i.href ? (
-                      <a href={i.href} className="break-all border-b border-white/20 pb-0.5 transition-colors hover:border-gold hover:text-white">
+                      <a
+                        href={i.href}
+                        className="break-all border-b border-white/20 pb-0.5 transition-colors hover:border-gold hover:text-white"
+                      >
                         {i.value}
                       </a>
                     ) : (
@@ -91,8 +113,12 @@ export default function ContactPage() {
                 ["GSTIN", site.registrations.gstin],
               ].map(([k, v]) => (
                 <div key={k}>
-                  <dt className="font-mono text-[0.56rem] uppercase tracking-[0.2em] text-gold-light">{k}</dt>
-                  <dd className="mt-1 font-mono text-[0.76rem] text-steel-light">{v}</dd>
+                  <dt className="font-mono text-[0.56rem] uppercase tracking-[0.2em] text-gold-light">
+                    {k}
+                  </dt>
+                  <dd className="mt-1 font-mono text-[0.76rem] text-steel-light">
+                    {v}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -108,13 +134,15 @@ export default function ContactPage() {
           </div>
 
           <div className="on-dark bg-carbon p-8 text-ivory lg:p-10">
-            <Suspense fallback={<p className="text-steel-light">Loading form…</p>}>
+            <Suspense
+              fallback={<p className="text-steel-light">Loading form…</p>}
+            >
               <EnquiryForm />
             </Suspense>
           </div>
         </div>
 
-        <div className="shell mt-10 grid gap-5 sm:grid-cols-3">
+        {/* <div className="shell mt-10 grid gap-5 sm:grid-cols-3">
           {[
             ["What to include", "Standard, grade, size, finish, quantity and destination port."],
             ["Response time", "One working day, Monday to Saturday, 10:00 – 19:00 IST."],
@@ -127,7 +155,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
           ))}
-        </div>
+        </div> */}
       </section>
     </>
   );
