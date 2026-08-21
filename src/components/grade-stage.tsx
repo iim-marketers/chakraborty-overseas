@@ -7,11 +7,6 @@ import { Tilt } from "@/components/tilt";
 
 const HEX = "96,50 73,89.8 27,89.8 4,50 27,10.2 73,10.2";
 
-/**
- * One real photograph per range, tightly cropped so every bolt stands on the
- * same floor line. Marks are the head stamps a buyer will actually find on
- * that range — the photographs carry two of them.
- */
 const bolts = [
   {
     slug: "stainless-steel",
@@ -142,6 +137,7 @@ export function GradeStage() {
                   alt=""
                   width={b.w}
                   height={b.h}
+                  loading={i === 0 ? "eager" : "lazy"}
                   sizes="(max-width: 640px) 46vw, 240px"
                   className="block h-auto w-full opacity-40"
                 />
