@@ -78,7 +78,7 @@ export default function ContactPage() {
       />
 
       <section className="py-16 lg:py-24">
-        <div className="shell grid gap-px overflow-hidden rounded-[var(--radius-tile)] border border-white/10 bg-white/10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="shell grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="on-dark bg-graphite p-8 text-ivory lg:p-10">
             <h2 className="font-display text-[1.15rem] font-semibold text-white">
               {site.name}

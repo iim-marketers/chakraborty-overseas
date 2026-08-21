@@ -24,22 +24,22 @@ export function ProductCard({
 }) {
   return (
     <Tilt className="group h-full" max={9}>
-      <article className="flex h-full flex-col overflow-hidden rounded-[var(--radius-tile)] border border-line bg-white shadow-[var(--shadow-plate)] transition-shadow duration-300 group-hover:shadow-[var(--shadow-lift)]">
+      <article className="flex h-full flex-col overflow-hidden rounded-tile border border-line bg-white shadow-(--shadow-plate) transition-shadow duration-300 group-hover:shadow-(--shadow-lift)">
         <button
           type="button"
           onClick={() => onOpen(product)}
-          className="relative block aspect-[4/3] w-full overflow-hidden bg-white"
+          className="relative block aspect-4/3 w-full overflow-hidden bg-white"
           aria-label={`Open details for ${product.name}`}
         >
           <span
-            className="layer-3d absolute inset-0 flex items-center justify-center p-5 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:-translate-y-2 group-hover:scale-[1.07]"
+            className="layer-3d absolute inset-0 flex items-center justify-center p-5 transition-transform duration-500 ease-out-soft group-hover:-translate-y-2 group-hover:scale-[1.07]"
             style={{ transform: "translateZ(28px)" }}
           >
             <ProductMedia product={product} tone={tone} priority={index < 4} />
           </span>
           <span
             aria-hidden
-            className={`pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent opacity-70 ${wash[tone]}`}
+            className={`pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t to-transparent opacity-70 ${wash[tone]}`}
           />
           <span
             aria-hidden

@@ -84,7 +84,7 @@ export default function AboutPage() {
               },
             ].map((c, i) => (
               <Reveal key={c.tag} delay={i * 90}>
-                <article className="h-full rounded-[var(--radius-tile)] border border-line bg-white p-8 lg:p-10">
+                <article className="h-full rounded-tile border border-line bg-white p-8 lg:p-10">
                   <p className="spec-label">{c.tag}</p>
                   <h3 className="mt-4 font-display text-[1.45rem] font-semibold tracking-tight text-balance">
                     {c.title}
@@ -118,7 +118,7 @@ export default function AboutPage() {
             lede="Our work sits between your purchase order and the factory gate. This is the sequence every order follows."
             dark
           />
-          <ol className="grid gap-px overflow-hidden rounded-[var(--radius-tile)] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
+          <ol className="grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
             {steps.map(([n, title, body]) => (
               <li
                 key={n}
@@ -164,7 +164,7 @@ export default function AboutPage() {
               ].map((f) => (
                 <div
                   key={f.src}
-                  className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line"
+                  className="relative aspect-4/3 overflow-hidden rounded-2xl border border-line"
                 >
                   <Image
                     src={f.src}
@@ -176,7 +176,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-            <div className="relative overflow-hidden rounded-[var(--radius-tile)] border border-line bg-white p-6">
+            <div className="relative overflow-hidden rounded-tile border border-line bg-white p-6">
               <span
                 aria-hidden
                 className="blueprint-light absolute inset-0 opacity-60"
