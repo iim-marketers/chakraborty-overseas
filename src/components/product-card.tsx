@@ -57,7 +57,7 @@ export function ProductCard({
             <dl className="mt-3 space-y-1.5 pb-4">
               {product.specs.map((s) => (
                 <div key={s.label} className="grid grid-cols-[62px_1fr] gap-2">
-                  <dt className="font-mono text-[0.56rem] uppercase tracking-[0.14em] text-steel">
+                  <dt className="font-mono mt-0.5 text-[0.56rem] uppercase tracking-[0.14em] text-steel">
                     {s.label}
                   </dt>
                   <dd className="text-[0.76rem] leading-snug text-ink/70">

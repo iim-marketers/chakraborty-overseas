@@ -131,7 +131,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- ranges ---------------- */}
-      <section className="py-20 ">
+      <section className="py-16 lg:py-20 ">
         <div className="shell">
           <SectionHead
             eyebrow="Three ranges"
@@ -152,7 +152,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- what a merchant exporter does ---------------- */}
-      <section className="border-y border-line bg-white py-20 ">
+      <section className="border-y border-line bg-white py-16 lg:py-20 ">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <Reveal>
             <p className="eyebrow">Where we sit</p>
@@ -275,7 +275,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- process ---------------- */}
-      <section className="on-dark relative overflow-hidden bg-graphite py-20 text-ivory ">
+      <section className="on-dark relative overflow-hidden bg-graphite py-16 lg:py-20 text-ivory ">
         <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
         <div className="shell relative">
           <SectionHead
@@ -316,7 +316,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- packing ---------------- */}
-      <section className="py-20 ">
+      <section className="py-16 lg:py-20 ">
         <div className="shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <p className="eyebrow">Export packaging</p>
@@ -328,14 +328,14 @@ export default function HomePage() {
               where a good consignment is quietly lost, so we treat it as part
               of the specification rather than an afterthought.
             </p>
-            <ul className="mt-8">
+            <ul className="mt-4">
               {packing.map((p) => (
                 <li
                   key={p}
-                  className="relative border-b border-line-soft py-3.5 pl-7 text-[0.94rem]"
+                  className="relative border-b border-line-soft py-2 pl-7 text-[0.94rem]"
                 >
                   <span
-                    className="absolute left-0 top-[1.55em] h-px w-3.5 bg-gold"
+                    className="absolute left-0 top-[1.3em] h-px w-3.5 bg-gold"
                     aria-hidden
                   />
                   {p}
@@ -373,7 +373,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- industries ---------------- */}
-      <section className="border-t border-line bg-ivory-2 py-20 lg:py-24">
+      <section className="border-t border-line bg-ivory-2 py-16 lg:py-20 ">
         <div className="shell">
           <SectionHead
             eyebrow="Where the goods end up"

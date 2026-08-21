@@ -15,13 +15,22 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <Image src="/logo.png" alt="" width={52} height={52} className="h-12 w-12 object-contain" />
-              <span className="font-display text-lg font-semibold text-white">{site.name}</span>
+              <Image
+                src="/logo.png"
+                alt=""
+                width={52}
+                height={52}
+                className="h-12 w-12 object-contain"
+              />
+              <span className="font-display text-lg font-semibold text-white">
+                {site.name}
+              </span>
             </div>
             <p className="mt-5 max-w-sm text-[0.9rem] leading-relaxed text-steel-light/80">
-              Merchant exporter of mild steel, stainless steel and high tension fasteners, based in
-              Kolkata, India. We source from verified Indian manufacturing partners; we do not
-              operate manufacturing facilities of our own.
+              Merchant exporter of mild steel, stainless steel and high tension
+              fasteners, based in Kolkata, India. We source from verified Indian
+              manufacturing partners; we do not operate manufacturing facilities
+              of our own.
             </p>
             <p className="mt-5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
               {site.tagline}
@@ -35,7 +44,10 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-[0.88rem]">
               {nav.map((n) => (
                 <li key={n.href}>
-                  <Link href={n.href} className="transition-colors hover:text-white">
+                  <Link
+                    href={n.href}
+                    className="transition-colors hover:text-white"
+                  >
                     {n.label}
                   </Link>
                 </li>
@@ -50,7 +62,10 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-[0.88rem]">
               {ranges.map((r) => (
                 <li key={r.slug}>
-                  <Link href={`/products/${r.slug}`} className="transition-colors hover:text-white">
+                  <Link
+                    href={`/products/${r.slug}`}
+                    className="transition-colors hover:text-white"
+                  >
                     {r.shortName}
                   </Link>
                 </li>
@@ -64,17 +79,23 @@ export function SiteFooter() {
             </h4>
             <ul className="mt-4 space-y-3 text-[0.88rem]">
               <li>
-                <a href={`mailto:${site.contact.email}`} className="break-all transition-colors hover:text-white">
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="break-all transition-colors hover:text-white"
+                >
                   {site.contact.email}
                 </a>
               </li>
               <li>
-                <a href={`tel:${site.contact.phoneHref}`} className="transition-colors hover:text-white">
+                <a
+                  href={`tel:${site.contact.phoneHref}`}
+                  className="transition-colors hover:text-white"
+                >
                   {site.contact.phone}
                 </a>
               </li>
               <li>{site.contact.address}</li>
-              <li className="text-steel-light/70">{site.contact.hours}</li>
+              {/* <li className="text-steel-light/70">{site.contact.hours}</li> */}
             </ul>
           </div>
         </div>

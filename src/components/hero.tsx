@@ -1,97 +1,33 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import { site } from "@/lib/site";
 
-type Layer = {
-  src: string;
-  alt: string;
-  className: string;
-  depth: number;
-  spin?: number;
-  delay?: number;
-};
+const heads = [
+  { mark: "A2-70", range: "Stainless", tensile: "700 MPa" },
+  { mark: "A4-80", range: "Stainless", tensile: "800 MPa" },
+  { mark: "4.6", range: "Mild steel", tensile: "400 MPa" },
+  { mark: "8.8", range: "High tension", tensile: "800 MPa" },
+  { mark: "10.9", range: "High tension", tensile: "1040 MPa" },
+  { mark: "12.9", range: "High tension", tensile: "1220 MPa" },
+] as const;
 
-const layers: Layer[] = [
-  {
-    src: "/cutouts/hex-bolt.webp",
-    alt: "Stainless steel hex bolt and nut",
-    className: "left-[13%] top-[20%] w-[56%]",
-    depth: 46,
-    spin: -6,
-  },
-  {
-    src: "/cutouts/hex-nut.webp",
-    alt: "High tensile hex nuts",
-    className: "left-[-2%] bottom-[4%] w-[32%]",
-    depth: 78,
-    spin: 4,
-    delay: 900,
-  },
-  {
-    src: "/cutouts/black-bolt.webp",
-    alt: "High tensile bolts, black finish",
-    className: "right-[-1%] top-[10%] w-[27%]",
-    depth: 96,
-    spin: 8,
-    delay: 400,
-  },
-  {
-    src: "/cutouts/zinc-bolt.webp",
-    alt: "Yellow zinc plated hex bolts",
-    className: "right-[6%] bottom-[16%] w-[26%]",
-    depth: 116,
-    spin: -6,
-    delay: 1400,
-  },
-];
+const HEX = "96,50 73,89.8 27,89.8 4,50 27,10.2 73,10.2";
 
 export function Hero() {
-  const stage = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = stage.current;
-    if (!el) return;
-    let frame = 0;
-    const onMove = (e: PointerEvent) => {
-      if (frame) cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const r = el.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        el.style.setProperty("--px", x.toFixed(3));
-        el.style.setProperty("--py", y.toFixed(3));
-      });
-    };
-    const onLeave = () => {
-      el.style.setProperty("--px", "0");
-      el.style.setProperty("--py", "0");
-    };
-    window.addEventListener("pointermove", onMove, { passive: true });
-    el.addEventListener("pointerleave", onLeave);
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      el.removeEventListener("pointerleave", onLeave);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
     <section className="on-dark relative overflow-hidden bg-ink text-ivory">
       <div className="blueprint absolute inset-0" aria-hidden />
       <div
-        className="absolute left-1/2 top-0 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-gold/12 blur-[120px]"
+        className="absolute left-1/2 top-0 h-130 w-205 -translate-x-1/2 rounded-full bg-gold/12 blur-[120px]"
         aria-hidden
       />
       <div
-        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-ink"
+        className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-ink"
         aria-hidden
       />
 
-      <div className="shell relative grid items-center gap-10 py-16 lg:grid-cols-[1.03fr_0.97fr] lg:gap-6 lg:py-24">
-        <div className="min-w-0 max-w-xl animate-[var(--animate-rise)]">
+      <div className="shell relative grid items-center gap-12 py-16 lg:grid-cols-[1.03fr_0.97fr] lg:gap-10 lg:py-24">
+        <div className="min-w-0 max-w-xl animate-rise">
           <p className="eyebrow">Mild steel · Stainless steel · High tension</p>
 
           <h1 className="mt-6 text-[clamp(2.5rem,6.4vw,4.6rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-balance">
@@ -102,9 +38,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-[54ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">
-            Finding a mill that holds the grade, meets the shipment date and hands over documents
-            that clear customs — that is the work. {site.name} is a merchant exporter in Kolkata. We
-            source from verified Indian manufacturing partners, check the goods against your
+            Finding a mill that holds the grade, meets the shipment date and
+            hands over documents that clear customs — that is the work.{" "}
+            {site.name} is a merchant exporter in Kolkata. We source from
+            verified Indian manufacturing partners, check the goods against your
             specification, and ship them properly packed and papered.
           </p>
 
@@ -127,91 +64,108 @@ export function Hero() {
                 <dt className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-gold-light">
                   {k}
                 </dt>
-                <dd className="mt-1.5 font-mono text-[0.76rem] leading-snug text-steel-light">{v}</dd>
+                <dd className="mt-1.5 font-mono text-[0.76rem] leading-snug text-steel-light">
+                  {v}
+                </dd>
               </div>
             ))}
           </dl>
         </div>
 
-        {/* ---------------- 3D assembly ---------------- */}
-        <div
-          ref={stage}
-          className="scene relative mx-auto aspect-square w-full min-w-0 max-w-[540px]"
-          style={{ ["--px" as string]: "0", ["--py" as string]: "0" }}
-        >
-          {/* dimension ring */}
-          <svg
-            viewBox="0 0 400 400"
-            className="absolute inset-0 h-full w-full animate-[var(--animate-spin-slow)] opacity-70"
-            aria-hidden
-          >
-            <circle cx="200" cy="200" r="168" fill="none" stroke="#C8A24A" strokeOpacity=".28" strokeWidth="1" strokeDasharray="3 9" />
-            <circle cx="200" cy="200" r="142" fill="none" stroke="#ffffff" strokeOpacity=".08" strokeWidth="1" />
-            {Array.from({ length: 12 }).map((_, i) => (
-              <line
-                key={i}
-                x1="200"
-                y1="24"
-                x2="200"
-                y2="38"
-                stroke="#C8A24A"
-                strokeOpacity=".5"
-                strokeWidth="1.4"
-                transform={`rotate(${i * 30} 200 200)`}
-              />
-            ))}
+        {/* ------------------------- head marks ------------------------- */}
+        <figure className="mx-auto w-full min-w-0 max-w-135 animate-rise overflow-hidden rounded-tile border border-white/10 bg-carbon shadow-(--shadow-lift) [animation-delay:160ms]">
+          {/* one shared metal gradient for all six heads */}
+          <svg className="absolute h-0 w-0" aria-hidden>
+            <defs>
+              <linearGradient id="headFace" x1="0" y1="0" x2="0.7" y2="1">
+                <stop offset="0" stopColor="#2A3846" />
+                <stop offset="1" stopColor="#151E27" />
+              </linearGradient>
+            </defs>
           </svg>
 
-          {/* soft plate under the parts */}
-          <div
-            className="absolute left-1/2 top-1/2 h-[62%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(200,162,74,.22),transparent_68%)]"
-            aria-hidden
-          />
+          <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-white/10 px-6 py-4 font-mono text-[0.58rem] uppercase tracking-[0.18em]">
+            <span className="text-gold-light">Head marks</span>
+            <span className="text-steel">Three ranges · one stamp each</span>
+          </figcaption>
 
-          {layers.map((l) => (
-            <div
-              key={l.src}
-              className={`absolute ${l.className} layer-3d`}
-              style={{
-                transform: `translate3d(calc(var(--px) * ${l.depth}px), calc(var(--py) * ${l.depth}px), 0) rotate(${l.spin ?? 0}deg)`,
-                transition: "transform .35s var(--ease-out-soft)",
-              }}
-            >
-              <div
-                className="animate-[var(--animate-float-slow)]"
-                style={{ animationDelay: `${l.delay ?? 0}ms` }}
+          <ul className="grid grid-cols-3 gap-px bg-white/8">
+            {heads.map((h) => (
+              <li
+                key={h.mark}
+                className="group flex flex-col items-center gap-3.5 bg-carbon px-2 py-6"
               >
-                <Image
-                  src={l.src}
-                  alt={l.alt}
-                  width={760}
-                  height={760}
-                  priority={l.depth < 60}
-                  sizes="(max-width: 1024px) 60vw, 320px"
-                  className="h-auto w-full object-contain drop-shadow-[0_26px_40px_rgba(0,0,0,.65)]"
-                />
-              </div>
-            </div>
-          ))}
+                <span className="relative block w-full max-w-22">
+                  <svg
+                    viewBox="0 0 100 100"
+                    className="block w-full"
+                    aria-hidden
+                  >
+                    <polygon
+                      points={HEX}
+                      fill="url(#headFace)"
+                      className="stroke-gold/45 transition-colors duration-300 group-hover:stroke-gold-light"
+                      strokeWidth="1.4"
+                      strokeLinejoin="round"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="32"
+                      fill="none"
+                      className="stroke-white/10"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                  <span
+                    className={`absolute inset-0 grid place-items-center font-mono font-medium leading-none text-ivory ${
+                      h.mark.length > 3 ? "text-[0.72rem]" : "text-[0.92rem]"
+                    }`}
+                  >
+                    {h.mark}
+                  </span>
+                </span>
 
-          {/* callouts */}
-          <svg viewBox="0 0 400 400" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
-            <g stroke="#C8A24A" strokeOpacity=".7" strokeWidth="1" fill="none">
-              <path d="M250 96l24-70h110" />
-              <path d="M126 306l-24 54H6" />
-            </g>
-            <g
-              fill="#E7C878"
-              fontFamily="var(--font-mono-tech), monospace"
-              fontSize="9"
-              letterSpacing="1.6"
-              style={{ textTransform: "uppercase" }}
-            >
-              <text x="396" y="20" textAnchor="end">Class 8.8 · 10.9 · 12.9 · 14.9</text>
-              <text x="6" y="376">M3 – M72 · ISO · DIN · ASTM</text>
-            </g>
-          </svg>
-        </div>
+                <span className="text-center">
+                  <span className="block font-mono text-[0.55rem] uppercase tracking-[0.15em] text-gold-light">
+                    {h.range}
+                  </span>
+                  {/* <span className="mt-1 block font-mono text-[0.55rem] tracking-[0.08em] text-steel">
+                    {h.tensile}
+                  </span> */}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* the real thing, so the panel is not all drawing */}
+          <div className="relative aspect-21/6 border-y border-white/10">
+            <Image
+              src="/facility/bolts-dark.webp"
+              alt="High tension hex bolts and socket head cap screws in black finish"
+              fill
+              preload
+              sizes="(max-width: 1024px) 92vw, 520px"
+              className="object-cover"
+            />
+            <span
+              className="absolute inset-0 bg-linear-to-r from-carbon via-carbon/25 to-carbon/70"
+              aria-hidden
+            />
+          </div>
+
+          <div className="p-6">
+            <p className="text-[0.88rem] leading-relaxed text-steel-light text-pretty">
+              The property class is stamped on the head — the one thing you can
+              verify the moment the container is opened. We check it against
+              your purchase order before the carton is sealed.
+            </p>
+            <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-white/10 pt-4 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-steel">
+              <span>M3 – M72</span>
+              <span>{site.standards.map((s) => s.code).join(" · ")}</span>
+            </div>
+          </div>
+        </figure>
       </div>
     </section>
   );
