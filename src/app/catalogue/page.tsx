@@ -93,7 +93,7 @@ export default function CataloguePage() {
           </Reveal>
 
           {/* per range */}
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {/* <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {ranges.map((r, i) => {
               const file = `chakraborty-overseas-${r.slug}.pdf`;
               const lines = r.groups.reduce((n, g) => n + g.items.length, 0);
@@ -141,9 +141,9 @@ export default function CataloguePage() {
                 </Reveal>
               );
             })}
-          </div>
+          </div> */}
 
-          <Reveal className="mt-12 rounded-[var(--radius-tile)] border border-dashed border-line bg-ivory-2 p-7">
+          <Reveal className="mt-12 rounded-tile border border-dashed border-line bg-ivory-2 p-7">
             <h2 className="font-display text-[1.15rem] font-semibold tracking-tight">
               Need a size-and-weight sheet for a specific item?
             </h2>
