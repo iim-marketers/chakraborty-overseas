@@ -15,7 +15,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="shell relative grid items-center gap-12 py-16 lg:grid-cols-[1.03fr_0.97fr] lg:gap-10 lg:py-24">
+      <div className="shell relative grid items-center gap-12 py-16 lg:grid-cols-[1.03fr_0.97fr] lg:gap-10 lg:py-20">
         <div className="min-w-0 max-w-xl animate-rise">
           <p className="eyebrow">Mild steel · Stainless steel · High tension</p>
 

@@ -25,7 +25,9 @@ export function SectionHead({
           {title}
         </h2>
         {lede && (
-          <p className={`mt-4 text-[1rem] leading-relaxed text-pretty ${dark ? "text-steel-light" : "text-ink/65"}`}>
+          <p
+            className={`mt-4 text-[1rem] leading-relaxed text-pretty ${dark ? "text-steel-light" : "text-ink/65"}`}
+          >
             {lede}
           </p>
         )}
@@ -41,7 +43,9 @@ export function SectionHead({
         </h2>
       </div>
       {lede && (
-        <p className={`max-w-[56ch] text-[1rem] leading-relaxed text-pretty ${dark ? "text-steel-light" : "text-ink/65"}`}>
+        <p
+          className={`max-w-[56ch] text-[1rem] leading-relaxed text-pretty ${dark ? "text-steel-light" : "text-ink/65"}`}
+        >
           {lede}
         </p>
       )}
@@ -61,10 +65,10 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="on-dark relative overflow-hidden bg-ink text-ivory">
+    <section className="on-dark relative overflow-hidden bg-ink text-ivory ">
       <div className="blueprint absolute inset-0" aria-hidden />
       <div
-        className="absolute -right-24 top-0 h-[420px] w-[520px] rounded-full bg-gold/12 blur-[110px]"
+        className="absolute -right-24 top-0 h-105 w-130 rounded-full bg-gold/12 blur-[110px]"
         aria-hidden
       />
       <div className="shell relative grid gap-8 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-20">
@@ -75,7 +79,9 @@ export function PageHero({
           </h1>
         </div>
         {lede && (
-          <p className="max-w-[56ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">{lede}</p>
+          <p className="max-w-[56ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">
+            {lede}
+          </p>
         )}
         {children}
       </div>
@@ -83,7 +89,13 @@ export function PageHero({
   );
 }
 
-export function SpecSheet({ rows, dark = false }: { rows: { label: string; value: string }[]; dark?: boolean }) {
+export function SpecSheet({
+  rows,
+  dark = false,
+}: {
+  rows: { label: string; value: string }[];
+  dark?: boolean;
+}) {
   return (
     <dl
       className="grid gap-px overflow-hidden rounded-[var(--radius-tile)] border sm:grid-cols-2 lg:grid-cols-3"
@@ -93,19 +105,30 @@ export function SpecSheet({ rows, dark = false }: { rows: { label: string; value
       }}
     >
       {rows.map((r) => (
-        <div key={r.label} className={`p-5 ${dark ? "bg-graphite" : "bg-white"}`}>
+        <div
+          key={r.label}
+          className={`p-5 ${dark ? "bg-graphite" : "bg-white"}`}
+        >
           <dt className="spec-label">{r.label}</dt>
-          <dd className={`mt-2 text-[0.9rem] leading-snug ${dark ? "text-steel-light" : "text-ink/80"}`}>
+          <dd
+            className={`mt-2 text-[0.9rem] leading-snug ${dark ? "text-steel-light" : "text-ink/80"}`}
+          >
             {r.value}
           </dd>
         </div>
       ))}
       {/* fillers keep the last row solid rather than showing the rule colour */}
       {Array.from({ length: (2 - (rows.length % 2)) % 2 }).map((_, i) => (
-        <div key={`s${i}`} className={`hidden sm:block lg:hidden ${dark ? "bg-graphite" : "bg-white"}`} />
+        <div
+          key={`s${i}`}
+          className={`hidden sm:block lg:hidden ${dark ? "bg-graphite" : "bg-white"}`}
+        />
       ))}
       {Array.from({ length: (3 - (rows.length % 3)) % 3 }).map((_, i) => (
-        <div key={`l${i}`} className={`hidden lg:block ${dark ? "bg-graphite" : "bg-white"}`} />
+        <div
+          key={`l${i}`}
+          className={`hidden lg:block ${dark ? "bg-graphite" : "bg-white"}`}
+        />
       ))}
     </dl>
   );
@@ -121,11 +144,18 @@ export function StandardsStrip({ dark = false }: { dark?: boolean }) {
       }}
     >
       {site.standards.map((s) => (
-        <div key={s.code} className={`px-3 py-5 text-center ${dark ? "bg-graphite" : "bg-white"}`}>
-          <p className={`font-display text-[1.02rem] font-semibold tracking-tight ${dark ? "text-white" : "text-ink"}`}>
+        <div
+          key={s.code}
+          className={`px-3 py-5 text-center ${dark ? "bg-graphite" : "bg-white"}`}
+        >
+          <p
+            className={`font-display text-[1.02rem] font-semibold tracking-tight ${dark ? "text-white" : "text-ink"}`}
+          >
             {s.code}
           </p>
-          <p className="mt-1 font-mono text-[0.55rem] uppercase tracking-[0.16em] text-steel">{s.label}</p>
+          <p className="mt-1 font-mono text-[0.55rem] uppercase tracking-[0.16em] text-steel">
+            {s.label}
+          </p>
         </div>
       ))}
     </div>
@@ -148,7 +178,10 @@ export function CTABand({
         sizes="100vw"
         className="object-cover opacity-[0.14]"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/85 to-graphite/40" aria-hidden />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/85 to-graphite/40"
+        aria-hidden
+      />
       <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
       <div
         className="absolute left-1/2 top-1/2 h-[300px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[110px]"

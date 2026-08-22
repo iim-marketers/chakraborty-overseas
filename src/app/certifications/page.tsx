@@ -80,7 +80,7 @@ export default function CertificationsPage() {
         lede="Two things matter to a buyer checking us out: that Chakraborty Overseas is a properly registered Indian exporter, and that the goods come from certified manufacturing. Those are separate, and we keep them separate."
       />
 
-      <section className="py-16 lg:py-24">
+      <section className="py-12 lg:py-16">
         <div className="shell grid gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="spec-label">Held by Chakraborty Overseas</p>
