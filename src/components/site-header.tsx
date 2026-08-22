@@ -46,10 +46,10 @@ export function SiteHeader() {
             : "border-b border-transparent bg-ivory/60 backdrop-blur-sm"
         }`}
       >
-        <div className="shell flex h-[74px] items-center gap-4">
+        <div className="shell flex h-18.5 items-center gap-4">
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-3"
+            className="flex min-w-0 items-center gap-2.5 sm:gap-3"
             aria-label={`${site.name}, home`}
           >
             <Image
@@ -58,13 +58,13 @@ export function SiteHeader() {
               width={52}
               height={52}
               priority
-              className="h-11 w-11 object-contain drop-shadow-[0_4px_10px_rgba(200,162,74,.35)]"
+              className="h-11 w-11 shrink-0 object-contain drop-shadow-[0_4px_10px_rgba(200,162,74,.35)]"
             />
-            <span className="hidden leading-none sm:block">
-              <span className="block font-display text-[1.02rem] font-semibold tracking-tight">
+            <span className="min-w-0 leading-none">
+              <span className="block truncate font-display text-[0.92rem] font-semibold tracking-tight sm:text-[1.02rem]">
                 Chakraborty Overseas
               </span>
-              <span className="mt-1 block font-mono text-[0.55rem] uppercase tracking-[0.24em] text-steel">
+              <span className="mt-1 block truncate font-mono text-[0.5rem] uppercase tracking-[0.16em] text-steel sm:text-[0.55rem] sm:tracking-[0.24em]">
                 Fastener export · Kolkata
               </span>
             </span>
@@ -104,8 +104,8 @@ export function SiteHeader() {
                     </svg>
                   </Link>
                   {ranged && (
-                    <div className="absolute left-1/2 top-full w-[540px] -translate-x-1/2 pt-3">
-                      <div className="tile overflow-hidden p-2 shadow-[var(--shadow-lift)]">
+                    <div className="absolute left-1/2 top-full w-135 -translate-x-1/2 pt-3">
+                      <div className="tile overflow-hidden p-2 shadow-(--shadow-lift)">
                         <p className="spec-label px-3 pb-1 pt-2">Ranges</p>
                         <div className="grid gap-1">
                           {ranges.map((r) => (
@@ -187,7 +187,7 @@ export function SiteHeader() {
 
       {/* Mobile menu — a floating card, not a full-screen takeover. */}
       <div
-        className={`fixed inset-0 z-[55] bg-ink/35 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-55 bg-ink/35 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -199,7 +199,7 @@ export function SiteHeader() {
       <div
         id="mobile-nav"
         aria-hidden={!open}
-        className={`fixed inset-x-3 top-[86px] z-[60] origin-top overflow-hidden rounded-[26px] border border-line bg-ivory shadow-[0_40px_80px_-30px_rgba(8,12,17,.55)] transition-all duration-300 ease-[var(--ease-out-soft)] lg:hidden ${
+        className={`fixed inset-x-3 top-21.5 z-60 origin-top overflow-hidden rounded-[26px] border border-line bg-ivory shadow-[0_40px_80px_-30px_rgba(8,12,17,.55)] transition-all duration-300 ease-out-soft lg:hidden ${
           open
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-3 scale-[0.97] opacity-0"
@@ -218,7 +218,7 @@ export function SiteHeader() {
                   href={`/products/${r.slug}`}
                   tabIndex={open ? 0 : -1}
                   style={{ transitionDelay: `${open ? 60 + i * 45 : 0}ms` }}
-                  className={`flex w-full min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-3.5 py-3 transition-all duration-300 ${
+                  className={`flex w-full min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/4 px-3.5 py-3 transition-all duration-300 ${
                     open
                       ? "translate-y-0 opacity-100"
                       : "translate-y-2 opacity-0"

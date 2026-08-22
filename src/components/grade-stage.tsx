@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Tilt } from "@/components/tilt";
 
 const HEX = "96,50 73,89.8 27,89.8 4,50 27,10.2 73,10.2";
@@ -54,30 +54,22 @@ const slots = [
   { x: "10%", z: -80, scale: 0.56, opacity: 0.3, blur: 1.6 },
 ];
 
-const DWELL = 5400;
-
 export function GradeStage() {
   const [active, setActive] = useState(0);
-  const [held, setHeld] = useState(false);
   const bolt = bolts[active];
 
-  useEffect(() => {
-    if (held) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setTimeout(
-      () => setActive((i) => (i + 1) % bolts.length),
-      DWELL,
-    );
-    return () => clearTimeout(id);
-  }, [active, held]);
+  // useEffect(() => {
+  //   if (held) return;
+  //   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  //   const id = setTimeout(
+  //     () => setActive((i) => (i + 1) % bolts.length),
+  //     DWELL,
+  //   );
+  //   return () => clearTimeout(id);
+  // }, [active, held]);
 
   return (
-    <div
-      onPointerEnter={() => setHeld(true)}
-      onPointerLeave={() => setHeld(false)}
-      onFocusCapture={() => setHeld(true)}
-      onBlurCapture={() => setHeld(false)}
-    >
+    <div>
       {/* ---------------------------- the stage ---------------------------- */}
       <Tilt className="h-66 sm:h-72 lg:h-80" max={7}>
         <span className="blueprint absolute inset-0 opacity-70" aria-hidden />
@@ -130,7 +122,7 @@ export function GradeStage() {
               {/* the bolt again, upside down, as its reflection in the floor */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-x-0 top-full -scale-y-100 [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,0.5),transparent_62%)] [mask-image:linear-gradient(to_top,rgba(0,0,0,0.5),transparent_62%)]"
+                className="pointer-events-none absolute inset-x-0 top-full -scale-y-100 [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,0.5),transparent_62%)] mask-[linear-gradient(to_top,rgba(0,0,0,0.5),transparent_62%)]"
               >
                 <Image
                   src={b.src}
