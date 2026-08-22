@@ -71,7 +71,7 @@ export function PageHero({
         className="absolute -right-24 top-0 h-105 w-130 rounded-full bg-gold/12 blur-[110px]"
         aria-hidden
       />
-      <div className="shell relative grid gap-8 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-20">
+      <div className="shell relative grid gap-8 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-16">
         <div className="min-w-0">
           <p className="eyebrow">{eyebrow}</p>
           <h1 className="mt-6 text-[clamp(2.2rem,5.4vw,3.9rem)] font-semibold leading-[1.02] tracking-[-0.032em] text-balance">
