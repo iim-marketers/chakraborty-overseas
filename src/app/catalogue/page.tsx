@@ -51,11 +51,11 @@ export default function CataloguePage() {
         lede="Each catalogue carries the line list, the grades and standards we quote against, and the sizes available. Download the complete book or just the range you are buying."
       />
 
-      <section className="py-16 lg:py-24">
+      <section className="py-12 lg:py-16">
         <div className="shell">
           {/* master download */}
           <Reveal>
-            <div className="grid gap-8 overflow-hidden rounded-[var(--radius-tile)] border border-line bg-white p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
+            <div className="grid gap-8 overflow-hidden rounded-tile border border-line bg-white p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
               <div>
                 <p className="eyebrow">Master document</p>
                 <h2 className="mt-4 font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold tracking-tight">

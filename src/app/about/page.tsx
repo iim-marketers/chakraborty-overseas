@@ -62,7 +62,7 @@ export default function AboutPage() {
       />
 
       {/* mission & vision */}
-      <section className="py-16 lg:py-24">
+      <section className="py-12 lg:py-16">
         <div className="shell">
           <SectionHead
             eyebrow="Mission & vision"
@@ -140,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       {/* inspection */}
-      <section className="py-16 lg:py-24">
+      <section className="py-12 lg:py-16">
         <div className="shell grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal className="space-y-4">
             <div className="grid grid-cols-2 gap-3">

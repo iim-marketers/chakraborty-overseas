@@ -25,7 +25,9 @@ export default function ProductsPage() {
         eyebrow="Product ranges"
         title={
           <>
-            Three ranges, <span className="gold-text">{productCount} lines</span>, one consignment.
+            Three ranges,{" "}
+            <span className="gold-text">{productCount} lines</span>, one
+            consignment.
           </>
         }
         lede="Sizes run M3 to M72 in stainless and M3 to M48 in mild steel and high tension, with nuts to M60. Send the standard, grade, finish and quantity — we will confirm availability and lead time against it."
@@ -36,7 +38,10 @@ export default function ProductsPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {ranges.map((r, i) => (
               <Reveal key={r.slug} delay={i * 80} className="h-full">
-                <RangeCard range={r} count={r.groups.reduce((n, g) => n + g.items.length, 0)} />
+                <RangeCard
+                  range={r}
+                  count={r.groups.reduce((n, g) => n + g.items.length, 0)}
+                />
               </Reveal>
             ))}
           </div>
@@ -45,19 +50,20 @@ export default function ProductsPage() {
             <p className="spec-label mb-4">Standards we quote against</p>
             <StandardsStrip />
             <p className="mt-4 max-w-3xl text-[0.86rem] text-ink/55">
-              BSW and UNC threads are available on several lines — dome bolts, hex thin nuts and hex
-              flange nuts among them. Ask when you send the specification.
+              BSW and UNC threads are available on several lines — dome bolts,
+              hex thin nuts and hex flange nuts among them. Ask when you send
+              the specification.
             </p>
           </Reveal>
 
-          <Reveal className="mt-16 grid gap-6 rounded-[var(--radius-tile)] border border-line bg-white p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <Reveal className="mt-16 grid gap-6 rounded-tile border border-line bg-white p-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h2 className="font-display text-[1.4rem] font-semibold tracking-tight">
                 Prefer it on paper?
               </h2>
               <p className="mt-2 max-w-2xl text-[0.94rem] text-ink/65">
-                Every range has a downloadable catalogue with the line list, grades, standards and
-                sizes we quote against.
+                Every range has a downloadable catalogue with the line list,
+                grades, standards and sizes we quote against.
               </p>
             </div>
             <Link href="/catalogue" className="btn btn-ink">

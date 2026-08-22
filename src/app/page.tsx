@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import {
@@ -111,7 +112,7 @@ export default function HomePage() {
       <Hero />
 
       {/* ---------------- ranges ---------------- */}
-      <section className="py-16 lg:py-20 ">
+      <section className="py-12 lg:py-16">
         <div className="shell">
           <SectionHead
             eyebrow="Three ranges"
@@ -132,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- what a merchant exporter does ---------------- */}
-      <section className="border-y border-line bg-white py-16 lg:py-20 ">
+      <section className="border-y border-line bg-white py-12 lg:py-16">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <Reveal>
             <p className="eyebrow">Where we sit</p>
@@ -165,7 +166,7 @@ export default function HomePage() {
                   className="flex gap-4 border-t border-line-soft pt-4"
                 >
                   <span
-                    className="mt-2 h-px w-6 shrink-0 bg-gold"
+                    className="mt-3 h-px w-6 shrink-0 bg-gold"
                     aria-hidden
                   />
                   <span>
@@ -255,7 +256,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- process ---------------- */}
-      <section className="on-dark relative overflow-hidden bg-graphite py-16 lg:py-20 text-ivory ">
+      <section className="on-dark relative overflow-hidden bg-graphite py-12 lg:py-16text-ivory ">
         <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
         <div className="shell relative">
           <SectionHead
@@ -296,7 +297,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- packing ---------------- */}
-      <section className="py-16 lg:py-20 ">
+      <section className="py-12 lg:py-16">
         <div className="shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <p className="eyebrow">Export packaging</p>
@@ -353,7 +354,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- industries ---------------- */}
-      <section className="border-t border-line bg-ivory-2 py-16 lg:py-20 ">
+      <section className="border-t border-line bg-ivory-2 py-12 lg:py-16">
         <div className="shell">
           <SectionHead
             eyebrow="Where the goods end up"

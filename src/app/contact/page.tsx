@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { Reveal } from "@/components/reveal";
 import { PageHero } from "@/components/ui";
 import { site } from "@/lib/site";
 
@@ -77,7 +76,7 @@ export default function ContactPage() {
         lede="Size, grade, standard, finish and quantity is enough to start. If a detail is missing we will ask rather than assume — it is faster than re-quoting later."
       />
 
-      <section className="py-16 lg:py-24">
+      <section className="py-12 lg:py-16">
         <div className="shell grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="on-dark bg-graphite p-8 text-ivory lg:p-10">
             <h2 className="font-display text-[1.15rem] font-semibold text-white">
