@@ -90,25 +90,10 @@ export default async function RangePage({
           />
         </div>
         <div
-          className="absolute -left-20 top-0 h-[380px] w-[520px] rounded-full bg-gold/10 blur-[110px]"
+          className="absolute -left-20 top-0 h-95 w-130 rounded-full bg-gold/10 blur-[110px]"
           aria-hidden
         />
-        <div className="shell relative py-16 lg:py-20">
-          <nav
-            aria-label="Breadcrumb"
-            className="mb-8 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
-          >
-            <Link href="/" className="hover:text-gold-light">
-              Home
-            </Link>
-            <span className="px-2">/</span>
-            <Link href="/products" className="hover:text-gold-light">
-              Products
-            </Link>
-            <span className="px-2">/</span>
-            <span className="text-gold-light">{range.shortName}</span>
-          </nav>
-
+        <div className="shell relative py-12 lg:py-16">
           <p className="eyebrow">{range.code}</p>
           <h1 className="mt-5 max-w-3xl text-[clamp(2.1rem,5vw,3.7rem)] font-semibold leading-[1.02] tracking-[-0.032em] text-balance">
             {range.name}
@@ -139,7 +124,10 @@ export default async function RangePage({
             >
               Enquire about this range
             </Link>
-            <Link href="/catalogue" className="btn btn-outline-light">
+            <Link
+              href="/catalogue"
+              className="btn btn-outline-light btn-download"
+            >
               Download catalogue
             </Link>
           </div>

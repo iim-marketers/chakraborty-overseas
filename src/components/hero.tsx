@@ -38,7 +38,7 @@ export function Hero() {
             <Link href="/products" className="btn btn-gold">
               View products
             </Link>
-            <Link href="/contact" className="btn btn-outline-light">
+            <Link href="/contact" className="btn btn-outline-light btn-arrow">
               Get a quote
             </Link>
           </div>
