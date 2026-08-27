@@ -4,7 +4,11 @@ const items = [
   ["Merchant exporter", "Kolkata, India"],
   ["HS heading", site.hsHeading],
   ["Terms", site.incoterms.join(" / ")],
-  ["Ports", "Kolkata · Haldia · Nhava Sheva"],
+  [
+    "Ports",
+    "Kolkata · Haldia · Nhava Sheva · Mundra · Chennai · Tuticorin · Visakhapatnam · Cochin · Kandla · Krishnapatnam",
+  ],
+  ["Airports", "Kolkata · Chennai · Mumbai · Delhi"],
   ["IEC", site.registrations.iec],
   ["GSTIN", site.registrations.gstin],
 ];
@@ -13,7 +17,7 @@ export function Ticker() {
   const row = [...items, ...items];
   return (
     <div className="relative overflow-hidden border-b border-white/10 bg-ink py-2">
-      <div className="flex w-max animate-[var(--animate-marquee)] gap-10 pr-10">
+      <div className="flex w-max animate-marquee gap-10 pr-10">
         {row.map(([label, value], i) => (
           <span
             key={i}

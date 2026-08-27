@@ -52,6 +52,19 @@ const steps = [
     title: "Documents",
     body: "Invoice, packing list, certificate of origin, mill test certificates and shipping documents, matched to your bank's requirement.",
   },
+  {
+    n: "06",
+    title: "Freight & delivery",
+    body: "Booked with our freight forwarding partners — sea or air — cleared through customs at the port of loading and delivered to your destination.",
+  },
+];
+
+/** What our forwarding partners carry, listed in the order a shipment meets it. */
+const freight = [
+  "Booking and space confirmation with the carrier, by sea or by air",
+  "Export documentation prepared and checked against your bank's requirement",
+  "Customs clearance at the Indian port or airport of loading",
+  "Delivery to your nominated port or airport of destination, on the agreed date",
 ];
 
 const packing = [
@@ -256,7 +269,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- process ---------------- */}
-      <section className="on-dark relative overflow-hidden bg-graphite py-12 lg:py-16text-ivory ">
+      <section className="on-dark relative overflow-hidden bg-graphite py-12 text-ivory lg:py-16">
         <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
         <div className="shell relative">
           <SectionHead
@@ -265,11 +278,8 @@ export default function HomePage() {
             lede="We are a merchant exporter, so our work sits between your purchase order and the factory gate. This is the sequence every order follows."
             dark
           />
-          {/* <div className="mb-8 overflow-hidden rounded-tile border border-white/10 bg-white/4 p-6">
-            <SupplyFlow className="mx-auto w-full max-w-160 [&_text]:fill-steel-light" />
-          </div> */}
 
-          <ol className="grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
+          <ol className="grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((s, i) => (
               <li
                 key={s.n}
@@ -284,7 +294,7 @@ export default function HomePage() {
                 <p className="mt-2.5 text-[0.85rem] leading-relaxed text-steel-light">
                   {s.body}
                 </p>
-                {i < steps.length - 1 && (
+                {i < steps.length - 1 && (i + 1) % 3 !== 0 && (
                   <span
                     className="absolute right-5 top-7 hidden h-px w-5 bg-white/20 transition-all duration-300 group-hover:w-7 group-hover:bg-gold lg:block"
                     aria-hidden
@@ -335,13 +345,6 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            {/* <div className="relative overflow-hidden rounded-tile border border-line bg-white p-5">
-              <span
-                aria-hidden
-                className="blueprint-light absolute inset-0 opacity-60"
-              />
-              <PackingDrawing className="relative mx-auto w-full max-w-95" />
-            </div> */}
           </Reveal>
         </div>
 
@@ -349,6 +352,55 @@ export default function HomePage() {
           <Reveal>
             <p className="spec-label mb-4">Standards we quote against</p>
             <StandardsStrip />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- freight & forwarding ---------------- */}
+      <section className="border-t border-line bg-white py-12 lg:py-16">
+        <div className="shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <Reveal>
+            <p className="eyebrow">Logistics</p>
+            <h2 className="mt-5 text-[clamp(1.8rem,3.6vw,2.7rem)] font-semibold tracking-tight text-balance">
+              Tied up with leading freight forwarders
+            </h2>
+            <p className="mt-5 text-ink/70 text-pretty">
+              Sourcing and inspection only matter if the cargo arrives. We work
+              with established freight forwarders across both sea and air cargo,
+              so the shipping side is handled by people who do it every day —
+              and you deal with one point of contact throughout.
+            </p>
+            <ul className="mt-4">
+              {freight.map((f) => (
+                <li
+                  key={f}
+                  className="relative border-b border-line-soft py-2 pl-7 text-[0.94rem]"
+                >
+                  <span
+                    className="absolute left-0 top-[1.3em] h-px w-3.5 bg-gold"
+                    aria-hidden
+                  />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="rounded-tile border border-line bg-ivory-2 p-7">
+              <p className="spec-label">Sea ports</p>
+              <p className="mt-3 text-[0.94rem] leading-relaxed text-ink/75">
+                {site.contact.ports}
+              </p>
+              <p className="spec-label mt-7">Airports</p>
+              <p className="mt-3 text-[0.94rem] leading-relaxed text-ink/75">
+                {site.contact.airports}
+              </p>
+              <p className="mt-7 border-t border-line pt-5 text-[0.85rem] leading-relaxed text-ink/60">
+                Shipping on {site.incoterms.join(" / ")} terms. Tell us the
+                incoterm your purchase order runs on and we will quote to it.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>

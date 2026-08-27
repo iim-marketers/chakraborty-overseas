@@ -58,24 +58,26 @@ export const ranges: Range[] = [
     intro:
       "Bright and passivated stainless in 304, 316 and Super Duplex — the range buyers specify when the fastener has to outlive the structure it holds together.",
     detail:
-      "Our stainless partner runs 202, 304, 304L, 316, 316L and Super Duplex across the full standard catalogue: bolts, nuts, washers, screws, threaded rod, anchors and made-to-drawing specials. Sizes run from M3 to M72, with BSW and UNC threads available on several lines.",
+      "Our stainless partner runs 202, 304, 304L, 316, 316L and Super Duplex across the full standard catalogue: bolts, nuts, washers, screws, threaded rod, anchors and made-to-drawing specials. Sizes run from M2.5 to M72, with self-tapping and self-drilling screws in ST2.9 to ST6.3, and BSW and UNC threads available on several lines.",
     heroArt: "group-bolts",
     heroPhoto: "/cutouts/hex-bolt.webp",
-    sizeRange: "M3 – M72 · BSW / UNC on request",
+    sizeRange: "M2.5 – M72 · ST2.9 – ST6.3 · BSW / UNC on request",
     finishNote:
       "Shown in bright and passivated stainless — electropolished and PTFE coated to order",
     sheet: [
-      /* Grade 410 removed; 202 / Super Duplex added; A2 = SS 304, A4 = SS 316. */
+      /* Grade 410 removed; 202 / Super Duplex added; A2 = SS 304, A4 = SS 316.
+         Draft 2: one grade set runs across every fastener type in this range. */
       {
         label: "Grades",
         value:
-          "A2-70 (SS 304) · A4-70 / A4-80 (SS 316) · 202, 304L, 316L, Super Duplex",
+          "SS 202 · SS 304 (A2) · SS 316 (A4) · SS 304L · SS 316L · SS Super Duplex — the same set across every type",
       },
+      { label: "Standards", value: "BIS, IS, DIN, ASTM, BSW, UNC" },
       {
-        label: "Standards",
-        value: "ISO 3506, DIN, ASTM A193 / A194, BS, BIS, BSW, UNC",
+        label: "Sizes",
+        value:
+          "M2.5 – M72 bolts, nuts, screws, washers and studs · ST2.9 – ST6.3 self-tapping and self-drilling",
       },
-      { label: "Sizes", value: "M3 – M72, subject to item and grade" },
       {
         label: "Finish",
         value: "Self colour, passivated, electropolished, PTFE coated",
@@ -324,10 +326,18 @@ export const ranges: Range[] = [
     finishNote:
       "Shown in bright and yellow zinc — black, hot dip galvanised and geomet to order",
     sheet: [
-      { label: "Grades", value: "Class 4.6, 4.8, 5.8, 8.8 · EN 8, C15, C20" },
+      /* Draft 2: property classes pulled back to 4.6 / 4.8 / 5.6 — 8.8 and
+         above belong to the high tension range. Washers and screws are sized,
+         not property-class rated. */
+      {
+        label: "Grades",
+        value:
+          "Bolts, nuts, studs and threaded rod: class 4.6, 4.8, 5.6 · washers and screws are size-rated, not property-class rated",
+      },
       {
         label: "Standards",
-        value: "IS 1363 / 1364, DIN, ISO 898-1, ANSI B18, BSW, UNC",
+        value:
+          "DIN 933 / 931 (bolts) · DIN 934 (nuts) · DIN 125 (washers) · IS 1364 / 1367",
       },
       { label: "Sizes", value: "M3 – M48 for bolts · nuts to M60" },
       {
@@ -981,13 +991,20 @@ export const ranges: Range[] = [
     finishNote:
       "Shown in black oxide — Dacro, Geomet, zinc flake and HDG to order",
     sheet: [
+      /* Draft 2: HSFG and socket-series classes called out separately. */
       {
         label: "Property class",
-        value: "8.8, 10.9, 12.9, 14.9 · nuts class 8, 10, 12",
+        value:
+          "Bolts 8.8, 10.9, 12.9, 14.9 · nuts class 8, 10, 12 · studs and threaded rod 8.8, 10.9, 12.9 · socket screws 12.9",
+      },
+      {
+        label: "HSFG class",
+        value: "Bolts 8.8S, 10.9S, 12.9S · nuts 8S, 10S, 12S",
       },
       {
         label: "Standards",
-        value: "ISO 898-1, DIN, ANSI / ASME, BS, IS, BSW, UNC",
+        value:
+          "DIN 931 / 933 (bolts) · DIN 934 (nuts) · DIN 912 / ISO 4762 (socket cap) · DIN 913 / 914 / 915 / 916 (set screws) · ISO 4014 / 4017 · ISO 898-1 · BS 1768 · ANSI B18.2.1 / 18.2.2",
       },
       { label: "Material", value: "Alloy and carbon steel, heat treated" },
       /* Finish row added for parity with the other two ranges. */

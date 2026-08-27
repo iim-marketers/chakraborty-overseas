@@ -54,7 +54,8 @@ const info = [
   },
   { label: "Registered address", value: site.contact.address },
   { label: "Working hours", value: site.contact.hours },
-  { label: "Nearest ports", value: site.contact.ports },
+  { label: "Ports", value: site.contact.ports },
+  { label: "Airports", value: site.contact.airports },
 ];
 
 export default function ContactPage() {

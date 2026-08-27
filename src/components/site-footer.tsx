@@ -101,12 +101,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
-          <span>
-            © {new Date().getFullYear()} {site.name} · Kolkata, India
-          </span>
-          <span className="text-steel-light/60">
-            IEC {site.registrations.iec} · GSTIN {site.registrations.gstin}
-          </span>
+          <span>{site.name} · Kolkata, India</span>
         </div>
       </div>
     </footer>
