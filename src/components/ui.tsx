@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/reveal";
 import { site } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 export function SectionHead({
   eyebrow,
@@ -179,12 +180,12 @@ export function CTABand({
         className="object-cover opacity-[0.14]"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/85 to-graphite/40"
+        className="absolute inset-0 bg-linear-to-r from-graphite via-graphite/85 to-graphite/40"
         aria-hidden
       />
       <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
       <div
-        className="absolute left-1/2 top-1/2 h-[300px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[110px]"
+        className="absolute left-1/2 top-1/2 h-75 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[110px]"
         aria-hidden
       />
       <div className="shell relative flex flex-col items-start gap-7 py-16 lg:flex-row lg:items-center lg:justify-between lg:py-20">
@@ -205,6 +206,7 @@ export function CTABand({
             rel="noreferrer"
             className="btn btn-outline-light"
           >
+            <WhatsAppIcon />
             WhatsApp us
           </a>
         </div>

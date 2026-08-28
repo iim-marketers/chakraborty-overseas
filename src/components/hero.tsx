@@ -38,16 +38,16 @@ export function Hero() {
             <Link href="/products" className="btn btn-gold">
               View products
             </Link>
-            <Link href="/contact" className="btn btn-outline-light">
+            <Link href="/contact" className="btn btn-outline-light btn-arrow">
               Get a quote
             </Link>
           </div>
 
           <dl className="mt-11 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/10 pt-7 sm:grid-cols-3">
             {[
-              ["IEC", site.registrations.iec],
-              ["GSTIN", site.registrations.gstin],
-              ["EEPC RCMC", site.registrations.rcmc],
+              ["IEC", "Available"],
+              ["GSTIN", "Available"],
+              ["EEPC RCMC", "Available"],
             ].map(([k, v]) => (
               <div key={k}>
                 <dt className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-gold-light">

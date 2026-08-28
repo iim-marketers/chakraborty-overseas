@@ -18,14 +18,16 @@ export const site = {
     whatsapp: "919831647114",
     address: "Kolkata, West Bengal, India",
     hours: "Monday – Saturday · 10:00 – 19:00 IST (GMT +5:30)",
-    ports: "Kolkata & Haldia · Nhava Sheva for west coast loading",
+    ports:
+      "Kolkata · Haldia · Nhava Sheva (JNPT) · Mundra · Chennai · Tuticorin · Visakhapatnam · Cochin · Kandla · Krishnapatnam",
+    airports: "Kolkata · Chennai · Mumbai · Delhi",
   },
   registrations: {
     iec: "BAXPB6492D",
     gstin: "19BAXPB6492D1Z9",
     rcmc: "Applied for — awaiting issue",
   },
-  incoterms: ["FOB", "CFR", "CIF"],
+  incoterms: ["FOB", "CFR", "CIF", "EXW", "FCA", "CPT", "DAP", "CIP", "DDP"],
   hsHeading: "7318",
   /* GB (Chinese) dropped per the client's punch list; BSW and UNC added. */
   standards: [

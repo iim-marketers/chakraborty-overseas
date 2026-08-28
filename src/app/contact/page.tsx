@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { PageHero } from "@/components/ui";
 import { site } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 export const metadata: Metadata = {
   title: "Contact — Get a Fastener Quote from Kolkata",
@@ -54,7 +55,8 @@ const info = [
   },
   { label: "Registered address", value: site.contact.address },
   { label: "Working hours", value: site.contact.hours },
-  { label: "Nearest ports", value: site.contact.ports },
+  { label: "Ports", value: site.contact.ports },
+  { label: "Airports", value: site.contact.airports },
 ];
 
 export default function ContactPage() {
@@ -126,8 +128,9 @@ export default function ContactPage() {
               href={`https://wa.me/${site.contact.whatsapp}`}
               target="_blank"
               rel="noreferrer"
-              className="btn btn-outline-light mt-8 w-full"
+              className="btn btn-outline-light  mt-8 w-full"
             >
+              <WhatsAppIcon />
               Message on WhatsApp
             </a>
           </div>
