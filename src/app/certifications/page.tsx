@@ -48,7 +48,8 @@ const ours = [
   {
     title: "EEPC RCMC",
     body: "Registration-cum-Membership Certificate with the Engineering Export Promotion Council of India.",
-    value: `RCMC — ${site.registrations.rcmc}`,
+    // value: `RCMC — ${site.registrations.rcmc}`,
+    value: `RCMC — Available`,
   },
 ];
 
