@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { CountrySelect } from "@/components/country-select";
+import type { Country } from "@/lib/countries";
 import { ranges } from "@/lib/products";
 import { site } from "@/lib/site";
 
@@ -23,7 +25,7 @@ const empty: Fields = {
   message: "",
 };
 
-export function EnquiryForm() {
+export function EnquiryForm({ countries }: { countries: Country[] }) {
   const params = useSearchParams();
   const [touched, setTouched] = useState<Partial<Fields>>({});
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
@@ -42,13 +44,15 @@ export function EnquiryForm() {
     ...touched,
   };
 
+  const put = (k: keyof Fields, value: string) => {
+    setTouched((p) => ({ ...p, [k]: value }));
+    setErrors((p) => ({ ...p, [k]: undefined }));
+  };
+
   const set =
     (k: keyof Fields) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      const value = e.target.value;
-      setTouched((p) => ({ ...p, [k]: value }));
-      setErrors((p) => ({ ...p, [k]: undefined }));
-    };
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      put(k, e.target.value);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -93,7 +97,6 @@ export function EnquiryForm() {
           ["name", "Your name", "name"],
           ["company", "Company", "organization"],
           ["email", "Email", "email"],
-          ["country", "Country", "country-name"],
         ] as const
       ).map(([key, label, auto]) => (
         <div key={key} className="flex flex-col gap-2">
@@ -113,6 +116,25 @@ export function EnquiryForm() {
           {errors[key] && <p className="text-[0.72rem] text-copper">{errors[key]}</p>}
         </div>
       ))}
+
+      <div className="flex flex-col gap-2">
+        <label
+          htmlFor="f-country"
+          className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
+        >
+          Country
+        </label>
+        <CountrySelect
+          id="f-country"
+          name="country"
+          value={f.country}
+          onChange={(v) => put("country", v)}
+          countries={countries}
+          invalid={!!errors.country}
+          className={`${field} ${errors.country ? "border-copper" : "border-white/12"}`}
+        />
+        {errors.country && <p className="text-[0.72rem] text-copper">{errors.country}</p>}
+      </div>
 
       <div className="flex flex-col gap-2 sm:col-span-2">
         <label htmlFor="f-range" className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light">

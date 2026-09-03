@@ -335,6 +335,28 @@
   .no-scrollbar {
     scrollbar-width: none;
   }
+
+  /* Panels on the dark palette — dropdowns, scrolling lists. The platform
+     scrollbar draws a bright slab against the graphite, so slim it down and
+     tint the thumb to match. Chromium and Firefox take the standard
+     properties; the -webkit- rules cover the browsers that don't. */
+  .dark-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.2) transparent;
+  }
+  .dark-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 0.2);
+    border-radius: 999px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(255 255 255 / 0.32);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

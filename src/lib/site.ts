@@ -1,7 +1,3 @@
-/**
- * Single source of truth for the business details that appear across the site.
- * Values confirmed by the client in the final punch list (Aug 2026).
- */
 export const site = {
   name: "Chakraborty Overseas",
   tagline: "Trusted. Transparent. Committed.",
@@ -12,7 +8,7 @@ export const site = {
     "Kolkata-based merchant exporter of mild steel, stainless steel and high tension fasteners. Sourced from verified Indian manufacturing partners, checked against your specification and shipped with complete export documentation.",
   contact: {
     email: "exports@chakrabortyoverseas.com",
-    altEmail: "Chakraborty.overeas@gmail.com",
+    // altEmail: "Chakraborty.overseas@gmail.com",
     phone: "+91 98316 47114",
     phoneHref: "+919831647114",
     whatsapp: "919831647114",
@@ -23,9 +19,12 @@ export const site = {
     airports: "Kolkata · Chennai · Mumbai · Delhi",
   },
   registrations: {
-    iec: "BAXPB6492D",
-    gstin: "19BAXPB6492D1Z9",
-    rcmc: "Applied for — awaiting issue",
+    // iec: "BAXPB6492D",
+    // gstin: "19BAXPB6492D1Z9",
+    // rcmc: "Applied for — awaiting issue",
+    iec: "Available",
+    gstin: "Available",
+    rcmc: "Available",
   },
   incoterms: ["FOB", "CFR", "CIF", "EXW", "FCA", "CPT", "DAP", "CIP", "DDP"],
   hsHeading: "7318",
