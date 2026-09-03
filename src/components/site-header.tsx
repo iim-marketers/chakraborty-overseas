@@ -113,7 +113,7 @@ export function SiteHeader() {
                               href={`/products/${r.slug}`}
                               className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-ivory-2"
                             >
-                              <span className="mt-0.5 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-gold-ink">
+                              <span className="mt-1.5 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-gold-ink">
                                 {r.code.replace("Range ", "")}
                               </span>
                               <span>

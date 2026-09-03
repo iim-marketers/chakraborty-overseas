@@ -3,6 +3,16 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { CountrySelect } from "@/components/country-select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import type { Country } from "@/lib/countries";
 import { ranges } from "@/lib/products";
 import { site } from "@/lib/site";
@@ -24,6 +34,14 @@ const empty: Fields = {
   range: ranges[0].shortName,
   message: "",
 };
+
+/* Sizing shared by every control: shadcn ships a compact 32px field, this form
+   wants the roomier rhythm the rest of the site uses. */
+const field =
+  "h-12 rounded-xl px-4 text-[0.95rem] md:text-[0.95rem] dark:bg-white/5";
+
+const labelClass =
+  "font-mono text-[0.6rem] font-normal uppercase tracking-[0.18em] text-steel-light";
 
 export function EnquiryForm({ countries }: { countries: Country[] }) {
   const params = useSearchParams();
@@ -51,11 +69,7 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
 
   const set =
     (k: keyof Fields) =>
-    (
-      e: React.ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >,
-    ) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       put(k, e.target.value);
 
   const submit = (e: React.FormEvent) => {
@@ -91,11 +105,10 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
     setSent(true);
   };
 
-  const field =
-    "w-full rounded-xl border bg-white/5 px-4 py-3 text-[0.95rem] text-ivory outline-none transition-colors placeholder:text-steel focus:border-gold";
-
   return (
-    <form onSubmit={submit} noValidate className="grid gap-5 sm:grid-cols-2">
+    /* `dark` flips the shadcn tokens for the controls — this form always sits
+       on the carbon panel. */
+    <form onSubmit={submit} noValidate className="dark grid gap-5 sm:grid-cols-2">
       {(
         [
           ["name", "Your name", "name"],
@@ -104,13 +117,10 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
         ] as const
       ).map(([key, label, auto]) => (
         <div key={key} className="flex flex-col gap-2">
-          <label
-            htmlFor={`f-${key}`}
-            className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
-          >
+          <Label htmlFor={`f-${key}`} className={labelClass}>
             {label}
-          </label>
-          <input
+          </Label>
+          <Input
             id={`f-${key}`}
             name={key}
             type={key === "email" ? "email" : "text"}
@@ -118,21 +128,18 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
             value={f[key]}
             onChange={set(key)}
             aria-invalid={!!errors[key]}
-            className={`${field} ${errors[key] ? "border-copper" : "border-white/12"}`}
+            className={field}
           />
           {errors[key] && (
-            <p className="text-[0.72rem] text-copper">{errors[key]}</p>
+            <p className="text-[0.72rem] text-destructive">{errors[key]}</p>
           )}
         </div>
       ))}
 
       <div className="flex flex-col gap-2">
-        <label
-          htmlFor="f-country"
-          className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
-        >
+        <Label htmlFor="f-country" className={labelClass}>
           Country
-        </label>
+        </Label>
         <CountrySelect
           id="f-country"
           name="country"
@@ -140,49 +147,44 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           onChange={(v) => put("country", v)}
           countries={countries}
           invalid={!!errors.country}
-          className={`${field} ${errors.country ? "border-copper" : "border-white/12"}`}
+          className={field}
         />
         {errors.country && (
-          <p className="text-[0.72rem] text-copper">{errors.country}</p>
+          <p className="text-[0.72rem] text-destructive">{errors.country}</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2 sm:col-span-2">
-        <label
-          htmlFor="f-range"
-          className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
-        >
+        <Label htmlFor="f-range" className={labelClass}>
           Product interest
-        </label>
-        <select
-          id="f-range"
-          name="range"
-          value={f.range}
-          onChange={set("range")}
-          className={`${field} border-white/12`}
-        >
-          {ranges.map((r) => (
-            <option key={r.slug} value={r.shortName} className="bg-graphite">
-              {r.shortName}
-            </option>
-          ))}
-          <option value="Mixed / multiple ranges" className="bg-graphite">
-            Mixed / multiple ranges
-          </option>
-          <option value="Catalogue request" className="bg-graphite">
-            Catalogue request
-          </option>
-        </select>
+        </Label>
+        <Select value={f.range} onValueChange={(v) => put("range", v)}>
+          <SelectTrigger
+            id="f-range"
+            name="range"
+            className={`${field} w-full data-[size=default]:h-12`}
+          >
+            <SelectValue placeholder="Choose a range" />
+          </SelectTrigger>
+          <SelectContent className="dark rounded-xl">
+            {ranges.map((r) => (
+              <SelectItem key={r.slug} value={r.shortName}>
+                {r.shortName}
+              </SelectItem>
+            ))}
+            <SelectItem value="Mixed / multiple ranges">
+              Mixed / multiple ranges
+            </SelectItem>
+            <SelectItem value="Catalogue request">Catalogue request</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="flex flex-col gap-2 sm:col-span-2">
-        <label
-          htmlFor="f-message"
-          className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
-        >
+        <Label htmlFor="f-message" className={labelClass}>
           Specification, quantity and destination port
-        </label>
-        <textarea
+        </Label>
+        <Textarea
           id="f-message"
           name="message"
           rows={5}
@@ -190,10 +192,10 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           onChange={set("message")}
           placeholder="e.g. M12 x 60 hex bolts, class 8.8, hot dip galvanised, DIN 931 — 20,000 pcs, CIF Jebel Ali"
           aria-invalid={!!errors.message}
-          className={`${field} resize-y ${errors.message ? "border-copper" : "border-white/12"}`}
+          className="min-h-36 resize-y rounded-xl px-4 py-3 text-[0.95rem] md:text-[0.95rem] dark:bg-white/5"
         />
         {errors.message && (
-          <p className="text-[0.72rem] text-copper">{errors.message}</p>
+          <p className="text-[0.72rem] text-destructive">{errors.message}</p>
         )}
       </div>
 

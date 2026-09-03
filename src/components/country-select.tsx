@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import type { Country } from "@/lib/countries";
 
 const fold = (s: string) =>
@@ -107,7 +109,7 @@ export function CountrySelect({
   /* No list to search — the API was unreachable. Degrade to a plain field. */
   if (countries.length === 0) {
     return (
-      <input
+      <Input
         id={id}
         name={name}
         type="text"
@@ -127,7 +129,7 @@ export function CountrySelect({
         if (!e.currentTarget.contains(e.relatedTarget as Node | null)) close();
       }}
     >
-      <input
+      <Input
         ref={inputRef}
         id={id}
         name={name}
@@ -153,7 +155,7 @@ export function CountrySelect({
         onFocus={show}
         onClick={() => !open && show()}
         onKeyDown={onKeyDown}
-        className={`${className} pr-11`}
+        className={cn(className, "pr-11")}
       />
 
       <button
@@ -161,7 +163,7 @@ export function CountrySelect({
         tabIndex={-1}
         aria-hidden
         onClick={() => (open ? close() : (inputRef.current?.focus(), show()))}
-        className="absolute right-0 top-0 flex h-full w-11 items-center justify-center text-steel transition-colors hover:text-gold-light"
+        className="absolute right-0 top-0 flex h-full w-11 items-center justify-center text-muted-foreground transition-colors hover:text-accent-foreground"
       >
         <svg
           width="11"
@@ -187,7 +189,7 @@ export function CountrySelect({
           role="listbox"
           aria-label="Countries"
           onMouseDown={(e) => e.preventDefault()}
-          className="absolute left-0 right-0 top-[calc(100%+0.4rem)] z-45 max-h-[min(16rem,45vh)] overflow-y-auto overscroll-contain dark-scrollbar rounded-xl border border-white/12 bg-graphite py-1 shadow-2xl shadow-black/50 sm:max-h-72"
+          className="absolute left-0 right-0 top-[calc(100%+0.4rem)] z-45 max-h-[min(16rem,45vh)] overflow-y-auto overscroll-contain dark-scrollbar rounded-xl bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 sm:max-h-72"
         >
           {matches.map((c, i) => {
             const selected = c.name === value;
@@ -199,9 +201,10 @@ export function CountrySelect({
                 aria-selected={selected}
                 onMouseMove={() => i !== active && setActive(i)}
                 onClick={() => pick(c)}
-                className={`flex cursor-pointer items-center gap-3 px-4 py-2.5 text-[0.9rem] transition-colors sm:py-2 ${
-                  i === active ? "bg-white/8 text-gold-light" : "text-ivory"
-                }`}
+                className={cn(
+                  "flex cursor-default items-center gap-3 rounded-md px-3 py-2.5 text-[0.9rem] transition-colors select-none sm:py-2",
+                  i === active && "bg-accent text-accent-foreground",
+                )}
               >
                 <span
                   aria-hidden
@@ -211,7 +214,7 @@ export function CountrySelect({
                 </span>
                 <span className="min-w-0 flex-1 truncate">{c.name}</span>
                 {c.code && (
-                  <span className="shrink-0 font-mono text-[0.6rem] tracking-[0.14em] text-steel">
+                  <span className="shrink-0 font-mono text-[0.6rem] tracking-[0.14em] text-muted-foreground">
                     {c.code}
                   </span>
                 )}
@@ -220,7 +223,7 @@ export function CountrySelect({
           })}
 
           {matches.length === 0 && (
-            <li className="px-4 py-3 text-[0.85rem] text-steel-light">
+            <li className="px-3 py-3 text-[0.85rem] text-muted-foreground">
               No match — we will take “{(query ?? value).trim()}” as typed.
             </li>
           )}
