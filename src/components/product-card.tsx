@@ -48,8 +48,6 @@ export function ProductCard({
         </button>
 
         <div className="flex flex-1 flex-col p-5">
-          {/* reserving the usual title + spec height keeps the action on one
-              line across a row, whatever a given line's specs run to */}
           <div className="min-h-31">
             <h3 className="font-display text-[1.02rem] font-semibold tracking-tight text-ink">
               {product.name}

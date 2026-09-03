@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-/** Fades a block in the first time it enters the viewport. */
 export function Reveal({
   children,
   delay = 0,

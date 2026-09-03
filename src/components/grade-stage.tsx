@@ -58,16 +58,6 @@ export function GradeStage() {
   const [active, setActive] = useState(0);
   const bolt = bolts[active];
 
-  // useEffect(() => {
-  //   if (held) return;
-  //   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  //   const id = setTimeout(
-  //     () => setActive((i) => (i + 1) % bolts.length),
-  //     DWELL,
-  //   );
-  //   return () => clearTimeout(id);
-  // }, [active, held]);
-
   return (
     <div>
       {/* ---------------------------- the stage ---------------------------- */}

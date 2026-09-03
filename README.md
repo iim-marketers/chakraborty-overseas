@@ -17,7 +17,7 @@ pnpm start
 | `/` | 3D hero assembly, five ranges, order flow, export packing, industries |
 | `/products` | Range index + standards strip |
 | `/products/[range]` | Spec sheet, filterable/searchable product grid, quick-view modal |
-| `/catalogue` | Downloadable PDF catalogues (master + one per range) |
+| `/catalogue` | Downloadable PDF catalogues (master + one per range) + one-page company profile |
 | `/about` | Mission & vision, how an order runs, pre-shipment inspection |
 | `/certifications` | Registrations held by us vs. by our manufacturing partners |
 | `/contact` | Enquiry form (deep-linkable), contact details, WhatsApp |
@@ -33,7 +33,8 @@ are generated from the same data.
 
 ## Where the content lives
 
-- `src/lib/site.ts` — business details: IEC, GSTIN, RCMC status, emails, phone, ports, standards strip.
+- `src/lib/site.ts` — business details: IEC, GSTIN, RCMC status, emails, phone, ports, standards strip,
+  response time and quoting currency, and the filenames of the two downloads under `public/catalogue/`.
 - `src/lib/products.ts` — every range, group and product line, with the specs shown on the cards.
   This one file drives the range pages, the nav, the sitemap and the PDF catalogues.
 
@@ -74,6 +75,23 @@ The PDFs are built from the same product data, so they never drift from the site
 node --experimental-strip-types scripts/dump-data.mjs   # writes /tmp/co-data.json
 python3 scripts/make-catalogues.py                      # needs pymupdf + pillow
 ```
+
+### Regenerating the one-page company profile
+
+`public/catalogue/chakraborty-overseas-company-profile.pdf` is the sheet procurement teams file when
+they open a vendor record: registrations, the three ranges, standards, supplier certifications,
+Incoterms and contact details on one A4 page. Its source is `docs/company-profile.html` — a
+standalone file with the logo inlined, no build step:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf=public/catalogue/chakraborty-overseas-company-profile.pdf \
+  docs/company-profile.html
+```
+
+Edit the HTML after changing `src/lib/site.ts` or a range in `products.ts`, then re-run the command
+and check the result is still one page.
 
 Product artwork comes from `scripts/art/parts.mjs` — primitives in `primitives.mjs` compose each
 fastener, so a new line means adding one entry there.

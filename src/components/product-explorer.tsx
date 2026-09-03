@@ -10,7 +10,10 @@ export function ProductExplorer({ range }: { range: Range }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState<Product | null>(null);
 
-  const groups = useMemo(() => ["All", ...range.groups.map((g) => g.title)], [range]);
+  const groups = useMemo(
+    () => ["All", ...range.groups.map((g) => g.title)],
+    [range],
+  );
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -33,7 +36,7 @@ export function ProductExplorer({ range }: { range: Range }) {
   return (
     <div>
       {/* controls */}
-      <div className="sticky top-[74px] z-30 -mx-1 mb-10 flex flex-col gap-3 bg-ivory/85 px-1 py-3 backdrop-blur-md lg:flex-row lg:items-center">
+      <div className="sticky top-18.5 z-30 -mx-1 mb-10 flex flex-col gap-3 bg-ivory/85 px-1 py-3 backdrop-blur-md lg:flex-row lg:items-center">
         <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1">
           {groups.map((g) => (
             <button
@@ -61,7 +64,13 @@ export function ProductExplorer({ range }: { range: Range }) {
             fill="none"
             aria-hidden
           >
-            <circle cx="5.5" cy="5.5" r="4.2" stroke="currentColor" strokeWidth="1.4" />
+            <circle
+              cx="5.5"
+              cy="5.5"
+              r="4.2"
+              stroke="currentColor"
+              strokeWidth="1.4"
+            />
             <path d="M8.8 8.8L12 12" stroke="currentColor" strokeWidth="1.4" />
           </svg>
           <input
@@ -75,8 +84,8 @@ export function ProductExplorer({ range }: { range: Range }) {
 
       {total === 0 && (
         <p className="tile px-6 py-10 text-center text-ink/60">
-          Nothing in this range matches “{query}”. We quote non-standard items too — send the
-          specification and we will source it.
+          Nothing in this range matches “{query}”. We quote non-standard items
+          too — send the specification and we will source it.
         </p>
       )}
 
@@ -84,11 +93,17 @@ export function ProductExplorer({ range }: { range: Range }) {
         {visible.map((g) => (
           <section key={g.title}>
             <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t border-line pt-5">
-              <h2 className="font-display text-[1.35rem] font-semibold tracking-tight">{g.title}</h2>
+              <h2 className="font-display text-[1.35rem] font-semibold tracking-tight">
+                {g.title}
+              </h2>
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-steel">
                 {g.items.length} {g.items.length === 1 ? "line" : "lines"}
               </span>
-              {g.note && <p className="basis-full text-[0.86rem] text-ink/55 lg:basis-auto">{g.note}</p>}
+              {g.note && (
+                <p className="basis-full text-[0.86rem] text-ink/55 lg:basis-auto">
+                  {g.note}
+                </p>
+              )}
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -106,7 +121,12 @@ export function ProductExplorer({ range }: { range: Range }) {
         ))}
       </div>
 
-      <QuickView product={open} tone={range.tone} rangeName={range.shortName} onClose={() => setOpen(null)} />
+      <QuickView
+        product={open}
+        tone={range.tone}
+        rangeName={range.shortName}
+        onClose={() => setOpen(null)}
+      />
     </div>
   );
 }

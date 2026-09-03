@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Tilt } from "@/components/tilt";
 import type { Range, Tone } from "@/lib/products";
 
-/** The finish shows in the wash under the artwork, not in the card itself. */
 const wash: Record<Tone, string> = {
   steel: "from-[#E8EEF2]",
   zinc: "from-[#F5EEDF]",
