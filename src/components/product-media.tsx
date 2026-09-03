@@ -2,10 +2,6 @@ import Image from "next/image";
 import { PartArt } from "@/components/part-art";
 import type { Product, Tone } from "@/lib/products";
 
-/**
- * A product photograph on its white plate, falling back to the in-house
- * render when a photograph is not held for that line.
- */
 export function ProductMedia({
   product,
   tone,

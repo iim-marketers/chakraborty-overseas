@@ -1,10 +1,3 @@
-/**
- * Product data. Every entry has been reconciled against the client's final
- * punch list — grade corrections, size limits, added ranges and removed lines
- * are annotated where they matter.
- */
-
-/** Finish the renders are drawn in — matches a folder under /public/art. */
 export type Tone = "steel" | "zinc" | "black";
 
 export type Product = {

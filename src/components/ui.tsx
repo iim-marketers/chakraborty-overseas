@@ -99,7 +99,7 @@ export function SpecSheet({
 }) {
   return (
     <dl
-      className="grid gap-px overflow-hidden rounded-[var(--radius-tile)] border sm:grid-cols-2 lg:grid-cols-3"
+      className="grid gap-px overflow-hidden rounded-tile border sm:grid-cols-2 lg:grid-cols-3"
       style={{
         borderColor: dark ? "rgba(255,255,255,.1)" : "var(--color-line)",
         background: dark ? "rgba(255,255,255,.08)" : "var(--color-line)",
@@ -138,7 +138,7 @@ export function SpecSheet({
 export function StandardsStrip({ dark = false }: { dark?: boolean }) {
   return (
     <div
-      className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-tile)] border sm:grid-cols-4 lg:grid-cols-8"
+      className="grid grid-cols-2 gap-px overflow-hidden rounded-tile border sm:grid-cols-4 lg:grid-cols-8"
       style={{
         borderColor: dark ? "rgba(255,255,255,.1)" : "var(--color-line)",
         background: dark ? "rgba(255,255,255,.08)" : "var(--color-line)",

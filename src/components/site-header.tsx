@@ -9,8 +9,6 @@ import { ranges } from "@/lib/products";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 export function SiteHeader() {
-  /* Menu state is keyed to the route, so a navigation closes both menus
-     without an effect having to reset them. */
   const [openPath, setOpenPath] = useState<string | null>(null);
   const [rangedPath, setRangedPath] = useState<string | null>(null);
   const [stuck, setStuck] = useState(false);
