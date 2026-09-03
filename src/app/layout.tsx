@@ -53,7 +53,14 @@ export const metadata: Metadata = {
     url: site.url,
     title: `${site.name} — Fastener Merchant Exporter, Kolkata`,
     description: site.description,
-    images: [{ url: "/logo-large.png", width: 1024, height: 1024, alt: `${site.name} logo` }],
+    images: [
+      {
+        url: "/logo-large.png",
+        width: 1024,
+        height: 1024,
+        alt: `${site.name} logo`,
+      },
+    ],
   },
   twitter: {
     card: "summary",
@@ -100,7 +107,11 @@ const orgJsonLd = {
   },
   identifier: [
     { "@type": "PropertyValue", name: "IEC", value: site.registrations.iec },
-    { "@type": "PropertyValue", name: "GSTIN", value: site.registrations.gstin },
+    {
+      "@type": "PropertyValue",
+      name: "GSTIN",
+      value: site.registrations.gstin,
+    },
   ],
 };
 
@@ -117,7 +128,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-ivory"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-80 focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-ivory"
         >
           Skip to content
         </a>

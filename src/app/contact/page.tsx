@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
+import { getCountries } from "@/lib/countries";
 import { PageHero } from "@/components/ui";
 import { site } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
@@ -42,11 +43,6 @@ const info = [
     label: "Email",
     value: site.contact.email,
     href: `mailto:${site.contact.email}`,
-  },
-  {
-    label: "Alternate email",
-    value: site.contact.altEmail,
-    href: `mailto:${site.contact.altEmail}`,
   },
   {
     label: "Phone / WhatsApp",
@@ -124,7 +120,7 @@ export default function ContactPage() {
               ))}
             </dl>
 
-            <a
+            {/* <a
               href={`https://wa.me/${site.contact.whatsapp}`}
               target="_blank"
               rel="noreferrer"
@@ -132,33 +128,25 @@ export default function ContactPage() {
             >
               <WhatsAppIcon />
               Message on WhatsApp
-            </a>
+            </a> */}
           </div>
 
           <div className="on-dark bg-carbon p-8 text-ivory lg:p-10">
             <Suspense
               fallback={<p className="text-steel-light">Loading form…</p>}
             >
-              <EnquiryForm />
+              <Enquiry />
             </Suspense>
           </div>
         </div>
-
-        {/* <div className="shell mt-10 grid gap-5 sm:grid-cols-3">
-          {[
-            ["What to include", "Standard, grade, size, finish, quantity and destination port."],
-            ["Response time", "One working day, Monday to Saturday, 10:00 – 19:00 IST."],
-            ["Samples", "Sample pieces can be couriered before a bulk order is placed."],
-          ].map(([t, b], i) => (
-            <Reveal key={t} delay={i * 70}>
-              <div className="h-full rounded-[var(--radius-tile)] border border-line bg-white p-6">
-                <p className="spec-label">{t}</p>
-                <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/70">{b}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div> */}
       </section>
     </>
   );
+}
+
+/* The country list is fetched here so COUNTRIES_API_KEY stays on the server;
+   the Suspense boundary above lets the rest of the page paint meanwhile. */
+async function Enquiry() {
+  const countries = await getCountries();
+  return <EnquiryForm countries={countries} />;
 }
