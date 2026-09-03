@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { InspectionChart } from "@/components/diagrams";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero, SectionHead } from "@/components/ui";
 import { site } from "@/lib/site";
@@ -181,7 +180,6 @@ export default function AboutPage() {
                 aria-hidden
                 className="blueprint-light absolute inset-0 opacity-60"
               />
-              {/* <InspectionChart className="relative w-full" /> */}
             </div>
           </Reveal>
 
