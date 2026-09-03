@@ -28,11 +28,11 @@ const empty: Fields = {
 export function EnquiryForm({ countries }: { countries: Country[] }) {
   const params = useSearchParams();
   const [touched, setTouched] = useState<Partial<Fields>>({});
-  const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>(
+    {},
+  );
   const [sent, setSent] = useState(false);
 
-  /* Deep links from a product card or a range page seed the form; anything the
-     visitor types wins over the seeded value. */
   const product = params.get("product");
   const rangeSlug = params.get("range");
   const f: Fields = {
@@ -51,7 +51,11 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
 
   const set =
     (k: keyof Fields) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >,
+    ) =>
       put(k, e.target.value);
 
   const submit = (e: React.FormEvent) => {
@@ -59,9 +63,11 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
     const next: Partial<Record<keyof Fields, string>> = {};
     if (!f.name.trim()) next.name = "Tell us who you are";
     if (!f.company.trim()) next.company = "Company name, please";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) next.email = "A valid email address, please";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email))
+      next.email = "A valid email address, please";
     if (!f.country.trim()) next.country = "Which country are we shipping to?";
-    if (f.message.trim().length < 12) next.message = "A line on the specification and quantity";
+    if (f.message.trim().length < 12)
+      next.message = "A line on the specification and quantity";
     setErrors(next);
     if (Object.keys(next).length) {
       const first = document.getElementById(`f-${Object.keys(next)[0]}`);
@@ -79,8 +85,6 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
       f.message,
     ].join("\n");
 
-    /* Frontend only for now — the enquiry opens in the buyer's mail client.
-       Wiring this to a CRM / spreadsheet endpoint is a back-end task. */
     window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(
       `Fastener enquiry — ${f.company}`,
     )}&body=${encodeURIComponent(body)}`;
@@ -100,7 +104,10 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
         ] as const
       ).map(([key, label, auto]) => (
         <div key={key} className="flex flex-col gap-2">
-          <label htmlFor={`f-${key}`} className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light">
+          <label
+            htmlFor={`f-${key}`}
+            className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
+          >
             {label}
           </label>
           <input
@@ -113,7 +120,9 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
             aria-invalid={!!errors[key]}
             className={`${field} ${errors[key] ? "border-copper" : "border-white/12"}`}
           />
-          {errors[key] && <p className="text-[0.72rem] text-copper">{errors[key]}</p>}
+          {errors[key] && (
+            <p className="text-[0.72rem] text-copper">{errors[key]}</p>
+          )}
         </div>
       ))}
 
@@ -133,14 +142,25 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           invalid={!!errors.country}
           className={`${field} ${errors.country ? "border-copper" : "border-white/12"}`}
         />
-        {errors.country && <p className="text-[0.72rem] text-copper">{errors.country}</p>}
+        {errors.country && (
+          <p className="text-[0.72rem] text-copper">{errors.country}</p>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 sm:col-span-2">
-        <label htmlFor="f-range" className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light">
+        <label
+          htmlFor="f-range"
+          className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
+        >
           Product interest
         </label>
-        <select id="f-range" name="range" value={f.range} onChange={set("range")} className={`${field} border-white/12`}>
+        <select
+          id="f-range"
+          name="range"
+          value={f.range}
+          onChange={set("range")}
+          className={`${field} border-white/12`}
+        >
           {ranges.map((r) => (
             <option key={r.slug} value={r.shortName} className="bg-graphite">
               {r.shortName}
@@ -156,7 +176,10 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
       </div>
 
       <div className="flex flex-col gap-2 sm:col-span-2">
-        <label htmlFor="f-message" className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light">
+        <label
+          htmlFor="f-message"
+          className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-steel-light"
+        >
           Specification, quantity and destination port
         </label>
         <textarea
@@ -169,7 +192,9 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           aria-invalid={!!errors.message}
           className={`${field} resize-y ${errors.message ? "border-copper" : "border-white/12"}`}
         />
-        {errors.message && <p className="text-[0.72rem] text-copper">{errors.message}</p>}
+        {errors.message && (
+          <p className="text-[0.72rem] text-copper">{errors.message}</p>
+        )}
       </div>
 
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
@@ -177,7 +202,7 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           Send enquiry
         </button>
         <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-steel">
-          We reply within one working day
+          We reply within one working day · Quotes in USD or INR
         </span>
       </div>
 
@@ -187,7 +212,10 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           className="border-l-2 border-gold bg-white/5 px-4 py-3 text-[0.9rem] text-steel-light sm:col-span-2"
         >
           Your enquiry is ready in your mail client. If nothing opened, write to{" "}
-          <a href={`mailto:${site.contact.email}`} className="text-gold-light underline">
+          <a
+            href={`mailto:${site.contact.email}`}
+            className="text-gold-light underline"
+          >
             {site.contact.email}
           </a>{" "}
           or message us on WhatsApp at {site.contact.phone}.

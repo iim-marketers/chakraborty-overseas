@@ -4,7 +4,6 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { getCountries } from "@/lib/countries";
 import { PageHero } from "@/components/ui";
 import { site } from "@/lib/site";
-import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 export const metadata: Metadata = {
   title: "Contact — Get a Fastener Quote from Kolkata",
@@ -49,10 +48,10 @@ const info = [
     value: site.contact.phone,
     href: `tel:${site.contact.phoneHref}`,
   },
-  { label: "Registered address", value: site.contact.address },
+  // { label: "Registered address", value: site.contact.address },
   { label: "Working hours", value: site.contact.hours },
-  { label: "Ports", value: site.contact.ports },
-  { label: "Airports", value: site.contact.airports },
+  { label: "Response time", value: site.contact.responseTime },
+  { label: "Quoting currency", value: site.contact.quoting },
 ];
 
 export default function ContactPage() {
@@ -119,16 +118,6 @@ export default function ContactPage() {
                 </div>
               ))}
             </dl>
-
-            {/* <a
-              href={`https://wa.me/${site.contact.whatsapp}`}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-outline-light  mt-8 w-full"
-            >
-              <WhatsAppIcon />
-              Message on WhatsApp
-            </a> */}
           </div>
 
           <div className="on-dark bg-carbon p-8 text-ivory lg:p-10">
@@ -144,8 +133,6 @@ export default function ContactPage() {
   );
 }
 
-/* The country list is fetched here so COUNTRIES_API_KEY stays on the server;
-   the Suspense boundary above lets the rest of the page paint meanwhile. */
 async function Enquiry() {
   const countries = await getCountries();
   return <EnquiryForm countries={countries} />;

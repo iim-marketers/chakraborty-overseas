@@ -11,7 +11,7 @@ export function SiteFooter() {
         className="absolute -left-32 top-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
         aria-hidden
       />
-      <div className="shell relative py-16">
+      <div className="shell relative py-10">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">

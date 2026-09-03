@@ -14,6 +14,10 @@ export const site = {
     whatsapp: "919831647114",
     address: "Kolkata, West Bengal, India",
     hours: "Monday – Saturday · 10:00 – 19:00 IST (GMT +5:30)",
+    /* Both of these used to live only in the page metadata; buyers in other
+       time zones want them on the page itself, before they write in. */
+    responseTime: "Every enquiry answered within one working day",
+    quoting: "Quotations issued in USD or INR — tell us which you prefer",
     ports:
       "Kolkata · Haldia · Nhava Sheva (JNPT) · Mundra · Chennai · Tuticorin · Visakhapatnam · Cochin · Kandla · Krishnapatnam",
     airports: "Kolkata · Chennai · Mumbai · Delhi",
@@ -25,6 +29,12 @@ export const site = {
     iec: "Available",
     gstin: "Available",
     rcmc: "Available",
+  },
+  /* Files under /public/catalogue. The profile is the one-page vendor
+     pre-qualification sheet; regenerate it from docs/company-profile.html. */
+  downloads: {
+    catalogue: "chakraborty-overseas-catalogue.pdf",
+    profile: "chakraborty-overseas-company-profile.pdf",
   },
   incoterms: ["FOB", "CFR", "CIF", "EXW", "FCA", "CPT", "DAP", "CIP", "DDP"],
   hsHeading: "7318",
