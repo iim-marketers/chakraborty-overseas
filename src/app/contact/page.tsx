@@ -81,7 +81,7 @@ export default function ContactPage() {
             </h2>
             <p className="mt-2 text-[0.88rem] text-steel-light">{site.role}</p>
 
-            <dl className="mt-8 divide-y divide-white/10 border-y border-white/10">
+            <dl className="mt-4 divide-y divide-white/10 border-y border-white/10">
               {info.map((i) => (
                 <div key={i.label} className="py-4">
                   <dt className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-gold-light">
