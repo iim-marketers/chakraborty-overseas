@@ -36,6 +36,15 @@ export function SiteHeader() {
   const active = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  const activeIndex = nav.findIndex((item) => active(item.href));
+  const [lastIndex, setLastIndex] = useState(activeIndex);
+  const [dir, setDir] = useState<"origin-left" | "origin-right">("origin-left");
+  if (lastIndex !== activeIndex) {
+    if (activeIndex !== -1 && lastIndex !== -1)
+      setDir(activeIndex > lastIndex ? "origin-right" : "origin-left");
+    setLastIndex(activeIndex);
+  }
+
   return (
     <>
       <header
@@ -75,13 +84,14 @@ export function SiteHeader() {
               item.href === "/products" ? (
                 <div
                   key={item.href}
-                  className="relative"
+                  className="group relative"
                   onMouseEnter={() => setRangedPath(pathname)}
                   onMouseLeave={() => setRangedPath(null)}
                 >
                   <Link
                     href="/products"
-                    className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.86rem] font-medium transition-colors ${
+                    aria-current={active(item.href) ? "page" : undefined}
+                    className={`relative flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.86rem] font-medium transition-colors ${
                       active(item.href)
                         ? "text-ink"
                         : "text-ink/65 hover:text-ink"
@@ -101,6 +111,14 @@ export function SiteHeader() {
                         strokeWidth="1.4"
                       />
                     </svg>
+                    <span
+                      aria-hidden
+                      className={`pointer-events-none absolute inset-x-3.5 bottom-0.5 h-[2px] rounded-full bg-gold transition-transform duration-300 ease-out-soft ${dir} ${
+                        active(item.href)
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
                   </Link>
                   {ranged && (
                     <div className="absolute left-1/2 top-full w-135 -translate-x-1/2 pt-3">
@@ -135,13 +153,22 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3.5 py-2 text-[0.86rem] font-medium transition-colors ${
+                  aria-current={active(item.href) ? "page" : undefined}
+                  className={`group relative rounded-full px-3.5 py-2 text-[0.86rem] font-medium transition-colors ${
                     active(item.href)
                       ? "text-ink"
                       : "text-ink/65 hover:text-ink"
                   }`}
                 >
                   {item.label}
+                  <span
+                    aria-hidden
+                    className={`pointer-events-none absolute inset-x-3.5 bottom-0.5 h-0.5 rounded-full bg-gold transition-transform duration-300 ease-out-soft ${dir} ${
+                      active(item.href)
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
                 </Link>
               ),
             )}
