@@ -1,10 +1,19 @@
 import type { MetadataRoute } from "next";
+import { legalDocs } from "@/lib/legal";
 import { ranges } from "@/lib/products";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["", "/products", "/catalogue", "/about", "/certifications", "/contact"];
+  const pages = [
+    "",
+    "/products",
+    "/catalogue",
+    "/about",
+    "/certifications",
+    "/contact",
+    "/legal",
+  ];
   return [
     ...pages.map((p) => ({
       url: `${site.url}${p}`,
@@ -17,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    ...legalDocs.map((d) => ({
+      url: `${site.url}/legal/${d.slug}`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
     })),
   ];
 }
