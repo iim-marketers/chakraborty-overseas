@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { ranges } from "@/lib/products";
+import { legalDocs } from "@/lib/legal";
 
 export function SiteFooter() {
   return (
@@ -100,8 +101,19 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
           <span>{site.name} · Kolkata, India</span>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {legalDocs.map((d) => (
+              <Link
+                key={d.slug}
+                href={`/legal/${d.slug}`}
+                className="transition-colors hover:text-white"
+              >
+                {d.shortTitle}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

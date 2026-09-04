@@ -113,7 +113,7 @@ export function SiteHeader() {
                     </svg>
                     <span
                       aria-hidden
-                      className={`pointer-events-none absolute inset-x-3.5 bottom-0.5 h-[2px] rounded-full bg-gold transition-transform duration-300 ease-out-soft ${dir} ${
+                      className={`pointer-events-none absolute inset-x-3.5 bottom-0.5 h-0.5 rounded-full bg-gold transition-transform duration-300 ease-out-soft ${dir} ${
                         active(item.href)
                           ? "scale-x-100"
                           : "scale-x-0 group-hover:scale-x-100"
