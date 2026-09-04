@@ -32,40 +32,39 @@ export default function LegalIndexPage() {
 
       <section className="py-12 lg:py-16">
         <div className="shell">
-          <Reveal>
-            <div className="mt-8 grid gap-px overflow-hidden rounded-tile border border-line bg-line sm:grid-cols-2">
-              {legalDocs.map((doc, i) => (
-                <Reveal key={doc.slug} delay={i * 70}>
-                  <Link
-                    href={`/legal/${doc.slug}`}
-                    className="group relative flex h-full flex-col overflow-hidden bg-white p-7 transition-colors duration-300 hover:bg-ivory-2 sm:p-8"
-                  >
-                    {/* the gold rule the desktop nav uses, borrowed as a hover tell */}
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gold transition-transform duration-500 ease-out-soft group-hover:scale-x-100"
-                    />
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gold/0 blur-2xl transition-colors duration-500 group-hover:bg-gold/15"
-                    />
+          <div className="mt-8 grid gap-px overflow-hidden rounded-tile border border-line bg-line sm:grid-cols-2">
+            {legalDocs.map((doc, i) => (
+              <Reveal key={doc.slug} delay={i * 70}>
+                <Link
+                  href={`/legal/${doc.slug}`}
+                  className="group relative flex h-full flex-col overflow-hidden bg-white p-7 transition-colors duration-300 hover:bg-ivory-2 sm:p-8"
+                >
+                  {/* the gold rule the desktop nav uses, borrowed as a hover tell */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gold transition-transform duration-500 ease-out-soft group-hover:scale-x-100"
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gold/0 blur-2xl transition-colors duration-500 group-hover:bg-gold/15"
+                  />
 
-                    {/* <div className="mb-7 flex items-start justify-between gap-4">
+                  {/* <div className="mb-7 flex items-start justify-between gap-4">
                     {glyphs[doc.slug]}
                     <span className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-steel">
                       {String(i + 1).padStart(2, "0")} / {total}
                     </span>
                   </div> */}
 
-                    <p className="spec-label">{doc.eyebrow}</p>
-                    <h2 className="mt-2 font-display text-[1.3rem] font-semibold tracking-tight transition-colors group-hover:text-gold-ink">
-                      {doc.title}
-                    </h2>
-                    <p className="mt-3 max-w-[46ch] text-[0.9rem] leading-relaxed text-ink/65 text-pretty">
-                      {doc.summary}
-                    </p>
+                  <p className="spec-label">{doc.eyebrow}</p>
+                  <h2 className="mt-2 font-display text-[1.3rem] font-semibold tracking-tight transition-colors group-hover:text-gold-ink">
+                    {doc.title}
+                  </h2>
+                  <p className="mt-3 max-w-[46ch] text-[0.9rem] leading-relaxed text-ink/65 text-pretty">
+                    {doc.summary}
+                  </p>
 
-                    {/* <div className="mt-auto flex items-center justify-between gap-4 border-t border-line-soft pt-5 font-mono text-[0.6rem] uppercase tracking-[0.16em]">
+                  {/* <div className="mt-auto flex items-center justify-between gap-4 border-t border-line-soft pt-5 font-mono text-[0.6rem] uppercase tracking-[0.16em]">
                     <span className="flex items-center gap-2 text-gold-ink">
                       Read
                       <span
@@ -79,11 +78,10 @@ export default function LegalIndexPage() {
                       {doc.sections.length} sections
                     </span>
                   </div> */}
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </Reveal>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <div className="shell mt-10">
