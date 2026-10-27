@@ -3,6 +3,7 @@ import { statSync } from "node:fs";
 import path from "node:path";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero } from "@/components/ui";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Download the Chakraborty Overseas fastener catalogue: the complete range sheet, or an individual catalogue for stainless steel, mild steel or high tension and precision fasteners. A one-page company profile for vendor pre-qualification is here too.",
   alternates: { canonical: "/catalogue" },
   openGraph: {
+    ...openGraphBase,
     title: "Download Catalogue · Chakraborty Overseas",
     description:
       "Range sheets with grades, standards, sizes and finishes for every fastener range we export.",

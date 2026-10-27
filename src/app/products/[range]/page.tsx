@@ -6,6 +6,7 @@ import { ProductExplorer } from "@/components/product-explorer";
 import { Reveal } from "@/components/reveal";
 import { CTABand, SpecSheet } from "@/components/ui";
 import { ranges, rangeBySlug } from "@/lib/products";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -31,6 +32,7 @@ export async function generateMetadata({
       ),
     ],
     openGraph: {
+      ...openGraphBase,
       title: `${range.name} · ${site.name}`,
       description: range.intro,
       url: `/products/${range.slug}`,

@@ -337,7 +337,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "3. What the website collects",
         blocks: [
           "Nothing in the background. There is no account, no login, no newsletter sign-up and no payment on this Site, and the catalogue and company profile download without asking who you are. The only personal information the Site takes is what you type into the enquiry form and choose to send.",
-          "The Site is hosted by Vercel Inc., in the United States. As with any website, the servers that deliver these pages record ordinary technical connection data — IP address, browser and device type, the page requested and the time. Vercel keeps these logs briefly to deliver the site and to defend it against abuse. When you send the enquiry form, your IP address is also checked for a few minutes to block repeated automated submissions. We do not use any of this to build a profile of you or try to identify you from it.",
+          "The Site is hosted by Hostinger, on servers in India. As with any website, the servers that deliver these pages record ordinary technical connection data — IP address, browser and device type, the page requested and the time. Hostinger keeps these logs briefly to deliver the site and to defend it against abuse. When you send the enquiry form, your IP address is also checked for a few minutes to block repeated automated submissions. We do not use any of this to build a profile of you or try to identify you from it.",
         ],
       },
       {
@@ -371,7 +371,7 @@ export const legalDocs: readonly LegalDoc[] = [
         blocks: [
           "Only the parties an export actually requires, and only the part of it they need:",
           [
-            "the providers that run this Site and our email on our behalf — Vercel Inc. (hosting) and Resend, Inc. (delivery of enquiry-form emails), both in the United States, and our business email provider",
+            "the providers that run this Site and our email on our behalf — Hostinger (hosting, in India), Resend, Inc. (delivery of enquiry-form emails, in the United States) and our business email provider",
             "the manufacturing unit producing your goods — the specification, quantity and delivery date",
             "freight forwarders, customs house agents, shipping lines and airlines — consignee and shipping details, as the documents require",
             "any inspection agency you have appointed",
@@ -387,7 +387,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "7. Where it goes",
         blocks: [
           "We are in India and you are, in all likelihood, not. Corresponding with us and buying from us necessarily moves your information to India, and moves shipping details onward to the carriers and authorities in the destination country. That transfer is inherent in the transaction you are asking for.",
-          "Information also passes through the United States on its way to us. The Site's server logs are held by Vercel Inc., and enquiry-form emails are delivered by Resend, Inc., both US companies.",
+          "The Site's server logs are held in India by Hostinger. Enquiry-form emails pass through the United States on their way to us, because they are delivered by Resend, Inc., a US company.",
           "Where the GDPR applies, we rely on the necessity of the transfer for the performance of the contract with you, or for pre-contractual steps you have requested. Ask us if you need a different arrangement in place before you correspond.",
         ],
       },

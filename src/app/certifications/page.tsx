@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero } from "@/components/ui";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     "Chakraborty Overseas holds an IEC, a GSTIN and an EEPC RCMC — copies available with the quotation. Manufacturing certifications, mill test certificates and third-party inspection belong to our sourcing partners.",
   alternates: { canonical: "/certifications" },
   openGraph: {
+    ...openGraphBase,
     title: "Certifications · Chakraborty Overseas",
     description:
       "Exporter registrations held by us, and the manufacturing certifications held by our partners.",

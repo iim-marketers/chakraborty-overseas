@@ -10,6 +10,7 @@ import {
   legalIdentity,
   type LegalBlock,
 } from "@/lib/legal";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -28,6 +29,7 @@ export async function generateMetadata({
     description: doc.summary,
     alternates: { canonical: `/legal/${doc.slug}` },
     openGraph: {
+      ...openGraphBase,
       title: `${doc.title} · ${site.name}`,
       description: doc.summary,
       url: `/legal/${doc.slug}`,

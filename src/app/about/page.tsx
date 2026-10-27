@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero, SectionHead } from "@/components/ui";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     "Chakraborty Overseas is a Kolkata merchant exporter of fasteners. Our mission, vision, the sequence every order follows, and how consignments are packed for sea freight.",
   alternates: { canonical: "/about" },
   openGraph: {
+    ...openGraphBase,
     title: "About · Chakraborty Overseas",
     description:
       "Mission and vision, the order sequence from specification to bill of lading, and our export packing standard.",

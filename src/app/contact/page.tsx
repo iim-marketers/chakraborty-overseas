@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { getCountries } from "@/lib/countries";
 import { PageHero } from "@/components/ui";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Send your fastener specification and quantity to Chakraborty Overseas, Kolkata. Email exports@chakrabortyoverseas.com or WhatsApp +91 98316 47114. We reply within one working day.",
   alternates: { canonical: "/contact" },
   openGraph: {
+    ...openGraphBase,
     title: "Contact · Chakraborty Overseas",
     description:
       "Send the specification and quantity — we reply within one working day.",

@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Ticker } from "@/components/ticker";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -45,27 +46,13 @@ export const metadata: Metadata = {
   authors: [{ name: site.name }],
   creator: site.name,
   publisher: site.name,
-  alternates: { canonical: "/" },
   openGraph: {
-    type: "website",
-    siteName: site.name,
-    locale: "en_IN",
-    url: site.url,
+    ...openGraphBase,
     title: `${site.name} — Fastener Merchant Exporter, Kolkata`,
     description: site.description,
-    images: [
-      {
-        url: "/logo-large.png",
-        width: 1024,
-        height: 1024,
-        alt: `${site.name} logo`,
-      },
-    ],
   },
   twitter: {
     card: "summary",
-    title: `${site.name} — Fastener Merchant Exporter, Kolkata`,
-    description: site.description,
     images: ["/logo-large.png"],
   },
   icons: {
