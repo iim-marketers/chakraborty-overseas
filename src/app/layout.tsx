@@ -101,18 +101,12 @@ const orgJsonLd = {
   telephone: site.contact.phone,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Kolkata",
-    addressRegion: "West Bengal",
-    addressCountry: "IN",
+    streetAddress: site.contact.postal.street,
+    addressLocality: site.contact.postal.locality,
+    postalCode: site.contact.postal.postcode,
+    addressRegion: site.contact.postal.region,
+    addressCountry: site.contact.postal.country,
   },
-  identifier: [
-    { "@type": "PropertyValue", name: "IEC", value: site.registrations.iec },
-    {
-      "@type": "PropertyValue",
-      name: "GSTIN",
-      value: site.registrations.gstin,
-    },
-  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

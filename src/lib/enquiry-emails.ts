@@ -233,7 +233,7 @@ const steps = [
   ],
   [
     "Written quotation",
-    "You receive a quotation in USD or INR with Incoterms, lead time and export packing spelled out.",
+    "You receive a quotation in USD, EUR, GBP or INR with Incoterms, lead time and export packing spelled out.",
   ],
 ];
 

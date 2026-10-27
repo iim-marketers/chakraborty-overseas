@@ -30,9 +30,11 @@ const jsonLd = {
     telephone: site.contact.phone,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Kolkata",
-      addressRegion: "West Bengal",
-      addressCountry: "IN",
+      streetAddress: site.contact.postal.street,
+      addressLocality: site.contact.postal.locality,
+      postalCode: site.contact.postal.postcode,
+      addressRegion: site.contact.postal.region,
+      addressCountry: site.contact.postal.country,
     },
   },
 };
@@ -48,7 +50,7 @@ const info = [
     value: site.contact.phone,
     href: `tel:${site.contact.phoneHref}`,
   },
-  // { label: "Registered address", value: site.contact.address },
+  { label: "Registered address", value: site.contact.address },
   { label: "Working hours", value: site.contact.hours },
   { label: "Response time", value: site.contact.responseTime },
   { label: "Quoting currency", value: site.contact.quoting },

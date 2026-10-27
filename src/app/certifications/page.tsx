@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Certifications — IEC, GSTIN & Supplier Accreditation",
   description:
-    "Chakraborty Overseas holds IEC BAXPB6492D and GSTIN 19BAXPB6492D1Z9, with EEPC RCMC applied for. Manufacturing certifications, mill test certificates and third-party inspection belong to our sourcing partners.",
+    "Chakraborty Overseas holds an IEC, a GSTIN and an EEPC RCMC — copies available with the quotation. Manufacturing certifications, mill test certificates and third-party inspection belong to our sourcing partners.",
   alternates: { canonical: "/certifications" },
   openGraph: {
     title: "Certifications · Chakraborty Overseas",
@@ -48,8 +48,7 @@ const ours = [
   {
     title: "EEPC RCMC",
     body: "Registration-cum-Membership Certificate with the Engineering Export Promotion Council of India.",
-    // value: `RCMC — ${site.registrations.rcmc}`,
-    value: `RCMC — Available`,
+    value: `RCMC ${site.registrations.rcmc}`,
   },
 ];
 
@@ -140,20 +139,24 @@ export default function CertificationsPage() {
 
         <div className="shell mt-10">
           <Reveal>
-            <div className="grid gap-6 rounded-tile border border-line bg-white p-8 sm:grid-cols-3">
+            <div className="grid gap-6 rounded-tile border border-line bg-white p-8 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 [
                   "Documents issued with every shipment",
-                  "Commercial invoice · Packing list · Certificate of origin · Mill test certificates · Bill of lading",
+                  "Commercial invoice · Packing list · Certificate of origin · Mill test certificates · Bill of lading or airway bill",
                 ],
                 [
                   "Payment terms",
                   "Advance, LC at sight and negotiated terms for repeat buyers",
                 ],
+                ["Quoting currency", "USD · EUR · GBP · INR"],
                 [
                   "Incoterms",
-                  site.incoterms.join(" · ") +
-                    " · Loading at Kolkata, Haldia or Nhava Sheva",
+                  `${site.incoterms.join(" · ")} · ${site.incotermsOnRequest.join(" and ")} on request`,
+                ],
+                [
+                  "Loading",
+                  `Sea: ${site.contact.ports} · Air: ${site.contact.airports}`,
                 ],
               ].map(([t, b]) => (
                 <div key={t}>
@@ -170,7 +173,7 @@ export default function CertificationsPage() {
 
       <CTABand
         title="Need our documents up front?"
-        body="We can send the IEC and GST registration copies with the quotation — just ask when you enquire."
+        body="We can send the IEC, GST and RCMC registration copies with the quotation — just ask when you enquire."
       />
     </>
   );

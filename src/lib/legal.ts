@@ -3,10 +3,19 @@ import { site } from "@/lib/site";
 export const legalTerms = {
   quotationValidityDays: 15,
   claimNoticeDays: 15,
+  latentDefectNoticeDays: 90,
+  latePaymentInterest: "12% a year",
   jurisdiction: "Kolkata, West Bengal, India",
   arbitrationSeat: "Kolkata",
-  effective: "4 September 2026",
+  effective: "27 October 2026",
 } as const;
+
+export const legalIdentity = `${site.name}, a ${site.legalForm} registered in India · Registered address: ${site.contact.address} · IEC, GSTIN and EEPC RCMC available on request`;
+
+const listOf = (items: string, last = "or") => {
+  const parts = items.split(" · ");
+  return `${parts.slice(0, -1).join(", ")} ${last} ${parts[parts.length - 1]}`;
+};
 
 export type LegalBlock = string | readonly string[];
 
@@ -43,7 +52,8 @@ export const legalDocs: readonly LegalDoc[] = [
         id: "who-we-are",
         heading: "1. Who we are",
         blocks: [
-          `This website at ${site.url} (the "Site") is operated by ${site.name}, a merchant exporter of industrial fasteners registered in India and based in ${site.contact.address}. "We", "us" and "our" mean ${site.name}. "You" means the person or business using the Site.`,
+          `This website at ${site.url} (the "Site") is operated by ${site.name}, a ${site.legalForm} registered in India that trades as a merchant exporter of industrial fasteners, with its registered address at ${site.contact.address}. "We", "us" and "our" mean ${site.name}. "You" means the person or business using the Site.`,
+          "Our Importer Exporter Code (IEC), GST registration (GSTIN) and EEPC Registration-cum-Membership Certificate (RCMC) are available on request, and copies can be sent with any quotation.",
           "By using the Site you accept these terms. If you do not accept them, please do not use the Site.",
         ],
       },
@@ -74,7 +84,6 @@ export const legalDocs: readonly LegalDoc[] = [
             "scrape, harvest or bulk-download the Site by automated means, or use it to build a competing catalogue or a dataset for resale",
             "use our name, logo or product listings in a way that suggests you manufacture, own or represent our goods without our written agreement",
             "attempt to gain unauthorised access to the Site or the systems it runs on, or interfere with its availability for others",
-            "send us enquiries that are fraudulent, misleading, or intended to obtain a quotation you have no intention of acting on",
           ],
         ],
       },
@@ -152,7 +161,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "2. Quotations and validity",
         blocks: [
           `Unless the quotation says otherwise, it is valid for ${legalTerms.quotationValidityDays} days from its date. Fastener prices follow steel and fastener-grade wire rod, so a lapsed quotation has to be re-priced rather than simply extended.`,
-          "Quotations are issued in USD or INR, on the Incoterm stated, and are subject to the material being available at the manufacturing unit at the time of order confirmation.",
+          "Quotations are issued in USD, EUR, GBP or INR, as you prefer, on the Incoterm stated, and are subject to the material being available at the manufacturing unit at the time of order confirmation.",
           "A quotation is priced against the specification recorded on it — standard, grade, size, finish, packing and quantity. Any change to those is a new enquiry.",
         ],
       },
@@ -177,7 +186,9 @@ export const legalDocs: readonly LegalDoc[] = [
         id: "price-duties",
         heading: "5. Price, taxes and duties",
         blocks: [
-          `Prices are quoted on one of the Incoterms we work to (${site.incoterms.join(", ")}), interpreted in accordance with Incoterms 2020.`,
+          `Prices are quoted on one of the Incoterms we work to as standard (${site.incoterms.join(", ")}), interpreted in accordance with Incoterms 2020.`,
+          `${site.incotermsOnRequest.join(" and ")} are available on request only, and must be agreed in writing before we quote on them. Under EXW you take on Indian export clearance yourself; under DDP we take on duty, taxes and formalities in your country, which we can do only where the destination allows it.`,
+          "Where we sell CIF, we insure the goods on Institute Cargo Clauses (C); where we sell CIP, on Institute Cargo Clauses (A) — in each case for 110% of the invoice value, as Incoterms 2020 provides. Wider cover, including war and strikes risks, can be added at your cost if you ask for it before shipment.",
           "Import duty, customs clearance, port charges, local taxes and any levy in the destination country are yours unless the agreed Incoterm places them on us.",
           "Bank charges outside India are for your account. Charges levied by our bank in India are for ours.",
         ],
@@ -189,6 +200,7 @@ export const legalDocs: readonly LegalDoc[] = [
           "We work on advance payment, on an irrevocable letter of credit at sight, or on terms negotiated for buyers with an established record with us. The accepted proforma invoice records which applies.",
           "Title to the goods passes only when we have received payment in full. Risk passes at the point set by the agreed Incoterm, which may be earlier.",
           "Where payment is delayed, we may hold shipment or documents until it is received, and any resulting storage, demurrage or detention is for your account.",
+          `Where we have agreed credit terms, any amount unpaid on its due date carries interest at ${legalTerms.latePaymentInterest}, calculated daily from the due date until payment is received in full.`,
         ],
       },
       {
@@ -196,7 +208,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "7. Delivery and lead time",
         blocks: [
           "Lead times quoted are working estimates from the date of order confirmation. They depend on the manufacturing unit's production queue and on vessel or flight availability, and they are not conditions of the contract unless we have agreed a fixed date in writing.",
-          `Loading is from ${site.contact.ports.split(" · ").slice(0, 3).join(", ")} or another port we have agreed. Partial shipment is permitted unless the accepted order or the letter of credit prohibits it.`,
+          `Sea freight loads at ${listOf(site.contact.ports)}. Air freight leaves from ${listOf(site.contact.airports)}. Another port or airport can be used where we have agreed it. Partial shipment is permitted unless the accepted order or the letter of credit prohibits it.`,
           "We are not liable for delay caused by the carrier, by port or customs congestion, or by any authority in India or in the destination country.",
         ],
       },
@@ -209,8 +221,18 @@ export const legalDocs: readonly LegalDoc[] = [
         ],
       },
       {
+        id: "packing",
+        heading: "9. Packing and marking",
+        blocks: [
+          "Unless we agree otherwise, goods are packed for export: oiled or VCI-protected in moisture-resistant liners, in export-grade cartons that are palletised, strapped and stretch-wrapped, or in wooden cases where weight or the destination calls for it.",
+          "Wooden pallets, cases and dunnage are ISPM-15 heat-treated and stamped. Where the destination also requires a fumigation certificate, we arrange it and send it with the shipping documents.",
+          "Each carton is marked with the item, size, standard and grade, heat or batch number, quantity, and net and gross weight, together with any shipping marks you give us. The packing list is matched carton by carton to the invoice.",
+          "Special packing, retail packs or marking beyond this must be agreed at order confirmation and may be priced separately.",
+        ],
+      },
+      {
         id: "documents",
-        heading: "9. Export documentation",
+        heading: "10. Export documentation",
         blocks: [
           "Unless we agree otherwise, each consignment is documented with:",
           [
@@ -225,26 +247,27 @@ export const legalDocs: readonly LegalDoc[] = [
       },
       {
         id: "claims",
-        heading: "10. Shortages, damage and claims",
+        heading: "11. Shortages, damage and claims",
         blocks: [
-          `Check the consignment on arrival. Any claim for shortage, damage or non-conformity must reach us in writing within ${legalTerms.claimNoticeDays} days of the goods arriving at the destination port or airport, with photographs, the packing list reference and the heat number from the mill test certificate.`,
+          `Check the consignment on arrival. Any claim for shortage, visible damage or a non-conformity that inspection on arrival would reveal must reach us in writing within ${legalTerms.claimNoticeDays} days of the goods arriving at the destination port or airport, with photographs, the packing list reference and the heat number from the mill test certificate.`,
+          `A latent defect — one that could not reasonably have been found on inspection at arrival, such as incorrect hardness, hydrogen embrittlement or coating failure — must be notified in writing within ${legalTerms.latentDefectNoticeDays} days of arrival. The claim is assessed against the standard and the mill test certificate supplied with the goods, so send the heat number and a test report or other evidence showing where the goods depart from them.`,
           "Do not return, rework or dispose of goods under claim without our written authorisation — doing so makes the claim impossible to verify with the manufacturer.",
           "Loss or damage in transit is a claim against the carrier or the cargo insurer, not against us, where risk had already passed under the agreed Incoterm.",
         ],
       },
       {
         id: "warranty",
-        heading: "11. Warranty and remedy",
+        heading: "12. Warranty and remedy",
         blocks: [
           "We warrant that the goods conform to the specification on the accepted proforma invoice and to the mill test certificate supplied with them. We give no other warranty, express or implied.",
-          "Where a claim is accepted, our remedy is, at our option, replacement of the non-conforming goods on the next consignment or a credit for their invoice value. Our total liability for any order is limited to the invoice value of that order.",
+          "Where a claim is accepted, our remedy is replacement of the non-conforming goods on the next consignment or refund of their invoice value. If you have further orders with us, we may agree a credit against the next one instead. Our total liability for any order is limited to the invoice value of that order.",
           "We are not liable for indirect or consequential loss, including loss of profit, loss of contract, downtime, or the cost of removing or refitting installed goods.",
           "Selecting the right grade, class, coating and size for your application is an engineering decision that rests with you and your engineer. We supply to the specification you give us; we do not certify its fitness for your purpose.",
         ],
       },
       {
         id: "force-majeure",
-        heading: "12. Force majeure",
+        heading: "13. Force majeure",
         blocks: [
           "Neither of us is liable for failure or delay caused by something outside reasonable control — including war, civil unrest, sanctions, epidemic, flood or cyclone, fire, strike or labour action, raw material or power failure at the manufacturing unit, port closure, carrier failure, or an act of any government or authority.",
           "If the event continues for more than 90 days, either of us may cancel the affected part of the order, and we will refund any advance for goods not shipped.",
@@ -252,7 +275,7 @@ export const legalDocs: readonly LegalDoc[] = [
       },
       {
         id: "compliance",
-        heading: "13. Export control and compliance",
+        heading: "14. Export control and compliance",
         blocks: [
           "Every shipment is made subject to the Foreign Trade Policy of India and to Indian customs and exchange control law.",
           "You confirm that you will not re-export or divert the goods in breach of any applicable sanctions or export control regime, and that neither you nor the ultimate consignee is a party designated under one. We may decline or cancel an order where compliance is in doubt, and we will refund any advance received for it.",
@@ -260,17 +283,18 @@ export const legalDocs: readonly LegalDoc[] = [
       },
       {
         id: "cancellation",
-        heading: "14. Cancellation",
+        heading: "15. Cancellation",
         blocks: [
+          "If you cancel an order before material has been allotted at the manufacturing unit, we refund any advance you have paid, less the bank charges incurred in receiving and returning it.",
           "Once material has been allotted or production started at the manufacturing unit, an order cannot be cancelled without covering the costs already committed. Goods made to a non-standard size, grade or finish are not cancellable at all.",
         ],
       },
       {
         id: "law",
-        heading: "15. Governing law and disputes",
+        heading: "16. Governing law and disputes",
         blocks: [
           `These terms and every contract under them are governed by the laws of India.`,
-          `We will try to settle any dispute by discussion first. Failing that, the dispute shall be referred to arbitration by a sole arbitrator under the Arbitration and Conciliation Act, 1996, seated at ${legalTerms.arbitrationSeat}, conducted in English. Subject to that, the courts at ${legalTerms.jurisdiction} have exclusive jurisdiction.`,
+          `We will try to settle any dispute by discussion first. Failing that, the dispute shall be referred to arbitration by a sole arbitrator, appointed by mutual agreement or, failing agreement, under Section 11 of the Arbitration and Conciliation Act, 1996. The arbitration is held under that Act, seated at ${legalTerms.arbitrationSeat}, conducted in English. Subject to that, the courts at ${legalTerms.jurisdiction} have exclusive jurisdiction.`,
         ],
       },
     ],
@@ -283,8 +307,8 @@ export const legalDocs: readonly LegalDoc[] = [
     shortTitle: "Privacy Policy",
     eyebrow: "Privacy",
     summary:
-      "What happens to your information when you use this site or send us an enquiry. Short version: the site itself collects nothing.",
-    lede: "This site sets no cookies, runs no analytics and has no tracking pixels. The enquiry form does not send anything to us — it opens your own email client with the message drafted, and you decide whether to send it.",
+      "What happens to your information when you use this site or send us an enquiry. Short version: no cookies, no tracking, and nothing beyond what you choose to send us.",
+    lede: "This site sets no cookies, runs no analytics and has no tracking pixels. The only personal information it takes is what you type into the enquiry form and choose to send — that goes to our inbox, and a copy comes back to you.",
     updated: legalTerms.effective,
     sections: [
       {
@@ -294,7 +318,7 @@ export const legalDocs: readonly LegalDoc[] = [
           "We are an exporter, not an advertising business. We hold what you send us in order to quote and to ship, and nothing beyond that.",
           [
             "The Site sets no cookies and runs no analytics, advertising or social tracking scripts.",
-            "The enquiry form runs entirely in your browser. It composes an email and hands it to your email application; nothing is transmitted to us until you press send there.",
+            "The enquiry form sends what you type to our inbox by email, and emails you a confirmation copy. Nothing is sent until you press the send button, and it is used only to answer your enquiry.",
             "Typefaces are served from this Site, not from a font network, so browsing does not report you to a third party.",
             "We do not sell, rent or trade personal information. Ever.",
           ],
@@ -312,15 +336,15 @@ export const legalDocs: readonly LegalDoc[] = [
         id: "what-we-collect",
         heading: "3. What the website collects",
         blocks: [
-          "Directly, nothing. There is no account, no login, no newsletter sign-up and no payment on this Site, and the catalogue and company profile download without asking who you are.",
-          "As with any website, the server that delivers these pages records ordinary technical connection data — IP address, browser and device type, the page requested and the time. Our hosting provider keeps these logs briefly to deliver the site and to defend it against abuse. We do not use them to build a profile of you or try to identify you from them.",
+          "Nothing in the background. There is no account, no login, no newsletter sign-up and no payment on this Site, and the catalogue and company profile download without asking who you are. The only personal information the Site takes is what you type into the enquiry form and choose to send.",
+          "The Site is hosted by Vercel Inc., in the United States. As with any website, the servers that deliver these pages record ordinary technical connection data — IP address, browser and device type, the page requested and the time. Vercel keeps these logs briefly to deliver the site and to defend it against abuse. When you send the enquiry form, your IP address is also checked for a few minutes to block repeated automated submissions. We do not use any of this to build a profile of you or try to identify you from it.",
         ],
       },
       {
         id: "what-you-send",
         heading: "4. What you send us",
         blocks: [
-          "When you write to us — through the enquiry form's draft email, or directly by email, WhatsApp or telephone — we receive what you chose to put in the message. Typically that is:",
+          "When you write to us — through the enquiry form, or directly by email, WhatsApp or telephone — we receive what you chose to put in the message. Typically that is:",
           [
             "your name and your company",
             "your email address, and your telephone or WhatsApp number if you use them",
@@ -328,6 +352,7 @@ export const legalDocs: readonly LegalDoc[] = [
             "the specification, grade, quantity and delivery terms you are asking about",
             "anything else you add, including the correspondence that follows",
           ],
+          "Enquiry-form messages, and the confirmation copy sent back to you, are delivered by Resend, an email delivery service operated by Resend, Inc. in the United States.",
           "If an order results, we will also hold the commercial and shipping details needed to execute and document it, including consignee details and the bank references your payment method requires.",
         ],
       },
@@ -346,6 +371,7 @@ export const legalDocs: readonly LegalDoc[] = [
         blocks: [
           "Only the parties an export actually requires, and only the part of it they need:",
           [
+            "the providers that run this Site and our email on our behalf — Vercel Inc. (hosting) and Resend, Inc. (delivery of enquiry-form emails), both in the United States, and our business email provider",
             "the manufacturing unit producing your goods — the specification, quantity and delivery date",
             "freight forwarders, customs house agents, shipping lines and airlines — consignee and shipping details, as the documents require",
             "any inspection agency you have appointed",
@@ -361,6 +387,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "7. Where it goes",
         blocks: [
           "We are in India and you are, in all likelihood, not. Corresponding with us and buying from us necessarily moves your information to India, and moves shipping details onward to the carriers and authorities in the destination country. That transfer is inherent in the transaction you are asking for.",
+          "Information also passes through the United States on its way to us. The Site's server logs are held by Vercel Inc., and enquiry-form emails are delivered by Resend, Inc., both US companies.",
           "Where the GDPR applies, we rely on the necessity of the transfer for the performance of the contract with you, or for pre-contractual steps you have requested. Ask us if you need a different arrangement in place before you correspond.",
         ],
       },
@@ -416,7 +443,7 @@ export const legalDocs: readonly LegalDoc[] = [
         id: "changes",
         heading: "13. Changes",
         blocks: [
-          "If we change how we handle information — if, for instance, we ever add an analytics tool or a server-side enquiry form — we will update this page and the date at the head of it before doing so.",
+          "If we change how we handle information — if, for instance, we ever add an analytics tool, or change the provider that hosts the Site or delivers enquiry-form emails — we will update this page and the date at the head of it before doing so.",
         ],
       },
     ],
@@ -446,7 +473,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "2. We are a merchant exporter",
         blocks: [
           `${site.name} sources from verified Indian manufacturing partners. We do not operate forging, machining, heat treatment, plating or testing facilities of our own.`,
-          "Manufacturing certifications, including ISO 9001 quality management and the testing accreditations behind a mill test certificate, are held by those partners, not by us. Where we list them, we list them as supplier certifications. The registrations we hold in our own name — IEC, GSTIN and our export council membership — are set out on the Certifications page.",
+          "Manufacturing certifications, including ISO 9001 quality management and the testing accreditations behind a mill test certificate, are held by those partners, not by us. Where we list them, we list them as supplier certifications. The registrations we hold in our own name — IEC, GSTIN and our EEPC Registration-cum-Membership Certificate (RCMC) — are set out on the Certifications page.",
         ],
       },
       {

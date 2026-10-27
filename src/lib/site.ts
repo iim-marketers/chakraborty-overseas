@@ -2,6 +2,7 @@ export const site = {
   name: "Chakraborty Overseas",
   tagline: "Trusted. Transparent. Committed.",
   role: "Merchant exporter of industrial fasteners",
+  legalForm: "sole proprietorship",
   city: "Kolkata",
   url: "https://www.chakrabortyoverseas.com",
   description:
@@ -11,10 +12,18 @@ export const site = {
     phone: "+91 98316 47114",
     phoneHref: "+919831647114",
     whatsapp: "919831647114",
-    address: "Kolkata, West Bengal, India",
+    address:
+      "30/2 Shib Chandra Chatterjee Street, Belur Bazar, Howrah 711202, West Bengal, India",
+    postal: {
+      street: "30/2 Shib Chandra Chatterjee Street, Belur Bazar",
+      locality: "Howrah",
+      postcode: "711202",
+      region: "West Bengal",
+      country: "IN",
+    },
     hours: "Monday – Saturday · 10:00 – 19:00 IST (GMT +5:30)",
     responseTime: "Every enquiry answered within one working day",
-    quoting: "Quotations issued in USD or INR — tell us which you prefer",
+    quoting: "Quotations issued in USD, EUR, GBP or INR — tell us which you prefer",
     ports:
       "Kolkata · Haldia · Nhava Sheva (JNPT) · Mundra · Chennai · Tuticorin · Visakhapatnam · Cochin · Kandla · Krishnapatnam",
     airports: "Kolkata · Chennai · Mumbai · Delhi",
@@ -33,7 +42,8 @@ export const site = {
     catalogue: "chakraborty-overseas-catalogue.pdf",
     profile: "chakraborty-overseas-company-profile.pdf",
   },
-  incoterms: ["FOB", "CFR", "CIF", "EXW", "FCA", "CPT", "DAP", "CIP", "DDP"],
+  incoterms: ["FOB", "CFR", "CIF", "FCA", "CPT", "DAP", "CIP"],
+  incotermsOnRequest: ["EXW", "DDP"],
   hsHeading: "7318",
   standards: [
     { code: "ISO", label: "International" },

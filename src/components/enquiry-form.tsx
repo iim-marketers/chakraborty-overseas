@@ -267,7 +267,7 @@ export function EnquiryForm({ countries }: { countries: Country[] }) {
           )}
         </button>
         <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-steel">
-          We reply within one working day · Quotes in USD or INR
+          We reply within one working day · Quotes in USD, EUR, GBP or INR
         </span>
       </div>
     </form>
@@ -318,7 +318,7 @@ function Sent({
           <dt className="font-mono text-[0.56rem] uppercase tracking-[0.2em] text-steel">
             Quotes in
           </dt>
-          <dd className="mt-1 text-[0.9rem] text-white">USD or INR</dd>
+          <dd className="mt-1 text-[0.9rem] text-white">USD · EUR · GBP · INR</dd>
         </div>
       </dl>
 

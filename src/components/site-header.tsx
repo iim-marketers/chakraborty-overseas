@@ -298,7 +298,7 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
               tabIndex={open ? 0 : -1}
-              aria-label="WhatsApp"
+              aria-label="WhatsApp us"
               className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line bg-white text-ink"
             >
               <WhatsAppIcon />

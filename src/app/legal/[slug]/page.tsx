@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import { LegalToc } from "@/components/legal-toc";
 import { Reveal } from "@/components/reveal";
 import { CTABand } from "@/components/ui";
-import { legalBySlug, legalDocs, type LegalBlock } from "@/lib/legal";
+import {
+  legalBySlug,
+  legalDocs,
+  legalIdentity,
+  type LegalBlock,
+} from "@/lib/legal";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -82,6 +87,9 @@ export default async function LegalDocPage({
           <p className="mt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-gold-light">
             Last updated {doc.updated}
           </p>
+          <p className="mt-3 max-w-[62ch] text-[0.8rem] leading-relaxed text-steel-light/80">
+            {legalIdentity}
+          </p>
         </div>
       </section>
 
@@ -89,7 +97,7 @@ export default async function LegalDocPage({
       <section className="py-12 lg:py-16">
         <div className="shell grid gap-10 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:gap-16">
           {/* on this page */}
-          <aside className="lg:sticky lg:top-28 lg:self-start">
+          <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
             <p className="spec-label">On this page</p>
             <LegalToc
               sections={doc.sections.map((s) => ({
