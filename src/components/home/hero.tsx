@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GradeStage } from "@/components/grade-stage";
+import { GradeStage } from "@/components/home/grade-stage";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -61,7 +61,6 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* ------------------------ the grade stage ------------------------ */}
         <figure className="mx-auto w-full min-w-0 max-w-135 animate-rise overflow-hidden rounded-tile border border-white/10 bg-carbon shadow-(--shadow-lift) [animation-delay:160ms]">
           <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-white/10 px-6 py-4 font-mono text-[0.58rem] uppercase tracking-[0.18em]">
             <span className="text-gold-light">Three ranges</span>
