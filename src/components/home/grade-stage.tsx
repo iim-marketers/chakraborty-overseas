@@ -60,18 +60,15 @@ export function GradeStage() {
 
   return (
     <div>
-      {/* ---------------------------- the stage ---------------------------- */}
       <Tilt className="h-66 sm:h-72 lg:h-80" max={7}>
         <span className="blueprint absolute inset-0 opacity-70" aria-hidden />
 
-        {/* studio backlight behind whichever bolt is centre stage */}
         <span
           aria-hidden
           className="absolute bottom-[24%] left-1/2 h-44 w-72 rounded-[50%] bg-[radial-gradient(closest-side,rgba(231,200,120,0.2),rgba(231,200,120,0.04)_62%,transparent)] blur-xl"
           style={{ transform: "translateX(-50%) translateZ(-24px)" }}
         />
 
-        {/* the floor the bolts stand on */}
         <span
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-b from-white/7 to-transparent"
@@ -109,7 +106,6 @@ export function GradeStage() {
                 sizes="(max-width: 640px) 46vw, 240px"
                 className="block h-auto w-full drop-shadow-[0_24px_26px_rgba(0,0,0,0.6)]"
               />
-              {/* the bolt again, upside down, as its reflection in the floor */}
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 top-full -scale-y-100 [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,0.5),transparent_62%)] mask-[linear-gradient(to_top,rgba(0,0,0,0.5),transparent_62%)]"
@@ -128,7 +124,6 @@ export function GradeStage() {
           );
         })}
 
-        {/* the two waiting bolts melt into the edges of the panel */}
         <span
           aria-hidden
           className="absolute inset-y-0 left-0 w-20 bg-linear-to-r from-carbon to-transparent"
@@ -139,7 +134,6 @@ export function GradeStage() {
         />
       </Tilt>
 
-      {/* --------------------------- the readout --------------------------- */}
       <div
         key={bolt.slug}
         className="animate-fade-in border-t border-white/10 px-6 py-5"
@@ -163,7 +157,6 @@ export function GradeStage() {
             </Link>
           </div>
 
-          {/* the head marks you will find stamped on that range */}
           <ul className="flex items-center gap-1.5">
             {bolt.marks.map((m) => (
               <li key={m} className="relative block w-10">
@@ -193,7 +186,6 @@ export function GradeStage() {
         </p>
       </div>
 
-      {/* ---------------------------- the picker --------------------------- */}
       <div className="grid grid-cols-3 gap-px border-y border-white/10 bg-white/8">
         {bolts.map((b, i) => (
           <button
