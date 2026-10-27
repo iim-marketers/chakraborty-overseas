@@ -9,6 +9,7 @@ import {
   WhereWeSitSection,
 } from "@/components/home";
 import { CTABand } from "@/components/ui";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     "Mild steel, stainless steel and high tension fasteners sourced from verified Indian manufacturers, quality-checked, export packed and shipped worldwide from Kolkata.",
   alternates: { canonical: "/" },
   openGraph: {
+    ...openGraphBase,
     title: `${site.name} — Fastener Merchant Exporter, Kolkata`,
     description:
       "Mild steel, stainless steel and high tension fasteners sourced from verified Indian manufacturers, quality-checked and exported worldwide.",

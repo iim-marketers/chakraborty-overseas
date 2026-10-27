@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero } from "@/components/ui";
 import { legalDocs } from "@/lib/legal";
+import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   description: `Terms of service, terms of sale, privacy policy and disclaimer for ${site.name}, merchant exporter of industrial fasteners, Kolkata.`,
   alternates: { canonical: "/legal" },
   openGraph: {
+    ...openGraphBase,
     title: `Legal · ${site.name}`,
     description:
       "The website terms, the trading terms behind a consignment, and what we do with your information.",

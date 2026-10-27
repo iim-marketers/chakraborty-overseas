@@ -4,6 +4,7 @@ import { RangeCard } from "@/components/range-card";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero, StandardsStrip } from "@/components/ui";
 import { ranges, productCount } from "@/lib/products";
+import { openGraphBase } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Products — Stainless, Mild Steel & High Tension Fasteners",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Three fastener ranges exported from Kolkata: stainless steel (M3–M72, including Super Duplex), mild steel, and high tension & precision — 87 lines in all.",
   alternates: { canonical: "/products" },
   openGraph: {
+    ...openGraphBase,
     title: "Products — Chakraborty Overseas",
     description:
       "Stainless steel, mild steel and high tension & precision fastener ranges, exported from Kolkata.",

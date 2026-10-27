@@ -50,7 +50,8 @@ export function FreightSection() {
               {site.contact.airports}
             </p>
             <p className="mt-7 border-t border-line pt-5 text-[0.85rem] leading-relaxed text-ink/60">
-              Shipping on {site.incoterms.join(" / ")} terms. Tell us the
+              Shipping on {site.incoterms.join(" / ")} terms;{" "}
+              {site.incotermsOnRequest.join(" and ")} on request. Tell us the
               incoterm your purchase order runs on and we will quote to it.
             </p>
           </div>

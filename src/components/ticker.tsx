@@ -4,11 +4,9 @@ const items = [
   ["Merchant exporter", "Kolkata, India"],
   ["HS heading", site.hsHeading],
   ["Terms", site.incoterms.join(" / ")],
-  [
-    "Ports",
-    "Kolkata · Haldia · Nhava Sheva · Mundra · Chennai · Tuticorin · Visakhapatnam · Cochin · Kandla · Krishnapatnam",
-  ],
-  ["Airports", "Kolkata · Chennai · Mumbai · Delhi"],
+  ["On request", site.incotermsOnRequest.join(" / ")],
+  ["Ports", site.contact.ports],
+  ["Airports", site.contact.airports],
   ["IEC", site.registrations.iec],
   ["GSTIN", site.registrations.gstin],
 ];
