@@ -4,10 +4,10 @@ Next.js 16 (App Router) + Tailwind CSS v4 + TypeScript. Static-rendered marketin
 Kolkata-based merchant exporter of industrial fasteners.
 
 ```bash
-pnpm install
-pnpm dev        # http://localhost:3000
-pnpm build      # static export of all 15 routes
-pnpm start
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # static export of all 15 routes
+npm start
 ```
 
 ## Pages
@@ -63,7 +63,7 @@ single `photo` field in `src/lib/products.ts`, swapping one is a one-line change
 ### Regenerating the render library
 
 ```bash
-pnpm art                     # writes public/art/<finish>/<part>.svg
+npm run art                  # writes public/art/<finish>/<part>.svg
 node scripts/rasterize-art.mjs /tmp/art-png   # PNGs for the PDFs (needs the dev server running)
 ```
 
