@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
 import { ranges } from "@/lib/products";
+import { scrollToTop } from "@/lib/utils";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 export function SiteHeader() {
@@ -62,6 +63,12 @@ export function SiteHeader() {
         <div className="shell flex h-18.5 items-center gap-4">
           <Link
             href="/"
+            onClick={(e) => {
+              if (pathname !== "/") return;
+              e.preventDefault();
+              setOpen(false);
+              scrollToTop();
+            }}
             className="flex min-w-0 items-center gap-2.5 sm:gap-3"
             aria-label={`${site.name}, home`}
           >
