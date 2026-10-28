@@ -3,10 +3,10 @@ export const site = {
   tagline: "Trusted. Transparent. Committed.",
   role: "Merchant exporter of industrial fasteners",
   legalForm: "sole proprietorship",
-  city: "Kolkata",
+  city: "Howrah (Kolkata), West Bengal",
   url: "https://www.chakrabortyoverseas.com",
   description:
-    "Kolkata-based merchant exporter of mild steel, stainless steel and high tension fasteners. Sourced from verified Indian manufacturing partners, checked against your specification and shipped with complete export documentation.",
+    "Merchant exporter of mild steel, stainless steel and high tension fasteners, based in Howrah (Kolkata), West Bengal. Sourced from verified Indian manufacturing partners, checked against your specification and shipped with complete export documentation.",
   contact: {
     email: "exports@chakrabortyoverseas.com",
     phone: "+91 98316 47114",
@@ -36,14 +36,12 @@ export const site = {
     gstin: "Available",
     rcmc: "Available",
   },
-  /* Files under /public/catalogue. The profile is the one-page vendor
-     pre-qualification sheet; regenerate it from docs/company-profile.html. */
   downloads: {
     catalogue: "chakraborty-overseas-catalogue.pdf",
     profile: "chakraborty-overseas-company-profile.pdf",
   },
-  incoterms: ["FOB", "CFR", "CIF", "FCA", "CPT", "DAP", "CIP"],
-  incotermsOnRequest: ["EXW", "DDP"],
+  incoterms: ["FOB", "CFR", "CIF", "FCA", "CPT", "CIP"],
+  incotermsOnRequest: ["EXW"],
   hsHeading: "7318",
   standards: [
     { code: "ISO", label: "International" },

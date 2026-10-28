@@ -23,7 +23,7 @@ export async function generateMetadata({
   const lines = range.groups.reduce((n, g) => n + g.items.length, 0);
   return {
     title: `${range.name} — ${range.sizeRange}`,
-    description: `${range.intro} ${lines} lines exported from Kolkata by ${site.name}.`,
+    description: `${range.intro} ${lines} lines exported from ${site.city} by ${site.name}.`,
     alternates: { canonical: `/products/${range.slug}` },
     keywords: [
       `${range.shortName} fasteners exporter India`,
@@ -74,7 +74,6 @@ export default async function RangePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ---------- range hero ---------- */}
       <section className="on-dark relative overflow-hidden bg-ink text-ivory">
         <div className="blueprint absolute inset-0" aria-hidden />
         <div
@@ -138,7 +137,6 @@ export default async function RangePage({
         </div>
       </section>
 
-      {/* ---------- spec sheet ---------- */}
       <section className="border-b border-line bg-white py-12">
         <div className="shell">
           <Reveal>
@@ -151,14 +149,12 @@ export default async function RangePage({
         </div>
       </section>
 
-      {/* ---------- products ---------- */}
       <section className="py-14 lg:py-20">
         <div className="shell">
           <ProductExplorer range={range} />
         </div>
       </section>
 
-      {/* ---------- other ranges ---------- */}
       <section className="border-t border-line bg-ivory-2 py-14">
         <div className="shell">
           <p className="spec-label">Other ranges</p>

@@ -40,8 +40,6 @@ const empty: Enquiry = {
   message: "",
 };
 
-/* Sizing shared by every control: shadcn ships a compact 32px field, this form
-   wants the roomier rhythm the rest of the site uses. */
 const field =
   "h-12 rounded-xl px-4 text-[0.95rem] md:text-[0.95rem] dark:bg-white/5";
 

@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Legal — Terms, Privacy & Trading Conditions",
-  description: `Terms of service, terms of sale, privacy policy and disclaimer for ${site.name}, merchant exporter of industrial fasteners, Kolkata.`,
+  description: `Terms of service, terms of sale, privacy policy and disclaimer for ${site.name}, merchant exporter of industrial fasteners, ${site.city}.`,
   alternates: { canonical: "/legal" },
   openGraph: {
     ...openGraphBase,
@@ -41,7 +41,6 @@ export default function LegalIndexPage() {
                   href={`/legal/${doc.slug}`}
                   className="group relative flex h-full flex-col overflow-hidden bg-white p-7 transition-colors duration-300 hover:bg-ivory-2 sm:p-8"
                 >
-                  {/* the gold rule the desktop nav uses, borrowed as a hover tell */}
                   <span
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gold transition-transform duration-500 ease-out-soft group-hover:scale-x-100"

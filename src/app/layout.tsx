@@ -29,7 +29,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Fastener Merchant Exporter, Kolkata, India`,
+    default: `${site.name} — Fastener Merchant Exporter, Howrah (Kolkata), India`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   publisher: site.name,
   openGraph: {
     ...openGraphBase,
-    title: `${site.name} — Fastener Merchant Exporter, Kolkata`,
+    title: `${site.name} — Fastener Merchant Exporter, Howrah (Kolkata)`,
     description: site.description,
   },
   twitter: {

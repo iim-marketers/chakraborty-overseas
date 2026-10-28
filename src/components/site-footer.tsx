@@ -29,7 +29,7 @@ export function SiteFooter() {
             </div>
             <p className="mt-5 max-w-sm text-[0.9rem] leading-relaxed text-steel-light/80">
               Merchant exporter of mild steel, stainless steel and high tension
-              fasteners, based in Kolkata, India. We source from verified Indian
+              fasteners, based in {site.city}, India. We source from verified Indian
               manufacturing partners; we do not operate manufacturing facilities
               of our own.
             </p>
@@ -110,7 +110,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
-          <span>{site.name} · Kolkata, India</span>
+          <span>{site.name} · {site.city}, India</span>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {legalDocs.map((d) => (
               <Link

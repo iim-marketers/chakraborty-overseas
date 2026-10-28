@@ -163,6 +163,14 @@ export function StandardsStrip({ dark = false }: { dark?: boolean }) {
   );
 }
 
+export function PartnerUnitCaption({ city }: { city: string }) {
+  return (
+    <figcaption className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-graphite/75 px-2.5 py-1 font-mono text-[0.5rem] uppercase tracking-[0.14em] text-white/90 backdrop-blur-sm">
+      At a partner unit, {city}
+    </figcaption>
+  );
+}
+
 export function CTABand({
   title = "Send us a specification",
   body = "Size, grade, standard, finish and quantity is enough to start. If something is missing we will ask rather than assume.",

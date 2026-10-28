@@ -4,7 +4,6 @@ import { Tilt } from "@/components/tilt";
 import { ProductMedia } from "@/components/product-media";
 import type { Product, Tone } from "@/lib/products";
 
-/** A light wash under the artwork, tinted to the range's finish. */
 const wash: Record<Tone, string> = {
   steel: "from-[#EAF0F3]",
   zinc: "from-[#F5EEDF]",
@@ -48,11 +47,11 @@ export function ProductCard({
         </button>
 
         <div className="flex flex-1 flex-col p-5">
-          <div className="min-h-31">
+          <div>
             <h3 className="font-display text-[1.02rem] font-semibold tracking-tight text-ink">
               {product.name}
             </h3>
-            <dl className="mt-3 space-y-1.5 pb-4">
+            <dl className="mt-3 space-y-1.5 pb-5">
               {product.specs.map((s) => (
                 <div key={s.label} className="grid grid-cols-[62px_1fr] gap-2">
                   <dt className="font-mono mt-0.5 text-[0.56rem] uppercase tracking-[0.14em] text-steel">

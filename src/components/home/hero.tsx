@@ -29,7 +29,7 @@ export function Hero() {
           <p className="mt-6 max-w-[54ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">
             Finding a mill that holds the grade, meets the shipment date and
             hands over documents that clear customs — that is the work.{" "}
-            {site.name} is a merchant exporter in Kolkata. We source from
+            {site.name} is a merchant exporter in {site.city}. We source from
             verified Indian manufacturing partners, check the goods against your
             specification, and ship them properly packed and papered.
           </p>

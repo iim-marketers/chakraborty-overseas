@@ -71,7 +71,6 @@ export default async function LegalDocPage({
 
   return (
     <>
-      {/* ---------- hero ---------- */}
       <section className="on-dark relative overflow-hidden bg-ink text-ivory">
         <div className="blueprint absolute inset-0" aria-hidden />
         <div
@@ -95,10 +94,8 @@ export default async function LegalDocPage({
         </div>
       </section>
 
-      {/* ---------- contents + body ---------- */}
       <section className="py-12 lg:py-16">
         <div className="shell grid gap-10 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:gap-16">
-          {/* on this page */}
           <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
             <p className="spec-label">On this page</p>
             <LegalToc
@@ -122,7 +119,6 @@ export default async function LegalDocPage({
             </nav>
           </aside>
 
-          {/* the document */}
           <div className="min-w-0 max-w-[68ch]">
             {doc.sections.map((s, i) => (
               <Reveal key={s.id} delay={i < 4 ? i * 60 : 0}>

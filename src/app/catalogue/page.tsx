@@ -60,7 +60,6 @@ export default function CataloguePage() {
 
       <section className="py-12 lg:py-16">
         <div className="shell">
-          {/* master download */}
           <Reveal>
             <div className="grid gap-8 overflow-hidden rounded-tile border border-line bg-white p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
               <div>
@@ -100,7 +99,6 @@ export default function CataloguePage() {
             </div>
           </Reveal>
 
-          {/* one-page profile */}
           <Reveal delay={90}>
             <div className="mt-5 grid gap-8 overflow-hidden rounded-tile border border-line bg-ivory-2 p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
               <div>
