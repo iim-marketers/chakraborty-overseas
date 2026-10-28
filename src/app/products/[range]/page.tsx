@@ -126,12 +126,14 @@ export default async function RangePage({
             >
               Enquire about this range
             </Link>
-            <Link
-              href="/catalogue"
+            <a
+              href={`/catalogue/${site.downloads.catalogue}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-outline-light btn-download"
             >
               Download catalogue
-            </Link>
+            </a>
           </div>
         </div>
       </section>

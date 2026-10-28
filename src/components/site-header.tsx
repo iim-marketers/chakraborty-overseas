@@ -9,12 +9,17 @@ import { ranges } from "@/lib/products";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 export function SiteHeader() {
-  const [openPath, setOpenPath] = useState<string | null>(null);
-  const [rangedPath, setRangedPath] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const [ranged, setRanged] = useState(false);
   const [stuck, setStuck] = useState(false);
   const pathname = usePathname();
-  const open = openPath === pathname;
-  const ranged = rangedPath === pathname;
+
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setOpen(false);
+    setRanged(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 12);
@@ -85,8 +90,8 @@ export function SiteHeader() {
                 <div
                   key={item.href}
                   className="group relative"
-                  onMouseEnter={() => setRangedPath(pathname)}
-                  onMouseLeave={() => setRangedPath(null)}
+                  onMouseEnter={() => setRanged(true)}
+                  onMouseLeave={() => setRanged(false)}
                 >
                   <Link
                     href="/products"
@@ -184,7 +189,7 @@ export function SiteHeader() {
           {/* burger */}
           <button
             type="button"
-            onClick={() => setOpenPath(open ? null : pathname)}
+            onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -218,7 +223,7 @@ export function SiteHeader() {
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
-        onClick={() => setOpenPath(null)}
+        onClick={() => setOpen(false)}
         aria-hidden
       />
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ProductMedia } from "@/components/product-media";
 import type { Product, Tone } from "@/lib/products";
+import { site } from "@/lib/site";
 
 export function QuickView({
   product,
@@ -129,12 +130,14 @@ export function QuickView({
               >
                 Enquire about this
               </Link>
-              <Link
-                href="/catalogue"
+              <a
+                href={`/catalogue/${site.downloads.catalogue}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-outline btn-sm btn-download w-full sm:w-auto"
               >
                 Download catalogue
-              </Link>
+              </a>
             </div>
           </div>
         </div>

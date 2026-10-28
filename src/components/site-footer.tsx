@@ -13,8 +13,8 @@ export function SiteFooter() {
         aria-hidden
       />
       <div className="shell relative py-10">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12">
+          <div className="col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3">
               <Image
                 src="/logo.png"
@@ -36,6 +36,14 @@ export function SiteFooter() {
             <p className="mt-5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
               {site.tagline}
             </p>
+            <a
+              href={`/catalogue/${site.downloads.catalogue}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-gold btn-sm mt-6"
+            >
+              Download catalogue
+            </a>
           </div>
 
           <div>
@@ -74,7 +82,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
               Contact
             </h4>
@@ -101,7 +109,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
+        <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
           <span>{site.name} · Kolkata, India</span>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {legalDocs.map((d) => (

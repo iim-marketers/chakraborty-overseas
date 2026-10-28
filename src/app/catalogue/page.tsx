@@ -78,7 +78,8 @@ export default function CataloguePage() {
               </div>
               <a
                 href={`/catalogue/${master.file}`}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-gold shrink-0"
               >
                 <svg
@@ -116,7 +117,8 @@ export default function CataloguePage() {
               </div>
               <a
                 href={`/catalogue/${profile.file}`}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-outline shrink-0"
               >
                 <svg

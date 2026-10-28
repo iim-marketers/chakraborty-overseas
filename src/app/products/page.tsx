@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { RangeCard } from "@/components/range-card";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero, StandardsStrip } from "@/components/ui";
 import { ranges, productCount } from "@/lib/products";
 import { openGraphBase } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Products — Stainless, Mild Steel & High Tension Fasteners",
@@ -68,9 +68,14 @@ export default function ProductsPage() {
                 grades, standards and sizes we quote against.
               </p>
             </div>
-            <Link href="/catalogue" className="btn btn-ink">
+            <a
+              href={`/catalogue/${site.downloads.catalogue}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ink"
+            >
               Download catalogue
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>
