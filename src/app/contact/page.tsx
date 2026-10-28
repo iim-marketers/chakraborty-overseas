@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { getCountries } from "@/lib/countries";
+import { countries } from "@/lib/countries";
 import { PageHero } from "@/components/ui";
 import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -128,16 +128,11 @@ export default function ContactPage() {
             <Suspense
               fallback={<p className="text-steel-light">Loading form…</p>}
             >
-              <Enquiry />
+              <EnquiryForm countries={countries} />
             </Suspense>
           </div>
         </div>
       </section>
     </>
   );
-}
-
-async function Enquiry() {
-  const countries = await getCountries();
-  return <EnquiryForm countries={countries} />;
 }
