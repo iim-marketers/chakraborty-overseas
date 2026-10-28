@@ -160,6 +160,10 @@ export default function CertificationsPage() {
                   "Loading",
                   `Sea: ${site.contact.ports} · Air: ${site.contact.airports}`,
                 ],
+                [
+                  "Samples",
+                  "Free samples of standard catalogue items (up to 10 pieces per size); courier at buyer's cost or on buyer's courier account. Samples to drawing are charged and adjusted against the first order.",
+                ],
               ].map(([t, b]) => (
                 <div key={t}>
                   <p className="spec-label">{t}</p>
