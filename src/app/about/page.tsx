@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
-import { CTABand, PageHero, SectionHead } from "@/components/ui";
+import {
+  CTABand,
+  PageHero,
+  PartnerUnitCaption,
+  SectionHead,
+} from "@/components/ui";
 import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About — Mission, Vision & How an Order Runs",
   description:
-    "Chakraborty Overseas is a Kolkata merchant exporter of fasteners. Our mission, vision, the sequence every order follows, and how consignments are packed for sea freight.",
+    "Chakraborty Overseas is a merchant exporter of fasteners based in Howrah (Kolkata), West Bengal. Our mission, vision, the sequence every order follows, and how consignments are packed for sea freight.",
   alternates: { canonical: "/about" },
   openGraph: {
     ...openGraphBase,
@@ -45,6 +50,11 @@ const steps = [
     "Documents",
     "Invoice, packing list, certificate of origin, mill test certificates and shipping documents, prepared to match your bank's requirement.",
   ],
+  [
+    "06",
+    "Freight & delivery",
+    "Booked with our freight forwarding partners — sea or air — cleared through customs at the port of loading and delivered to your destination.",
+  ],
 ];
 
 export default function AboutPage() {
@@ -62,7 +72,6 @@ export default function AboutPage() {
         lede="The difficulty for an overseas buyer has never been supply — it is knowing which supplier to trust, and getting the consignment out cleanly."
       />
 
-      {/* mission & vision */}
       <section className="py-12 lg:py-16">
         <div className="shell">
           <SectionHead
@@ -109,7 +118,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* order flow */}
       <section className="on-dark relative overflow-hidden bg-graphite py-16 text-ivory lg:py-24">
         <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
         <div className="shell relative">
@@ -119,7 +127,7 @@ export default function AboutPage() {
             lede="Our work sits between your purchase order and the factory gate. This is the sequence every order follows."
             dark
           />
-          <ol className="grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
+          <ol className="grid gap-px overflow-hidden rounded-tile border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
             {steps.map(([n, title, body]) => (
               <li
                 key={n}
@@ -140,7 +148,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* inspection */}
       <section className="py-12 lg:py-16">
         <div className="shell grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal className="space-y-4">
@@ -163,7 +170,7 @@ export default function AboutPage() {
                   alt: "Salt spray cabinet for coating tests",
                 },
               ].map((f) => (
-                <div
+                <figure
                   key={f.src}
                   className="relative aspect-4/3 overflow-hidden rounded-2xl border border-line"
                 >
@@ -174,14 +181,9 @@ export default function AboutPage() {
                     sizes="(max-width: 1024px) 45vw, 24vw"
                     className="object-cover"
                   />
-                </div>
+                  <PartnerUnitCaption city="Rohtak" />
+                </figure>
               ))}
-            </div>
-            <div className="relative overflow-hidden rounded-tile border border-line bg-white p-6">
-              <span
-                aria-hidden
-                className="blueprint-light absolute inset-0 opacity-60"
-              />
             </div>
           </Reveal>
 

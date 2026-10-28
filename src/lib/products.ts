@@ -3,11 +3,8 @@ export type Tone = "steel" | "zinc" | "black";
 export type Product = {
   slug: string;
   name: string;
-  /** Key into the in-house render library, see scripts/art/parts.mjs. */
   art: string;
-  /** Product photograph; the render is used when this is absent. */
   photo?: string;
-  /** Two spec rows shown on the card. */
   specs: { label: string; value: string }[];
   blurb?: string;
 };
@@ -26,11 +23,8 @@ export type Range = {
   tone: Tone;
   tagline: string;
   intro: string;
-  /** Longer copy for the range page hero. */
   detail: string;
-  /** Render shown behind the range hero. */
   heroArt: string;
-  /** Photograph used on the range card and hero. */
   heroPhoto: string;
   sizeRange: string;
   finishNote: string;
@@ -40,7 +34,6 @@ export type Range = {
 };
 
 export const ranges: Range[] = [
-  /* ====================================================================== */
   {
     slug: "stainless-steel",
     code: "Range 01",
@@ -58,8 +51,6 @@ export const ranges: Range[] = [
     finishNote:
       "Shown in bright and passivated stainless — electropolished and PTFE coated to order",
     sheet: [
-      /* Grade 410 removed; 202 / Super Duplex added; A2 = SS 304, A4 = SS 316.
-         Draft 2: one grade set runs across every fastener type in this range. */
       {
         label: "Grades",
         value:
@@ -300,7 +291,6 @@ export const ranges: Range[] = [
     ],
   },
 
-  /* ====================================================================== */
   {
     slug: "mild-steel",
     code: "Range 02",
@@ -309,28 +299,24 @@ export const ranges: Range[] = [
     tone: "zinc",
     tagline: "The everyday range — plated, packed and priced for volume",
     intro:
-      "Class 4.6 to 8.8 carbon steel in every plating a project asks for: black, bright zinc, yellow zinc, hot dip galvanised and geomet.",
+      "Class 4.6 to 5.8 carbon steel in every plating a project asks for: black, bright zinc, yellow zinc, hot dip galvanised and geomet.",
     detail:
-      "This is the workhorse range: hex, flange and carriage bolts, the full nut family down to the individual patterns fabricators ask for by name, the complete washer set including star washers, the anchor range as our partner actually makes it, the specialist insert and profile hardware, and the purpose-made construction and machinery bolts.",
+      "This is the workhorse range: hex, flange and carriage bolts, the full nut family down to the individual patterns fabricators ask for by name, the complete washer set including star washers, the anchor range as manufactured by our anchor partners, the specialist insert and profile hardware, and the purpose-made construction and machinery bolts.",
     heroArt: "group-assembly",
     heroPhoto: "/cutouts/zinc-bolt.webp",
-    /* Largest documented size: M48 bolts, M60 nuts. */
     sizeRange: "M3 – M48 bolts · nuts to M60",
     finishNote:
       "Shown in bright and yellow zinc — black, hot dip galvanised and geomet to order",
     sheet: [
-      /* Draft 2: property classes pulled back to 4.6 / 4.8 / 5.6 — 8.8 and
-         above belong to the high tension range. Washers and screws are sized,
-         not property-class rated. */
       {
         label: "Grades",
         value:
-          "Bolts, nuts, studs and threaded rod: class 4.6, 4.8, 5.6 · washers and screws are size-rated, not property-class rated",
+          "Bolts, nuts, studs and threaded rod: class 4.6, 4.8, 5.6, 5.8 · washers and screws are size-rated, not property-class rated",
       },
       {
         label: "Standards",
         value:
-          "DIN 933 / 931 (bolts) · DIN 934 (nuts) · DIN 125 (washers) · IS 1364 / 1367",
+          "DIN 933 / 931 (bolts) · DIN 934 (nuts) · DIN 125 (washers) · IS 1363 / 1367",
       },
       { label: "Sizes", value: "M3 – M48 for bolts · nuts to M60" },
       {
@@ -358,7 +344,7 @@ export const ranges: Range[] = [
             art: "hex-bolt",
             photo: "/photos/mild-steel__ms-hex-bolts.webp",
             specs: [
-              { label: "Grade", value: "4.6 / 4.8 / 5.6 / 5.8 / 8.8" },
+              { label: "Grade", value: "4.6 / 4.8 / 5.6 / 5.8" },
               {
                 label: "Standard",
                 value: "IS 1363, DIN 931 / 933, ANSI B18.2.1",
@@ -373,7 +359,7 @@ export const ranges: Range[] = [
             art: "flange-bolt",
             photo: "/photos/mild-steel__ms-flange-bolts.webp",
             specs: [
-              { label: "Grade", value: "8.8 · serrated or plain flange" },
+              { label: "Grade", value: "4.6 – 5.8 · serrated or plain flange" },
               { label: "Standard", value: "DIN 6921, IS 1364" },
             ],
           },
@@ -411,7 +397,6 @@ export const ranges: Range[] = [
       },
       {
         title: "Screws",
-        /* CSK and Allen screws moved to High Tension per the punch list. */
         note: "Socket and CSK cap screws sit under High Tension & Precision — they are a high tensile line.",
         items: [
           {
@@ -465,7 +450,7 @@ export const ranges: Range[] = [
             art: "hex-nut",
             photo: "/photos/mild-steel__ms-hex-nuts.webp",
             specs: [
-              { label: "Grade", value: "Class 5, 6, 8 · thin and thick" },
+              { label: "Grade", value: "Class 5, 6 · thin and thick" },
               { label: "Standard", value: "IS 1363, DIN 934, DIN 557" },
             ],
           },
@@ -556,16 +541,6 @@ export const ranges: Range[] = [
             ],
           },
           {
-            slug: "ms-heavy-hex-2h-nut",
-            name: "Heavy hex 2H nut",
-            art: "heavy-hex-nut",
-            photo: "/photos/mild-steel__ms-heavy-hex-2h-nut.webp",
-            specs: [
-              { label: "Grade", value: "ASTM A194 Grade 2H" },
-              { label: "Use", value: "Flanged joints, structural sets" },
-            ],
-          },
-          {
             slug: "ms-lock-nuts",
             name: "Thin hex / lock nuts",
             art: "thin-hex-nut",
@@ -644,8 +619,7 @@ export const ranges: Range[] = [
       },
       {
         title: "Anchor fasteners",
-        /* Chemical stud removed — replaced with the partner's actual anchor range. */
-        note: "The range as our partner manufactures it. Chemical anchors are not part of it.",
+        note: "The range as manufactured by our anchor partners. Chemical anchors are not part of it.",
         items: [
           {
             slug: "ms-wedge-anchor",
@@ -966,16 +940,15 @@ export const ranges: Range[] = [
     ],
   },
 
-  /* ====================================================================== */
   {
     slug: "high-tension",
     code: "Range 03",
     name: "High Tension & Precision",
     shortName: "High Tension",
     tone: "black",
-    tagline: "Property class 8.8 to 14.9, structural sets and turned parts",
+    tagline: "Property class 8.8 to 12.9, structural sets and turned parts",
     intro:
-      "Heat treated alloy steel in class 8.8, 10.9, 12.9 and 14.9 — socket screws, structural HSFG assemblies and precision turned components.",
+      "Heat treated alloy steel in class 8.8, 10.9 and 12.9, with 14.9 (non-ISO) made to buyer spec — socket screws, structural HSFG assemblies and precision turned components.",
     detail:
       "Where the joint carries load. Bolts and nuts to ISO 898-1, the complete socket series, HSFG structural sets with matching nuts and DTI washers, and CNC turned components made to your drawing.",
     heroArt: "hex-bolt",
@@ -984,11 +957,10 @@ export const ranges: Range[] = [
     finishNote:
       "Shown in black oxide — Dacro, Geomet, zinc flake and HDG to order",
     sheet: [
-      /* Draft 2: HSFG and socket-series classes called out separately. */
       {
         label: "Property class",
         value:
-          "Bolts 8.8, 10.9, 12.9, 14.9 · nuts class 8, 10, 12 · studs and threaded rod 8.8, 10.9, 12.9 · socket screws 12.9",
+          "Bolts 8.8, 10.9, 12.9 · 14.9 (non-ISO, to buyer spec) · nuts class 8, 10, 12 · studs and threaded rod 8.8, 10.9, 12.9 · socket screws 12.9",
       },
       {
         label: "HSFG class",
@@ -1000,7 +972,6 @@ export const ranges: Range[] = [
           "DIN 931 / 933 (bolts) · DIN 934 (nuts) · DIN 912 / ISO 4762 (socket cap) · DIN 913 / 914 / 915 / 916 (set screws) · ISO 4014 / 4017 · ISO 898-1 · BS 1768 · ANSI B18.2.1 / 18.2.2",
       },
       { label: "Material", value: "Alloy and carbon steel, heat treated" },
-      /* Finish row added for parity with the other two ranges. */
       {
         label: "Finish",
         value:
@@ -1031,10 +1002,10 @@ export const ranges: Range[] = [
             art: "hex-bolt",
             photo: "/photos/high-tension__ht-hex-bolts.webp",
             specs: [
-              { label: "Class", value: "8.8 / 10.9 / 12.9 / 14.9" },
+              { label: "Class", value: "8.8 / 10.9 / 12.9 · 14.9 (non-ISO, to buyer spec)" },
               {
                 label: "Standard",
-                value: "ISO 4014, DIN 931, ASTM A325 / A490",
+                value: "ISO 4014, DIN 931, ASTM F3125 (Gr. A325 / A490)",
               },
             ],
             blurb:
@@ -1113,7 +1084,7 @@ export const ranges: Range[] = [
       },
       {
         title: "Socket series",
-        note: "Moved here from mild steel — the socket and CSK cap screw range is a high tensile line.",
+        note: "Allen keys and spanners for the socket series are supplied as accessories on request — hand tools under HS 8204, invoiced outside the fastener lines.",
         items: [
           {
             slug: "socket-head-cap-screws",
@@ -1154,18 +1125,6 @@ export const ranges: Range[] = [
               { label: "Point", value: "Cup, cone, flat, dog point" },
               { label: "Standard", value: "DIN 913 – 916, ISO 4026 – 4029" },
             ],
-          },
-          {
-            slug: "allen-keys-spanners",
-            name: "Allen keys & spanners",
-            art: "allen-key",
-            photo: "/photos/high-tension__allen-keys-spanners.webp",
-            specs: [
-              { label: "Type", value: "L key, ball end, T handle, spanners" },
-              { label: "Sizes", value: "Metric and imperial sets" },
-            ],
-            blurb:
-              "Supplied as a standalone line — useful to add to a fastener consignment.",
           },
         ],
       },

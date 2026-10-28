@@ -7,9 +7,9 @@ import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Get a Fastener Quote from Kolkata",
+  title: "Contact — Get a Fastener Quote from Howrah (Kolkata)",
   description:
-    "Send your fastener specification and quantity to Chakraborty Overseas, Kolkata. Email exports@chakrabortyoverseas.com or WhatsApp +91 98316 47114. We reply within one working day.",
+    "Send your fastener specification and quantity to Chakraborty Overseas, Howrah (Kolkata), West Bengal. Email exports@chakrabortyoverseas.com or WhatsApp +91 98316 47114. We reply within one working day.",
   alternates: { canonical: "/contact" },
   openGraph: {
     ...openGraphBase,

@@ -37,7 +37,6 @@ export type LegalDoc = {
 };
 
 export const legalDocs: readonly LegalDoc[] = [
-  /* ------------------------------------------------------------------ */
   {
     slug: "terms-of-service",
     title: "Terms of Service",
@@ -137,7 +136,6 @@ export const legalDocs: readonly LegalDoc[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ */
   {
     slug: "terms-of-sale",
     title: "Terms of Sale",
@@ -187,7 +185,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "5. Price, taxes and duties",
         blocks: [
           `Prices are quoted on one of the Incoterms we work to as standard (${site.incoterms.join(", ")}), interpreted in accordance with Incoterms 2020.`,
-          `${site.incotermsOnRequest.join(" and ")} are available on request only, and must be agreed in writing before we quote on them. Under EXW you take on Indian export clearance yourself; under DDP we take on duty, taxes and formalities in your country, which we can do only where the destination allows it.`,
+          `${site.incotermsOnRequest.join(" and ")} is available on request only, and must be agreed in writing before we quote on it. Under EXW you take on Indian export clearance yourself.`,
           "Where we sell CIF, we insure the goods on Institute Cargo Clauses (C); where we sell CIP, on Institute Cargo Clauses (A) — in each case for 110% of the invoice value, as Incoterms 2020 provides. Wider cover, including war and strikes risks, can be added at your cost if you ask for it before shipment.",
           "Import duty, customs clearance, port charges, local taxes and any levy in the destination country are yours unless the agreed Incoterm places them on us.",
           "Bank charges outside India are for your account. Charges levied by our bank in India are for ours.",
@@ -300,7 +298,6 @@ export const legalDocs: readonly LegalDoc[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ */
   {
     slug: "privacy-policy",
     title: "Privacy Policy",
@@ -449,7 +446,6 @@ export const legalDocs: readonly LegalDoc[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ */
   {
     slug: "disclaimer",
     title: "Disclaimer",

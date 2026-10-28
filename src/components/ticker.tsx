@@ -1,7 +1,7 @@
 import { site } from "@/lib/site";
 
 const items = [
-  ["Merchant exporter", "Kolkata, India"],
+  ["Merchant exporter", site.city],
   ["HS heading", site.hsHeading],
   ["Terms", site.incoterms.join(" / ")],
   ["On request", site.incotermsOnRequest.join(" / ")],

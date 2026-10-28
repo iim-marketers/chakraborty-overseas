@@ -8,14 +8,13 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Products — Stainless, Mild Steel & High Tension Fasteners",
-  description:
-    "Three fastener ranges exported from Kolkata: stainless steel (M3–M72, including Super Duplex), mild steel, and high tension & precision — 87 lines in all.",
+  description: `Three fastener ranges exported from Howrah (Kolkata), West Bengal: stainless steel (M3–M72, including Super Duplex), mild steel, and high tension & precision — ${productCount} lines in all.`,
   alternates: { canonical: "/products" },
   openGraph: {
     ...openGraphBase,
     title: "Products — Chakraborty Overseas",
     description:
-      "Stainless steel, mild steel and high tension & precision fastener ranges, exported from Kolkata.",
+      "Stainless steel, mild steel and high tension & precision fastener ranges, exported from Howrah (Kolkata), West Bengal.",
     url: "/products",
   },
 };

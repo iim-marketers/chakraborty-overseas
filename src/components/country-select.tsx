@@ -106,7 +106,6 @@ export function CountrySelect({
     }
   };
 
-  /* No list to search — the API was unreachable. Degrade to a plain field. */
   if (countries.length === 0) {
     return (
       <Input

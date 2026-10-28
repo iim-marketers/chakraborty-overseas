@@ -78,12 +78,11 @@ export function SiteHeader() {
                 Chakraborty Overseas
               </span>
               <span className="mt-1 block truncate font-mono text-[0.5rem] uppercase tracking-[0.16em] text-steel sm:text-[0.55rem] sm:tracking-[0.24em]">
-                Fastener export · Kolkata
+                Fastener export · Howrah (Kolkata)
               </span>
             </span>
           </Link>
 
-          {/* desktop nav */}
           <nav className="ml-auto hidden items-center gap-1 lg:flex">
             {nav.map((item) =>
               item.href === "/products" ? (
@@ -186,7 +185,6 @@ export function SiteHeader() {
             Get a quote
           </Link>
 
-          {/* burger */}
           <button
             type="button"
             onClick={() => setOpen(!open)}
@@ -216,7 +214,6 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile menu — a floating card, not a full-screen takeover. */}
       <div
         className={`fixed inset-0 z-55 bg-ink/35 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
           open
@@ -237,7 +234,6 @@ export function SiteHeader() {
         }`}
       >
         <div className="max-h-[min(74vh,620px)] overflow-y-auto overscroll-contain">
-          {/* ranges first — that is what buyers come for */}
           <div className="bg-ink px-4 pb-4 pt-4 text-ivory">
             <p className="font-mono text-[0.55rem] uppercase tracking-[0.22em] text-gold-light">
               Ranges
@@ -274,7 +270,6 @@ export function SiteHeader() {
             </div>
           </div>
 
-          {/* the rest of the site, two up */}
           <nav className="grid grid-cols-2 gap-px bg-line">
             {nav.map((item) => (
               <Link

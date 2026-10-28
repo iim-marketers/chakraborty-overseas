@@ -118,7 +118,6 @@
 }
 
 @layer components {
-  /* container ------------------------------------------------------------ */
   .shell {
     width: 100%;
     max-width: 1280px;
@@ -126,7 +125,6 @@
     padding-inline: clamp(18px, 4.2vw, 46px);
   }
 
-  /* small technical label ------------------------------------------------ */
   .eyebrow {
     display: flex;
     flex-wrap: wrap;
@@ -157,13 +155,11 @@
     color: var(--color-steel);
   }
 
-  /* gold rule ------------------------------------------------------------ */
   .gold-rule {
     height: 1px;
     background: linear-gradient(90deg, var(--color-gold), transparent 72%);
   }
 
-  /* buttons -------------------------------------------------------------- */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -243,7 +239,6 @@
     font-size: 0.64rem;
   }
 
-  /* affordance glyphs — mark a secondary button as an action, not a label */
   .btn-arrow::after,
   .btn-arrow-back::before,
   .btn-external::after,
@@ -277,7 +272,6 @@
     transform: translateY(0.2em);
   }
 
-  /* surfaces ------------------------------------------------------------- */
   .tile {
     background: #fff;
     border: 1px solid var(--color-line);
@@ -289,7 +283,6 @@
     border-radius: var(--radius-tile);
   }
 
-  /* blueprint grid backdrop ---------------------------------------------- */
   .blueprint {
     background-image:
       linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
@@ -303,7 +296,6 @@
     background-size: 46px 46px;
   }
 
-  /* 3d scene helpers ----------------------------------------------------- */
   .scene {
     perspective: 1200px;
     transform-style: preserve-3d;
@@ -340,10 +332,7 @@
     scrollbar-width: none;
   }
 
-  /* Panels on the dark palette — dropdowns, scrolling lists. The platform
-     scrollbar draws a bright slab against the graphite, so slim it down and
-     tint the thumb to match. Chromium and Firefox take the standard
-     properties; the -webkit- rules cover the browsers that don't. */
+  /* -webkit- rules cover the browsers without scrollbar-width / scrollbar-color. */
   .dark-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: rgb(255 255 255 / 0.2) transparent;
@@ -410,9 +399,7 @@
   --color-background: var(--background);
 }
 
-/* shadcn/ui tokens, mapped onto the house palette above so the primitives
-   (input, select, textarea) inherit the brand rather than shadcn neutrals.
-   Add `dark` to any wrapper sitting on graphite/carbon to flip them. */
+/* Add `dark` to any wrapper on graphite/carbon to flip these tokens. */
 :root {
   --background: #f8f6f1;
   --foreground: #080c11;

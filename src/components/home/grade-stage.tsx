@@ -47,7 +47,6 @@ const bolts = [
   },
 ] as const;
 
-/** 0 = centre stage, 1 = waiting on the right, 2 = waiting on the left. */
 const slots = [
   { x: "50%", z: 92, scale: 1, opacity: 1, blur: 0 },
   { x: "90%", z: -80, scale: 0.56, opacity: 0.3, blur: 1.6 },

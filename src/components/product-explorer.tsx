@@ -35,7 +35,6 @@ export function ProductExplorer({ range }: { range: Range }) {
 
   return (
     <div>
-      {/* controls */}
       <div className="sticky top-18.5 z-30 -mx-1 mb-10 flex flex-col gap-3 bg-ivory/85 px-1 py-3 backdrop-blur-md lg:flex-row lg:items-center">
         <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1">
           {groups.map((g) => (

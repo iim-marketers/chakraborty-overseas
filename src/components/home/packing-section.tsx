@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
-import { StandardsStrip } from "@/components/ui";
+import { PartnerUnitCaption, StandardsStrip } from "@/components/ui";
 
 const packing = [
   "Oiled or VCI-protected goods in moisture-resistant liners against condensation",
@@ -42,7 +42,7 @@ export function PackingSection() {
         </Reveal>
 
         <Reveal delay={120} className="space-y-4">
-          <div className="relative aspect-16/10 overflow-hidden rounded-tile border border-line">
+          <figure className="relative aspect-16/10 overflow-hidden rounded-tile border border-line">
             <Image
               src="/facility/warehouse.webp"
               alt="Packed stock in warehouse racking before loading"
@@ -50,7 +50,8 @@ export function PackingSection() {
               sizes="(max-width: 1024px) 92vw, 44vw"
               className="object-cover"
             />
-          </div>
+            <PartnerUnitCaption city="Rohtak" />
+          </figure>
         </Reveal>
       </div>
 

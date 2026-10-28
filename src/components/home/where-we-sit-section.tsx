@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
+import { PartnerUnitCaption } from "@/components/ui";
 
 const points = [
   [
@@ -20,16 +21,19 @@ const facility = [
   {
     src: "/facility/mill-coils.webp",
     alt: "Wire rod coils staged at a partner mill",
+    city: "Rohtak",
   },
   {
-    src: "/facility/wire-drawing.webp",
-    alt: "Wire drawing line",
+    src: "/facility/cold-heading.webp",
+    alt: "Cold heading machine beside wire rod coils",
+    city: "Ahmedabad",
   },
   {
-    src: "/facility/thread-rolling.webp",
-    alt: "Thread rolling machine",
+    src: "/facility/heading-shop.webp",
+    alt: "Bolt heading and forging machines on the shop floor",
+    city: "Ahmedabad",
   },
-  { src: "/facility/furnace.webp", alt: "Hardening furnace" },
+  { src: "/facility/furnace.webp", alt: "Hardening furnace", city: "Rohtak" },
 ];
 
 const cutouts = [
@@ -82,7 +86,7 @@ export function WhereWeSitSection() {
         <Reveal delay={120}>
           <div className="grid grid-cols-2 gap-3">
             {facility.map((f, i) => (
-              <div
+              <figure
                 key={f.src}
                 className={`relative aspect-4/3 overflow-hidden rounded-2xl border border-line ${
                   i % 2 === 1 ? "mt-6" : ""
@@ -95,7 +99,8 @@ export function WhereWeSitSection() {
                   sizes="(max-width: 1024px) 45vw, 22vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
-              </div>
+                <PartnerUnitCaption city={f.city} />
+              </figure>
             ))}
           </div>
           <div className="mt-4 grid grid-cols-3 gap-4">
