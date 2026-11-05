@@ -234,14 +234,14 @@ export function SiteHeader() {
       <div
         id="mobile-nav"
         aria-hidden={!open}
-        className={`fixed inset-x-3 top-21.5 z-60 origin-top overflow-hidden rounded-[26px] border border-line bg-ivory shadow-[0_40px_80px_-30px_rgba(8,12,17,.55)] transition-all duration-300 ease-out-soft lg:hidden ${
+        className={`fixed inset-x-3 top-21.5 z-60 origin-top overflow-hidden rounded-[26px] border border-line bg-ivory shadow-[0_40px_80px_-30px_color-mix(in_srgb,var(--color-ink)_55%,transparent)] transition-all duration-300 ease-out-soft lg:hidden ${
           open
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-3 scale-[0.97] opacity-0"
         }`}
       >
         <div className="max-h-[min(74vh,620px)] overflow-y-auto overscroll-contain">
-          <div className="bg-ink px-4 pb-4 pt-4 text-ivory">
+          <div className="on-dark bg-deep px-4 pb-4 pt-4 text-ivory">
             <p className="font-mono text-[0.55rem] uppercase tracking-[0.22em] text-gold-light">
               Ranges
             </p>

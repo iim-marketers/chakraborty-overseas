@@ -153,7 +153,7 @@ export function ProductExplorer({ range }: { range: Range }) {
                 aria-pressed={active}
                 className={`flex shrink-0 items-center gap-2 rounded-full border py-2 pl-4 pr-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] transition-[background-color,border-color,color,opacity] duration-200 ${
                   active
-                    ? "border-ink bg-ink text-ivory shadow-[0_6px_16px_-8px_rgba(8,12,17,0.55)]"
+                    ? "border-deep bg-deep text-ivory shadow-[0_6px_16px_-8px_color-mix(in_srgb,var(--color-ink)_55%,transparent)]"
                     : "border-line bg-white text-ink/65 hover:border-ink/40 hover:text-ink"
                 } ${empty && !active ? "opacity-45" : ""}`}
               >

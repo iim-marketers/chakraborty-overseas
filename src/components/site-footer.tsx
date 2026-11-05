@@ -7,7 +7,7 @@ import { BackToTop } from "@/components/back-to-top";
 
 export function SiteFooter() {
   return (
-    <footer className="on-dark relative overflow-hidden bg-ink text-steel-light">
+    <footer className="on-dark relative overflow-hidden bg-deep text-steel-light">
       <div className="blueprint absolute inset-0 opacity-60" aria-hidden />
       <div
         className="absolute -left-32 top-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl"

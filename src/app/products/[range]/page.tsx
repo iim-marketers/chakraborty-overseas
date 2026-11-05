@@ -74,7 +74,7 @@ export default async function RangePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="on-dark relative overflow-hidden bg-ink text-ivory">
+      <section className="on-dark relative overflow-hidden bg-deep text-ivory">
         <div className="blueprint absolute inset-0" aria-hidden />
         <div
           className="pointer-events-none absolute right-20 top-1/2 hidden w-[38%] max-w-85 -translate-y-1/2 opacity-70 lg:block"

@@ -29,7 +29,7 @@ export function RangeCard({ range, count }: { range: Range; count: number }) {
               width={760}
               height={760}
               sizes="(max-width: 768px) 90vw, 380px"
-              className="h-full w-full object-contain drop-shadow-[0_18px_26px_rgba(8,12,17,.28)]"
+              className="h-full w-full object-contain drop-shadow-[0_18px_26px_color-mix(in_srgb,var(--color-ink)_28%,transparent)]"
             />
           </span>
           <span

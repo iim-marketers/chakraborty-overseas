@@ -13,9 +13,9 @@ type Email = {
 };
 
 const c = {
-  ink: "#080c11",
-  graphite: "#10161d",
-  carbon: "#18212b",
+  ink: "#1a3a2e", // black: "#080c11"
+  graphite: "#1f3d32", // black: "#10161d"
+  carbon: "#1f3d32", // black: "#18212b"
   steel: "#5f7183",
   steelLight: "#93a3b2",
   ivory: "#f8f6f1",

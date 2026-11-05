@@ -23,7 +23,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noreferrer"
       aria-label="Message Chakraborty Overseas on WhatsApp"
-      className={`fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full bg-ink px-4 py-3.5 text-ivory shadow-(--shadow-lift) transition-all duration-300 hover:bg-carbon ${
+      className={`fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full bg-deep px-4 py-3.5 text-ivory shadow-(--shadow-lift) transition-all duration-300 hover:bg-carbon ${
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"
