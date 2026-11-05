@@ -28,7 +28,7 @@ export function SupplyFlow({ className = "" }: { className?: string }) {
       />
       <path
         d="M60 120h420"
-        stroke="#0B1015"
+        className="stroke-ink"
         strokeOpacity=".08"
         strokeWidth="8"
         fill="none"
@@ -42,7 +42,7 @@ export function SupplyFlow({ className = "" }: { className?: string }) {
             cy={120}
             r={i === 1 ? 26 : 18}
             fill="#fff"
-            stroke="#0B1015"
+            className="stroke-ink"
             strokeOpacity=".12"
           />
           <circle
@@ -143,7 +143,7 @@ export function PackingDrawing({ className = "" }: { className?: string }) {
       role="img"
       aria-label="Line drawing of a palletised export carton stack, strapped and marked"
     >
-      <g fill="none" stroke="#28323A" strokeWidth="1.6" strokeLinejoin="round">
+      <g fill="none" className="stroke-ink" strokeWidth="1.6" strokeLinejoin="round">
         <path d="M60 300h300v14H60zM60 314h300v18H60z" />
         <path d="M96 314v18M172 314v18M248 314v18M324 314v18" />
         <path d="M74 236h132v64H74zM214 236h132v64H214z" />
@@ -258,7 +258,7 @@ export function InspectionChart({ className = "" }: { className?: string }) {
               y={y + 4}
               fontFamily="var(--font-sans), sans-serif"
               fontSize="13"
-              fill="#1A222A"
+              className="fill-ink"
             >
               {label}
             </text>

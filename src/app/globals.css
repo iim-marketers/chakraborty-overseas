@@ -5,10 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* Forest green palette. To revert to the original black, swap in:
   --color-ink: #080c11;
+  --color-deep: #080c11;
   --color-graphite: #10161d;
   --color-carbon: #18212b;
   --color-slate-deep: #1f2a36;
+  then delete the .on-dark colour overrides below and use the black values
+  noted beside themeColor in app/layout.tsx and in lib/enquiry-emails.ts. */
+  --color-ink: #1a3a2e;
+  --color-deep: #1f3d32;
+  --color-graphite: #24473a;
+  --color-carbon: #2b5243;
+  --color-slate-deep: #335d4d;
   --color-steel: #5f7183;
   --color-steel-light: #93a3b2;
 
@@ -31,8 +40,8 @@
 
   --radius-tile: 18px;
 
-  --shadow-plate: 0 18px 40px -24px rgb(8 12 17 / 0.45);
-  --shadow-lift: 0 34px 70px -30px rgb(8 12 17 / 0.55);
+  --shadow-plate: 0 18px 40px -24px color-mix(in srgb, var(--color-ink) 45%, transparent);
+  --shadow-lift: 0 34px 70px -30px color-mix(in srgb, var(--color-ink) 55%, transparent);
 
   --ease-out-soft: cubic-bezier(0.22, 0.75, 0.28, 1);
 
@@ -143,6 +152,11 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--color-gold));
   }
+  /* Green-tinted greys for the green palette; delete this block for black. */
+  .on-dark {
+    --color-steel: #a9bdb3;
+    --color-steel-light: #c9d8d0;
+  }
   .on-dark .eyebrow {
     color: var(--color-gold-light);
   }
@@ -202,7 +216,7 @@
   }
 
   .btn-ink {
-    background: var(--color-ink);
+    background: var(--color-deep);
     color: var(--color-ivory);
   }
   .btn-ink:hover {
@@ -217,7 +231,7 @@
   .btn-outline:hover {
     border-color: var(--color-ink);
     background: color-mix(in srgb, var(--color-ink) 10%, transparent);
-    box-shadow: 0 12px 26px -18px rgb(15 20 26 / 0.7);
+    box-shadow: 0 12px 26px -18px color-mix(in srgb, var(--color-ink) 70%, transparent);
   }
 
   .btn-outline-light {
@@ -278,7 +292,7 @@
     border-radius: var(--radius-tile);
   }
   .tile-dark {
-    background: linear-gradient(150deg, #18212b, #10161d 65%);
+    background: linear-gradient(150deg, var(--color-carbon), var(--color-graphite) 65%);
     border: 1px solid rgb(255 255 255 / 0.07);
     border-radius: var(--radius-tile);
   }
@@ -291,8 +305,8 @@
   }
   .blueprint-light {
     background-image:
-      linear-gradient(rgb(8 12 17 / 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(8 12 17 / 0.045) 1px, transparent 1px);
+      linear-gradient(color-mix(in srgb, var(--color-ink) 4.5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-ink) 4.5%, transparent) 1px, transparent 1px);
     background-size: 46px 46px;
   }
 
@@ -402,15 +416,15 @@
 /* Add `dark` to any wrapper on graphite/carbon to flip these tokens. */
 :root {
   --background: #f8f6f1;
-  --foreground: #080c11;
+  --foreground: var(--color-ink);
   --card: #ffffff;
-  --card-foreground: #080c11;
+  --card-foreground: var(--color-ink);
   --popover: #ffffff;
-  --popover-foreground: #080c11;
-  --primary: #080c11;
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-ink);
   --primary-foreground: #f8f6f1;
   --secondary: #f1ede4;
-  --secondary-foreground: #080c11;
+  --secondary-foreground: var(--color-ink);
   --muted: #ede9e0;
   --muted-foreground: #5f7183;
   --accent: #f1ede4;
@@ -423,11 +437,11 @@
   --chart-2: #2e7d74;
   --chart-3: #b4622d;
   --chart-4: #5f7183;
-  --chart-5: #1f2a36;
+  --chart-5: var(--color-slate-deep);
   --radius: 0.75rem;
   --sidebar: #f1ede4;
-  --sidebar-foreground: #080c11;
-  --sidebar-primary: #080c11;
+  --sidebar-foreground: var(--color-ink);
+  --sidebar-primary: var(--color-ink);
   --sidebar-primary-foreground: #f8f6f1;
   --sidebar-accent: #ede9e0;
   --sidebar-accent-foreground: #6e5417;
@@ -436,17 +450,17 @@
 }
 
 .dark {
-  --background: #18212b;
+  --background: var(--color-carbon);
   --foreground: #f8f6f1;
-  --card: #10161d;
+  --card: var(--color-graphite);
   --card-foreground: #f8f6f1;
-  --popover: #10161d;
+  --popover: var(--color-graphite);
   --popover-foreground: #f8f6f1;
   --primary: #c8a24a;
-  --primary-foreground: #080c11;
-  --secondary: #1f2a36;
+  --primary-foreground: var(--color-ink);
+  --secondary: var(--color-slate-deep);
   --secondary-foreground: #f8f6f1;
-  --muted: #1f2a36;
+  --muted: var(--color-slate-deep);
   --muted-foreground: #93a3b2;
   --accent: rgb(255 255 255 / 8%);
   --accent-foreground: #e7c878;
@@ -459,10 +473,10 @@
   --chart-3: #d17a45;
   --chart-4: #93a3b2;
   --chart-5: #f8f6f1;
-  --sidebar: #10161d;
+  --sidebar: var(--color-graphite);
   --sidebar-foreground: #f8f6f1;
   --sidebar-primary: #c8a24a;
-  --sidebar-primary-foreground: #080c11;
+  --sidebar-primary-foreground: var(--color-ink);
   --sidebar-accent: rgb(255 255 255 / 8%);
   --sidebar-accent-foreground: #e7c878;
   --sidebar-border: rgb(255 255 255 / 12%);

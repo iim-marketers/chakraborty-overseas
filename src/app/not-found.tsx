@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="on-dark relative overflow-hidden bg-ink py-28 text-ivory">
+    <section className="on-dark relative overflow-hidden bg-deep py-28 text-ivory">
       <div className="blueprint absolute inset-0" aria-hidden />
       <div className="shell relative max-w-2xl">
         <p className="eyebrow">Error 404</p>

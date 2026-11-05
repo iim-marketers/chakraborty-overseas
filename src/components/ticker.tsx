@@ -14,7 +14,7 @@ const items = [
 export function Ticker() {
   const row = [...items, ...items];
   return (
-    <div className="relative overflow-hidden border-b border-white/10 bg-ink py-2">
+    <div className="on-dark relative overflow-hidden border-b border-white/10 bg-deep py-2">
       <div className="flex w-max animate-marquee gap-10 pr-10">
         {row.map(([label, value], i) => (
           <span

@@ -4,14 +4,14 @@ import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="on-dark relative overflow-hidden bg-ink text-ivory">
+    <section className="on-dark relative overflow-hidden bg-deep text-ivory">
       <div className="blueprint absolute inset-0" aria-hidden />
       <div
         className="absolute left-1/2 top-0 h-130 w-205 -translate-x-1/2 rounded-full bg-gold/12 blur-[120px]"
         aria-hidden
       />
       <div
-        className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-ink"
+        className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-deep"
         aria-hidden
       />
 

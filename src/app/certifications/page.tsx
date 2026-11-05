@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OrderTerms } from "@/components/order-terms";
 import { Reveal } from "@/components/reveal";
 import { CTABand, PageHero } from "@/components/ui";
 import { openGraphBase } from "@/lib/seo";
@@ -138,44 +139,9 @@ export default function CertificationsPage() {
             </p>
           </Reveal>
         </div>
-
-        <div className="shell mt-10">
-          <Reveal>
-            <div className="grid gap-6 rounded-tile border border-line bg-white p-8 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                [
-                  "Documents issued with every shipment",
-                  "Commercial invoice · Packing list · Certificate of origin · Mill test certificates · Bill of lading or airway bill",
-                ],
-                [
-                  "Payment terms",
-                  "Advance, LC at sight and negotiated terms for repeat buyers",
-                ],
-                ["Quoting currency", "USD · EUR · GBP · INR"],
-                [
-                  "Incoterms",
-                  `${site.incoterms.join(" · ")} · ${site.incotermsOnRequest.join(" and ")} on request`,
-                ],
-                [
-                  "Loading",
-                  `Sea: ${site.contact.ports} · Air: ${site.contact.airports}`,
-                ],
-                [
-                  "Samples",
-                  "Free samples of standard catalogue items (up to 10 pieces per size); courier at buyer's cost or on buyer's courier account. Samples to drawing are charged and adjusted against the first order.",
-                ],
-              ].map(([t, b]) => (
-                <div key={t}>
-                  <p className="spec-label">{t}</p>
-                  <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/72">
-                    {b}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
       </section>
+
+      <OrderTerms />
 
       <CTABand
         title="Need our documents up front?"

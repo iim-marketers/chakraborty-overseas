@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { countries } from "@/lib/countries";
+import { OrderTerms } from "@/components/order-terms";
 import { PageHero } from "@/components/ui";
 import { openGraphBase } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -133,6 +134,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <OrderTerms />
     </>
   );
 }

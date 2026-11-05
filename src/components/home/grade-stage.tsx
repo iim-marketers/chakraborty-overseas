@@ -162,8 +162,7 @@ export function GradeStage() {
                 <svg viewBox="0 0 100 100" className="block w-full" aria-hidden>
                   <polygon
                     points={HEX}
-                    fill="#1E2833"
-                    className="stroke-gold/45"
+                    className="fill-graphite stroke-gold/45"
                     strokeWidth="1.6"
                     strokeLinejoin="round"
                   />

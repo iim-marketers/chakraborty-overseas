@@ -71,7 +71,7 @@ export default async function LegalDocPage({
 
   return (
     <>
-      <section className="on-dark relative overflow-hidden bg-ink text-ivory">
+      <section className="on-dark relative overflow-hidden bg-deep text-ivory">
         <div className="blueprint absolute inset-0" aria-hidden />
         <div
           className="absolute -right-24 top-0 h-105 w-130 rounded-full bg-gold/12 blur-[110px]"
