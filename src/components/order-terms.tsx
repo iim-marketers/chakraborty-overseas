@@ -5,7 +5,11 @@ import { site } from "@/lib/site";
 
 const leadTimes = [
   { weeks: "2–3", label: "Standard sizes", note: "Regular catalogue items" },
-  { weeks: "3–6", label: "Made to order", note: "Special sizes or your drawing" },
+  {
+    weeks: "3–6",
+    label: "Made to order",
+    note: "Special sizes or your drawing",
+  },
   {
     weeks: "2–8",
     label: "Heat treated, HSFG or special coating",
@@ -31,7 +35,10 @@ const documents = [
   ["Commercial invoice", "The bill for the goods"],
   ["Packing list", "What is in each carton, with weights"],
   ["Certificate of origin", "Shows the goods are made in India"],
-  ["Mill test certificates", "The manufacturer's material and strength test report"],
+  [
+    "Mill test certificates",
+    "The manufacturer's material and strength test report",
+  ],
   ["Bill of lading or airway bill", "The shipping receipt, by sea or by air"],
 ];
 
@@ -61,7 +68,7 @@ function Row({
 
 export function OrderTerms() {
   return (
-    <section className="py-12 lg:py-16">
+    <section className="pb-12 pt-4 lg:pt-6 lg:pb-16">
       <div className="shell">
         <SectionHead
           eyebrow="Order terms"
@@ -74,7 +81,10 @@ export function OrderTerms() {
             <Row label="Samples" summary="Free for catalogue items">
               <ul className="space-y-2.5">
                 <li>
-                  Up to <strong className="font-semibold text-ink">10 pieces of each size</strong>{" "}
+                  Up to{" "}
+                  <strong className="font-semibold text-ink">
+                    10 pieces of each size
+                  </strong>{" "}
                   from our standard catalogue, at no charge.
                 </li>
                 <li>
@@ -88,7 +98,10 @@ export function OrderTerms() {
               </ul>
             </Row>
 
-            <Row label="Lead time" summary="2 to 8 weeks, depending on the item">
+            <Row
+              label="Lead time"
+              summary="2 to 8 weeks, depending on the item"
+            >
               <div className="grid gap-3 sm:grid-cols-3">
                 {leadTimes.map((t) => (
                   <div
@@ -118,10 +131,13 @@ export function OrderTerms() {
               </p>
             </Row>
 
-            <Row label="Payment" summary="30% advance, 70% balance. You choose how">
+            <Row
+              label="Payment"
+              summary="30% advance, 70% balance. You choose how"
+            >
               <p>
-                Every order starts with a 30% advance. You can pay the
-                remaining 70% in any one of these three ways:
+                Every order starts with a 30% advance. You can pay the remaining
+                70% in any one of these three ways:
               </p>
               <ol className="mt-4 grid gap-3 lg:grid-cols-3">
                 {payments.map((p, i) => (
@@ -189,8 +205,8 @@ export function OrderTerms() {
 
             <Row label="Shipping" summary="Quoted on the Incoterm you need">
               <p>
-                {site.incoterms.join(", ")}. {site.incotermsOnRequest.join(" and ")}{" "}
-                on request.
+                {site.incoterms.join(", ")}.{" "}
+                {site.incotermsOnRequest.join(" and ")} on request.
               </p>
               <p className="mt-2">
                 <span className="font-semibold text-ink">Sea:</span>{" "}
