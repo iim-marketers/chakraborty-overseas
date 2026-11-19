@@ -61,7 +61,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="Why we exist"
+        eyebrow={`Est. ${site.established} · Why we exist`}
         title={
           <>
             India makes fasteners well.{" "}

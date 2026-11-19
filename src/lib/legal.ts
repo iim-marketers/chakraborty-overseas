@@ -10,7 +10,7 @@ export const legalTerms = {
   effective: "27 October 2026",
 } as const;
 
-export const legalIdentity = `${site.name}, a ${site.legalForm} registered in India · Registered address: ${site.contact.address} · IEC, GSTIN and EEPC RCMC available on request`;
+export const legalIdentity = `${site.name}, a ${site.legalForm} registered in India · Registered address: ${site.contact.address} · IEC, GSTIN and EEPC RCMC copies sent with the quotation`;
 
 const listOf = (items: string, last = "or") => {
   const parts = items.split(" · ");
@@ -52,7 +52,7 @@ export const legalDocs: readonly LegalDoc[] = [
         heading: "1. Who we are",
         blocks: [
           `This website at ${site.url} (the "Site") is operated by ${site.name}, a ${site.legalForm} registered in India that trades as a merchant exporter of industrial fasteners, with its registered address at ${site.contact.address}. "We", "us" and "our" mean ${site.name}. "You" means the person or business using the Site.`,
-          "Our Importer Exporter Code (IEC), GST registration (GSTIN) and EEPC Registration-cum-Membership Certificate (RCMC) are available on request, and copies can be sent with any quotation.",
+          "Our Importer Exporter Code (IEC), GST registration (GSTIN) and EEPC Registration-cum-Membership Certificate (RCMC) are held by us, and copies are sent with the quotation.",
           "By using the Site you accept these terms. If you do not accept them, please do not use the Site.",
         ],
       },
@@ -237,7 +237,7 @@ export const legalDocs: readonly LegalDoc[] = [
             "commercial invoice and packing list",
             "certificate of origin",
             "mill test certificates traceable to the heat number, issued by the manufacturer",
-            "bill of lading or airway bill",
+            "bill of lading or air way-bill",
             "any inspection or fumigation certificate the destination requires and you have asked for",
           ],
           "Tell us at order confirmation if your import formalities need a document in a particular form, legalisation or number of originals. Re-issuing documents after shipment is often impossible.",

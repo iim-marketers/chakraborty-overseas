@@ -74,7 +74,7 @@ export function SiteHeader() {
           >
             <Image
               src="/logo.png"
-              alt=""
+              alt={`${site.name} logo`}
               width={52}
               height={52}
               priority

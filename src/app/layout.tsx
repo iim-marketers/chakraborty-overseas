@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   publisher: site.name,
   openGraph: {
     ...openGraphBase,
-    title: `${site.name} — Fastener Merchant Exporter, Howrah (Kolkata)`,
+    title: `${site.name} — Fastener Merchant Exporter, Howrah (Kolkata), India`,
     description: site.description,
   },
   twitter: {
@@ -84,6 +84,7 @@ const orgJsonLd = {
   logo: `${site.url}/logo-large.png`,
   description: site.description,
   slogan: site.tagline,
+  foundingDate: String(site.established),
   email: site.contact.email,
   telephone: site.contact.phone,
   address: {

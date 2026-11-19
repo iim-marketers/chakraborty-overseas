@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Certifications — IEC, GSTIN & Supplier Accreditation",
   description:
-    "Chakraborty Overseas holds an IEC, a GSTIN and an EEPC RCMC — copies available with the quotation. Manufacturing certifications, mill test certificates and third-party inspection belong to our sourcing partners.",
+    "Chakraborty Overseas holds an IEC, a GSTIN and an EEPC RCMC — copies sent with the quotation. Manufacturing certifications, mill test certificates and third-party inspection belong to our sourcing partners.",
   alternates: { canonical: "/certifications" },
   openGraph: {
     ...openGraphBase,
@@ -58,7 +58,7 @@ const ours = [
 const theirs = [
   {
     title: "ISO 9001 quality management",
-    body: "Held by the manufacturing units we source from. Certificates are supplied with the consignment on request.",
+    body: "Held by the manufacturing units we source from. Certificate copies are sent with the quotation.",
   },
   {
     title: "Mill test certificates",
@@ -145,7 +145,7 @@ export default function CertificationsPage() {
 
       <CTABand
         title="Need our documents up front?"
-        body="We can send the IEC, GST and RCMC registration copies with the quotation — just ask when you enquire."
+        body="Copies of our IEC, GSTIN and RCMC registrations are sent with the quotation."
       />
     </>
   );

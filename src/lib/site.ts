@@ -3,6 +3,7 @@ export const site = {
   tagline: "Trusted. Transparent. Committed.",
   role: "Merchant exporter of industrial fasteners",
   legalForm: "sole proprietorship",
+  established: 2026,
   city: "Howrah (Kolkata), West Bengal",
   url: "https://www.chakrabortyoverseas.com",
   description:

@@ -19,7 +19,7 @@ const bolts = [
     h: 415,
     /** This pair lies flat in frame, so it needs a little more width to match. */
     zoom: 1.16,
-    alt: "Two stainless steel hex head bolts, the grade stamped on the head",
+    alt: "Stainless steel hex bolts A2-70, grade stamped on the head",
   },
   {
     slug: "mild-steel",
@@ -31,19 +31,19 @@ const bolts = [
     w: 782,
     h: 608,
     zoom: 1,
-    alt: "Two yellow zinc plated mild steel hex bolts, property class 4.8 stamped on the head",
+    alt: "Mild steel hex bolts 4.8, yellow zinc plated",
   },
   {
     slug: "high-tension",
     name: "High tension",
     finish: "Black oxide",
-    marks: ["8.8", "10.9", "12.9"],
+    marks: ["8.8", "10.9", "12.9", "14.9"],
     note: "Heat treated alloy steel, for the joints that actually carry the load.",
     src: "/cutouts/stage/black-bolt.webp",
     w: 702,
     h: 552,
     zoom: 0.98,
-    alt: "Two black oxide high tension hex bolts",
+    alt: "High tension hex bolts, black oxide finish",
   },
 ] as const;
 

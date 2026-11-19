@@ -19,7 +19,7 @@ export function SiteFooter() {
             <div className="flex items-center gap-3">
               <Image
                 src="/logo.png"
-                alt=""
+                alt={`${site.name} logo`}
                 width={52}
                 height={52}
                 className="h-12 w-12 object-contain"
@@ -111,7 +111,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
-          <span>{site.name} · {site.city}, India</span>
+          <span>
+            {site.name} · Est. {site.established} · {site.city}, India
+          </span>
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
             <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
               {legalDocs.map((d) => (
