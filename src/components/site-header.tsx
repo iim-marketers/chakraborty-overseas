@@ -56,8 +56,8 @@ export function SiteHeader() {
       <header
         className={`sticky top-0 z-50 transition-colors duration-300 ${
           stuck
-            ? "border-b border-line bg-ivory/85 backdrop-blur-xl"
-            : "border-b border-transparent bg-ivory/60 backdrop-blur-sm"
+            ? "border-b border-line bg-ivory-2/92 shadow-[0_10px_30px_-22px_color-mix(in_srgb,var(--color-ink)_45%,transparent)] backdrop-blur-xl"
+            : "border-b border-line bg-ivory-2 backdrop-blur-sm"
         }`}
       >
         <div className="shell flex h-18.5 items-center gap-4">
@@ -74,7 +74,7 @@ export function SiteHeader() {
           >
             <Image
               src="/logo.png"
-              alt=""
+              alt={`${site.name} logo`}
               width={52}
               height={52}
               priority

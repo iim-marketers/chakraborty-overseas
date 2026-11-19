@@ -7,7 +7,7 @@ export function BackToTop() {
     <button
       type="button"
       onClick={scrollToTop}
-      className="self-start cursor-pointer uppercase tracking-[0.18em] text-gold-light transition-colors hover:text-white"
+      className="self-start cursor-pointer uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-ink"
     >
       Back to top
     </button>

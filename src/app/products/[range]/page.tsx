@@ -74,8 +74,8 @@ export default async function RangePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="on-dark relative overflow-hidden bg-deep text-ivory">
-        <div className="blueprint absolute inset-0" aria-hidden />
+      <section className="relative overflow-hidden border-b border-line bg-ivory text-ink">
+        <div className="blueprint-light absolute inset-0" aria-hidden />
         <div
           className="pointer-events-none absolute right-20 top-1/2 hidden w-[38%] max-w-85 -translate-y-1/2 opacity-70 lg:block"
           aria-hidden
@@ -87,7 +87,7 @@ export default async function RangePage({
             height={760}
             priority
             sizes="420px"
-            className="h-auto w-full animate-float-slow drop-shadow-[0_30px_50px_rgba(0,0,0,.65)]"
+            className="h-auto w-full animate-float-slow drop-shadow-[0_30px_50px_color-mix(in_srgb,var(--color-ink)_35%,transparent)]"
           />
         </div>
         <div
@@ -99,7 +99,7 @@ export default async function RangePage({
           <h1 className="mt-5 max-w-3xl text-[clamp(2.1rem,5vw,3.7rem)] font-semibold leading-[1.02] tracking-[-0.032em] text-balance">
             {range.name}
           </h1>
-          <p className="mt-5 max-w-[58ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">
+          <p className="mt-5 max-w-[58ch] text-[1.02rem] leading-relaxed text-ink/70 text-pretty">
             {range.detail}
           </p>
 
@@ -110,10 +110,10 @@ export default async function RangePage({
               ["Applications", range.applications.join(" · ")],
             ].map(([k, v]) => (
               <div key={k}>
-                <p className="font-mono text-[0.56rem] uppercase tracking-[0.2em] text-gold-light">
+                <p className="font-mono text-[0.56rem] uppercase tracking-[0.2em] text-gold-ink">
                   {k}
                 </p>
-                <p className="mt-1.5 text-[0.86rem] text-steel-light">{v}</p>
+                <p className="mt-1.5 text-[0.86rem] text-ink/70">{v}</p>
               </div>
             ))}
           </div>
@@ -129,7 +129,7 @@ export default async function RangePage({
               href={`/catalogue/${site.downloads.catalogue}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline-light btn-download"
+              className="btn btn-outline btn-download"
             >
               Download catalogue
             </a>

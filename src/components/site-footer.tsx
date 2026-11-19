@@ -7,8 +7,8 @@ import { BackToTop } from "@/components/back-to-top";
 
 export function SiteFooter() {
   return (
-    <footer className="on-dark relative overflow-hidden bg-deep text-steel-light">
-      <div className="blueprint absolute inset-0 opacity-60" aria-hidden />
+    <footer className="relative overflow-hidden border-t border-line bg-ivory text-ink/70">
+      <div className="blueprint-light absolute inset-0 opacity-60" aria-hidden />
       <div
         className="absolute -left-32 top-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
         aria-hidden
@@ -19,22 +19,22 @@ export function SiteFooter() {
             <div className="flex items-center gap-3">
               <Image
                 src="/logo.png"
-                alt=""
+                alt={`${site.name} logo`}
                 width={52}
                 height={52}
                 className="h-12 w-12 object-contain"
               />
-              <span className="font-display text-lg font-semibold text-white">
+              <span className="font-display text-lg font-semibold text-ink">
                 {site.name}
               </span>
             </div>
-            <p className="mt-5 max-w-sm text-[0.9rem] leading-relaxed text-steel-light/80">
+            <p className="mt-5 max-w-sm text-[0.9rem] leading-relaxed text-ink/70">
               Merchant exporter of mild steel, stainless steel and high tension
               fasteners, based in {site.city}, India. We source from verified Indian
               manufacturing partners; we do not operate manufacturing facilities
               of our own.
             </p>
-            <p className="mt-5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
+            <p className="mt-5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-ink">
               {site.tagline}
             </p>
             <a
@@ -48,7 +48,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
+            <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-ink">
               Sections
             </h4>
             <ul className="mt-4 space-y-2.5 text-[0.88rem]">
@@ -56,7 +56,7 @@ export function SiteFooter() {
                 <li key={n.href}>
                   <Link
                     href={n.href}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-ink"
                   >
                     {n.label}
                   </Link>
@@ -66,7 +66,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
+            <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-ink">
               Ranges
             </h4>
             <ul className="mt-4 space-y-2.5 text-[0.88rem]">
@@ -74,7 +74,7 @@ export function SiteFooter() {
                 <li key={r.slug}>
                   <Link
                     href={`/products/${r.slug}`}
-                    className="transition-colors hover:text-white"
+                    className="transition-colors hover:text-ink"
                   >
                     {r.shortName}
                   </Link>
@@ -84,14 +84,14 @@ export function SiteFooter() {
           </div>
 
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-light">
+            <h4 className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-gold-ink">
               Contact
             </h4>
             <ul className="mt-4 space-y-3 text-[0.88rem]">
               <li>
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="break-all transition-colors hover:text-white"
+                  className="break-all transition-colors hover:text-ink"
                 >
                   {site.contact.email}
                 </a>
@@ -99,7 +99,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href={`tel:${site.contact.phoneHref}`}
-                  className="transition-colors hover:text-white"
+                  className="transition-colors hover:text-ink"
                 >
                   {site.contact.phone}
                 </a>
@@ -110,15 +110,17 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel-light/70 md:flex-row md:items-center md:justify-between">
-          <span>{site.name} · {site.city}, India</span>
+        <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-steel md:flex-row md:items-center md:justify-between">
+          <span>
+            {site.name} · Est. {site.established} · {site.city}, India
+          </span>
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
             <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
               {legalDocs.map((d) => (
                 <Link
                   key={d.slug}
                   href={`/legal/${d.slug}`}
-                  className="transition-colors hover:text-white"
+                  className="transition-colors hover:text-ink"
                 >
                   {d.shortTitle}
                 </Link>

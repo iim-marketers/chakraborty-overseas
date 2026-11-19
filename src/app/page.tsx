@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     ...openGraphBase,
-    title: `${site.name} — Fastener Merchant Exporter, Howrah (Kolkata)`,
+    title: `${site.name} — Fastener Merchant Exporter, Howrah (Kolkata), India`,
     description:
       "Mild steel, stainless steel and high tension fasteners sourced from verified Indian manufacturers, quality-checked and exported worldwide.",
     url: "/",

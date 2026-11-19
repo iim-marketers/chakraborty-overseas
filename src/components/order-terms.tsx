@@ -4,14 +4,27 @@ import { SectionHead } from "@/components/ui";
 import { site } from "@/lib/site";
 
 const leadTimes = [
-  { weeks: "2–3", label: "Standard sizes", note: "Regular catalogue items" },
   {
-    weeks: "3–6",
+    span: "3–10",
+    unit: "days",
+    label: "Ready stock",
+    note: "Based on availability",
+  },
+  {
+    span: "2–3",
+    unit: "weeks",
+    label: "Standard sizes",
+    note: "Regular catalogue items",
+  },
+  {
+    span: "3–6",
+    unit: "weeks",
     label: "Made to order",
     note: "Special sizes or your drawing",
   },
   {
-    weeks: "2–8",
+    span: "2–8",
+    unit: "weeks",
     label: "Heat treated, HSFG or special coating",
     note: "Extra processing time at the mill",
   },
@@ -39,7 +52,7 @@ const documents = [
     "Mill test certificates",
     "The manufacturer's material and strength test report",
   ],
-  ["Bill of lading or airway bill", "The shipping receipt, by sea or by air"],
+  ["Bill of lading or air way-bill", "The shipping receipt, by sea or by air"],
 ];
 
 function Row({
@@ -73,7 +86,7 @@ export function OrderTerms() {
         <SectionHead
           eyebrow="Order terms"
           title="How ordering works"
-          lede="Samples, timelines, payment and paperwork in plain words, so you know what to expect before you place an order."
+          lede="Samples, minimum order, timelines, payment and paperwork in plain words, so you know what to expect before you place an order."
         />
 
         <Reveal>
@@ -98,20 +111,28 @@ export function OrderTerms() {
               </ul>
             </Row>
 
+            <Row label="Minimum order" summary="No fixed minimum">
+              <p>
+                There is no fixed minimum order quantity. Small orders are
+                welcome and are quoted case by case. Send the sizes and
+                quantities you need and we will confirm what we can supply.
+              </p>
+            </Row>
+
             <Row
               label="Lead time"
-              summary="2 to 8 weeks, depending on the item"
+              summary="3 to 10 days from stock, up to 8 weeks to order"
             >
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                 {leadTimes.map((t) => (
                   <div
                     key={t.label}
                     className="rounded-tile border border-line-soft bg-ivory p-4"
                   >
                     <p className="font-display text-[1.6rem] font-semibold leading-none tracking-tight">
-                      {t.weeks}
+                      {t.span}
                       <span className="ml-1.5 text-[0.82rem] font-medium text-ink/60">
-                        weeks
+                        {t.unit}
                       </span>
                     </p>
                     <p className="mt-2.5 text-[0.86rem] font-semibold leading-snug text-ink">

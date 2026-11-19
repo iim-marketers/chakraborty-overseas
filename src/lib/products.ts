@@ -946,7 +946,7 @@ export const ranges: Range[] = [
     name: "High Tension & Precision",
     shortName: "High Tension",
     tone: "black",
-    tagline: "Property class 8.8 to 12.9, structural sets and turned parts",
+    tagline: "Property class 8.8 to 14.9, structural sets and turned parts",
     intro:
       "Heat treated alloy steel in class 8.8, 10.9 and 12.9, with 14.9 (non-ISO) made to buyer spec — socket screws, structural HSFG assemblies and precision turned components.",
     detail:
