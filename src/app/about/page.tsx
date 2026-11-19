@@ -85,7 +85,7 @@ export default function AboutPage() {
               {
                 tag: "Vision",
                 title: "A sourcing partner buyers can hand a drawing to.",
-                body: "To become the first name an international buyer thinks of when they need Indian-made fasteners — trusted not because we own a factory, but because we know which factories to use and we stand behind what leaves the port.",
+                body: "To become the name an international buyer thinks of when they need Indian-made fasteners — trusted not because we own a factory, but because we know which factories to use and we stand behind what leaves the port.",
               },
               {
                 tag: "Mission",

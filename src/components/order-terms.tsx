@@ -5,25 +5,25 @@ import { site } from "@/lib/site";
 
 const leadTimes = [
   {
-    span: "3–10",
+    span: "3\u00a0–\u00a010",
     unit: "days",
     label: "Ready stock",
     note: "Based on availability",
   },
   {
-    span: "2–3",
+    span: "2\u00a0–\u00a03",
     unit: "weeks",
     label: "Standard sizes",
     note: "Regular catalogue items",
   },
   {
-    span: "3–6",
+    span: "3\u00a0–\u00a06",
     unit: "weeks",
     label: "Made to order",
     note: "Special sizes or your drawing",
   },
   {
-    span: "2–8",
+    span: "2\u00a0–\u00a08",
     unit: "weeks",
     label: "Heat treated, HSFG or special coating",
     note: "Extra processing time at the mill",
@@ -130,8 +130,8 @@ export function OrderTerms() {
                     className="rounded-tile border border-line-soft bg-ivory p-4"
                   >
                     <p className="font-display text-[1.6rem] font-semibold leading-none tracking-tight">
-                      {t.span}
-                      <span className="ml-1.5 text-[0.82rem] font-medium text-ink/60">
+                      {t.span}{" "}
+                      <span className="ml-0.5 text-[0.82rem] font-medium text-ink/60">
                         {t.unit}
                       </span>
                     </p>
