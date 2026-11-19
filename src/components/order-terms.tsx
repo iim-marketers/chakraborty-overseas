@@ -23,7 +23,7 @@ const leadTimes = [
     note: "Special sizes or your drawing",
   },
   {
-    span: "2\u00a0–\u00a08",
+    span: "4\u00a0–\u00a08",
     unit: "weeks",
     label: "Heat treated, HSFG or special coating",
     note: "Extra processing time at the mill",
