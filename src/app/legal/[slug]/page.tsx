@@ -71,8 +71,8 @@ export default async function LegalDocPage({
 
   return (
     <>
-      <section className="on-dark relative overflow-hidden bg-deep text-ivory">
-        <div className="blueprint absolute inset-0" aria-hidden />
+      <section className="relative overflow-hidden border-b border-line bg-ivory text-ink">
+        <div className="blueprint-light absolute inset-0" aria-hidden />
         <div
           className="absolute -right-24 top-0 h-105 w-130 rounded-full bg-gold/12 blur-[110px]"
           aria-hidden
@@ -82,13 +82,13 @@ export default async function LegalDocPage({
           <h1 className="mt-6 max-w-3xl text-[clamp(2.1rem,4.8vw,3.4rem)] font-semibold leading-[1.03] tracking-[-0.032em] text-balance">
             {doc.title}
           </h1>
-          <p className="mt-6 max-w-[62ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">
+          <p className="mt-6 max-w-[62ch] text-[1.02rem] leading-relaxed text-ink/70 text-pretty">
             {doc.lede}
           </p>
-          <p className="mt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-gold-light">
+          <p className="mt-8 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-gold-ink">
             Last updated {doc.updated}
           </p>
-          <p className="mt-3 max-w-[62ch] text-[0.8rem] leading-relaxed text-steel-light/80">
+          <p className="mt-3 max-w-[62ch] text-[0.8rem] leading-relaxed text-ink/55">
             {legalIdentity}
           </p>
         </div>

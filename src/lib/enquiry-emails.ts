@@ -13,12 +13,12 @@ type Email = {
 };
 
 const c = {
-  ink: "#1a3a2e", // black: "#080c11"
-  graphite: "#1f3d32", // black: "#10161d"
-  carbon: "#1f3d32", // black: "#18212b"
+  ink: "#22272e",
+  graphite: "#22272e",
+  carbon: "#22272e",
   steel: "#5f7183",
   steelLight: "#93a3b2",
-  ivory: "#f8f6f1",
+  ivory: "#faf7f0",
   paper: "#ffffff",
   gold: "#c8a24a",
   goldLight: "#e7c878",

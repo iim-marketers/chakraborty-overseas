@@ -66,8 +66,8 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="on-dark relative overflow-hidden bg-deep text-ivory ">
-      <div className="blueprint absolute inset-0" aria-hidden />
+    <section className="relative overflow-hidden border-b border-line bg-ivory text-ink">
+      <div className="blueprint-light absolute inset-0" aria-hidden />
       <div
         className="absolute -right-24 top-0 h-105 w-130 rounded-full bg-gold/12 blur-[110px]"
         aria-hidden
@@ -80,7 +80,7 @@ export function PageHero({
           </h1>
         </div>
         {lede && (
-          <p className="max-w-[56ch] text-[1.02rem] leading-relaxed text-steel-light text-pretty">
+          <p className="max-w-[56ch] text-[1.02rem] leading-relaxed text-ink/70 text-pretty">
             {lede}
           </p>
         )}

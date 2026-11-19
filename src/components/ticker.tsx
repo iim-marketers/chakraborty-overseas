@@ -14,15 +14,15 @@ const items = [
 export function Ticker() {
   const row = [...items, ...items];
   return (
-    <div className="on-dark relative overflow-hidden border-b border-white/10 bg-deep py-2">
+    <div className="relative overflow-hidden border-b border-line bg-ivory-2 py-2">
       <div className="flex w-max animate-marquee gap-10 pr-10">
         {row.map(([label, value], i) => (
           <span
             key={i}
-            className="flex shrink-0 items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-steel-light/70"
+            className="flex shrink-0 items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-steel"
           >
             <span className="h-1 w-1 rounded-full bg-gold" aria-hidden />
-            {label} <b className="font-medium text-gold-light">{value}</b>
+            {label} <b className="font-medium text-gold-ink">{value}</b>
           </span>
         ))}
       </div>

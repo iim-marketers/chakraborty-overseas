@@ -5,23 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Forest green palette. To revert to the original black, swap in:
-  --color-ink: #080c11;
-  --color-deep: #080c11;
-  --color-graphite: #10161d;
-  --color-carbon: #18212b;
-  --color-slate-deep: #1f2a36;
-  then delete the .on-dark colour overrides below and use the black values
-  noted beside themeColor in app/layout.tsx and in lib/enquiry-emails.ts. */
-  --color-ink: #1a3a2e;
-  --color-deep: #1f3d32;
-  --color-graphite: #24473a;
-  --color-carbon: #2b5243;
-  --color-slate-deep: #335d4d;
+  --color-ink: #22272e;
+  --color-deep: #22272e;
+  --color-graphite: #2a3038;
+  --color-carbon: #333a43;
+  --color-slate-deep: #3e4651;
   --color-steel: #5f7183;
   --color-steel-light: #93a3b2;
 
-  --color-ivory: #f8f6f1;
+  --color-ivory: #faf7f0;
   --color-ivory-2: #f1ede4;
   --color-line: #e0dace;
   --color-line-soft: #ede9e0;
@@ -152,10 +144,9 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--color-gold));
   }
-  /* Green-tinted greys for the green palette; delete this block for black. */
   .on-dark {
-    --color-steel: #a9bdb3;
-    --color-steel-light: #c9d8d0;
+    --color-steel: #a3abb5;
+    --color-steel-light: #c8cdd3;
   }
   .on-dark .eyebrow {
     color: var(--color-gold-light);
@@ -320,6 +311,9 @@
   }
 
   .gold-text {
+    color: #9a7b1c;
+  }
+  .on-dark .gold-text {
     background: linear-gradient(
       120deg,
       var(--color-gold-light),
@@ -415,14 +409,14 @@
 
 /* Add `dark` to any wrapper on graphite/carbon to flip these tokens. */
 :root {
-  --background: #f8f6f1;
+  --background: #faf7f0;
   --foreground: var(--color-ink);
   --card: #ffffff;
   --card-foreground: var(--color-ink);
   --popover: #ffffff;
   --popover-foreground: var(--color-ink);
   --primary: var(--color-ink);
-  --primary-foreground: #f8f6f1;
+  --primary-foreground: #faf7f0;
   --secondary: #f1ede4;
   --secondary-foreground: var(--color-ink);
   --muted: #ede9e0;
@@ -442,7 +436,7 @@
   --sidebar: #f1ede4;
   --sidebar-foreground: var(--color-ink);
   --sidebar-primary: var(--color-ink);
-  --sidebar-primary-foreground: #f8f6f1;
+  --sidebar-primary-foreground: #faf7f0;
   --sidebar-accent: #ede9e0;
   --sidebar-accent-foreground: #6e5417;
   --sidebar-border: #e0dace;
